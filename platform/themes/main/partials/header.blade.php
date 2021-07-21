@@ -21,5 +21,9 @@
     <body @if (BaseHelper::siteLanguageDirection() == 'rtl') dir="rtl" @endif>
         {!! apply_filters(THEME_FRONT_BODY, null) !!}
         <header class="header">
+            <div class="container">
+                <div class="header__content">
 
+                </div>
+            </div>
         </header>

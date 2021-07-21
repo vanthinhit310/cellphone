@@ -69,6 +69,7 @@ return [
             }
 
             $theme->asset()->container('header')->usePath()->add('jquery', 'js/jquery-3.5.1.min.js');
+            $theme->asset()->container('header')->usePath()->add('fontawesome', 'js/fontawesome.min.js');
             $theme->asset()->container('footer')->usePath()->add('popper', 'js/popper.min.js', ['jquery']);
             $theme->asset()->container('footer')->usePath()->add('bootstrap-js', 'bootstrap/js/bootstrap.min.js', ['jquery']);
             $theme->asset()->container('footer')->usePath()->add('magnific-popup-js', 'js/magnific-popup.min.js', ['jquery']);

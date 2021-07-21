@@ -7,8 +7,8 @@ $primaryFont: var(--primary-font);
 
 /* purgecss start ignore */
 figure.image {
-    margin  : 10px 0;
-    display : inline-block;
+    margin: 10px 0;
+    display: inline-block;
 }
 
 figcaption {
@@ -17,10 +17,13 @@ figcaption {
     font-size: 90%;
     text-align: center;
 }
+
 /* purgecss end ignore */
 
 @import "variables";
 @import "config";
 @import "fontsize";
+
+@import "partials/header";
 
 @import "templates/home/index";
