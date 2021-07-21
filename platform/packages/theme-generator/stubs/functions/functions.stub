@@ -10,4 +10,3 @@ register_sidebar([
     'description' => 'This is a sample sidebar for {theme} theme',
 ]);
 
-RvMedia::setUploadPathAndURLToPublic();

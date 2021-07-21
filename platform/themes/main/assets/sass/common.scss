@@ -18,3 +18,9 @@ figcaption {
     text-align: center;
 }
 /* purgecss end ignore */
+
+@import "variables";
+@import "config";
+@import "fontsize";
+
+@import "templates/home/index";
