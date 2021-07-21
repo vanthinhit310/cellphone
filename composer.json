@@ -35,7 +35,10 @@
         "phpunit/phpunit": "^9.3.3",
         "laravel/tinker": "^2.5",
         "barryvdh/laravel-debugbar": "^3.2",
-        "barryvdh/laravel-ide-helper": "^2.6"
+        "barryvdh/laravel-ide-helper": "^2.6",
+        "platform/dev-tool": "*@dev",
+        "platform/plugin-generator": "*@dev",
+        "platform/theme-generator": "*@dev"
     },
     "autoload": {
         "psr-4": {
