@@ -12,7 +12,7 @@
     <style>
         :root {
             --primary-color: {{ theme_option('primary_color', '#ff2b4a') }};
-            --primary-font: '{{ theme_option('primary_font', 'Roboto') }}', sans-serif;
+            {{----primary-font: '{{ theme_option('primary_font', 'Roboto') }}', sans-serif;--}}
         }
     </style>
 

@@ -16,3 +16,19 @@ ul {
 button {
     outline: none !important;
 }
+
+.content {
+    margin-top: 64px;
+}
+
+body {
+    background-color: $background;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+}
+
+.container {
+    @media (min-width: 1200px) {
+        max-width: 1220px;
+    }
+}

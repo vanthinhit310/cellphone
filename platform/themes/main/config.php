@@ -57,6 +57,7 @@ return [
             $theme->asset()->usePath()->add('flaticon', 'css/flaticon.css');
             $theme->asset()->usePath()->add('simple-line-icons', 'css/simple-line-icons.css');
             $theme->asset()->usePath()->add('owl.carousel', 'plugins/owlcarousel/css/owl.carousel.min.css');
+            $theme->asset()->usePath()->add('swiper.slide', 'plugins/swiper/swiper-bundle.min.css');
             $theme->asset()->usePath()->add('owl.theme', 'plugins/owlcarousel/css/owl.theme.css');
             $theme->asset()->usePath()->add('owl.theme.default', 'plugins/owlcarousel/css/owl.theme.default.min.css');
             $theme->asset()->usePath()->add('slick-theme-css', 'plugins/slick/slick-theme.css');
@@ -76,8 +77,10 @@ return [
             $theme->asset()->container('footer')->usePath()->add('waypoints', 'js/waypoints.min.js', ['jquery'], [], '4.0.1');
             $theme->asset()->container('footer')->usePath()->add('slick-js', 'plugins/slick/slick.min.js');
             $theme->asset()->container('footer')->usePath()->add('carousel-js', 'plugins/owlcarousel/js/owl.carousel.min.js', ['jquery']);
+            $theme->asset()->container('footer')->usePath()->add('swiper.slide', 'plugins/swiper/swiper-bundle.min.js', ['jquery']);
             $theme->asset()->container('footer')->usePath()->add('elevatezoom-js', 'js/jquery.elevatezoom.js', ['jquery']);
             $theme->asset()->container('footer')->usePath()->add('scripts', 'js/scripts.js', ['jquery'], [], '1.0.16');
+            $theme->asset()->container('footer')->usePath()->add('script', 'js/script.js', ['jquery'], [], '1.0.16');
             $theme->asset()->container('footer')->usePath()->add('backend-js', 'js/backend.js', ['jquery'], [], '1.0.16');
             $theme->asset()->container('footer')->add('change-product-swatches', 'vendor/core/plugins/ecommerce/js/change-product-swatches.js', ['jquery']);
 
