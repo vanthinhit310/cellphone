@@ -6,6 +6,11 @@ const Slide = {
                 const bannerThumb = new Swiper(".banner__slide__thumb", {
                     spaceBetween: 10,
                     slidesPerView: 5,
+                    loop: true,
+                    // autoplay: {
+                    //     delay: 4000,
+                    //     disableOnInteraction: true,
+                    // },
                     freeMode: false,
                     watchSlidesVisibility: true,
                     watchSlidesProgress: true,
@@ -13,6 +18,11 @@ const Slide = {
                 const bannerTop = new Swiper(".banner__slide__top", {
                     spaceBetween: 0,
                     slidesPerView: 1,
+                    // autoplay: {
+                    //     delay: 4000,
+                    //     disableOnInteraction: true,
+                    // },
+                    loop: true,
                     navigation: {
                         nextEl: ".banner__slide__top .swiper-button-next",
                         prevEl: ".banner__slide__top .swiper-button-prev",

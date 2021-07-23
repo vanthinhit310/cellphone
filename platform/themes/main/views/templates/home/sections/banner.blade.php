@@ -1,4 +1,4 @@
-<div class="banner__slide">
+<div class="banner__slide ">
     <div class="swiper-container banner__slide__top">
         <div class="swiper-wrapper banner__slide__top__wrapper">
             @for ($i = 0; $i < 6; $i++)

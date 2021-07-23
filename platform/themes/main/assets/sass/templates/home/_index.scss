@@ -41,16 +41,17 @@
                 background-color: $white;
                 flex: 1;
 
-                &__wrapper {
-
-                }
-
                 &__item {
                     display: flex;
                     flex-direction: column;
                     justify-content: center;
                     cursor: pointer;
                     text-align: center;
+                    padding: 15px 0;
+
+                    &:hover{
+                        background-color: $gray-opacity;
+                    }
 
                     span {
                         display: block;
