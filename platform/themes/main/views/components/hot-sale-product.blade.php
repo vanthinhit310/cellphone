@@ -7,17 +7,20 @@
             </span>
             <span class="text gradient-title font20">Sale</span>
         </div>
-        <div class="hot__sale__title--coundown">
+        <div class="hot__sale__title--countdown">
             <div id="countdown">
                 <ul class="countdown">
                     <li class="countdown__item">
-                        <span class="countdown__item--span" id="days">00</span>
+                        <span class="font14">Kết thúc sau</span>
                     </li>
                     <li class="countdown__item">
-                        <span class="countdown__item--span" id="hours">00</span>
+                        <span class="countdown__item--span" id="days">00</span> :
                     </li>
                     <li class="countdown__item">
-                        <span class="countdown__item--span" id="minutes">00</span>
+                        <span class="countdown__item--span" id="hours">00</span> :
+                    </li>
+                    <li class="countdown__item">
+                        <span class="countdown__item--span" id="minutes">00</span> :
                     </li>
                     <li class="countdown__item">
                         <span class="countdown__item--span" id="seconds">00</span>
@@ -39,7 +42,7 @@
                             </div>
                             <div class="product__silde__item__box">
                                 <a href="javascript:void(0);" class="product__silde__item__box--name">
-                                    <h3>Samsung Galaxy S21 Plus 5G</h3>
+                                    <h3 class="font14">Samsung Galaxy S21 Plus 5G</h3>
                                 </a>
 
                                 <div class="product__silde__item__box--price">
@@ -48,7 +51,7 @@
                                 </div>
 
                                 <div class="product__silde__item__box--rate">
-                                    @for ($i = 0; $i < 5; $i++)
+                                    @for ($start = 0; $start < 5; $start++)
                                         <i class="fas fa-star  checked"></i>
                                     @endfor
                                     <span class="text font12">47 đánh giá</span>

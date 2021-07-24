@@ -1,0 +1,112 @@
+.hot__sale {
+    &__title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: $gray-opacity;
+        padding: 10px;
+
+        &--content {
+            display: inline-flex;
+            align-items: center;
+
+            span {
+                display: block;
+                text-transform: uppercase;
+                font-weight: 700;
+            }
+
+            .flash-gif {
+                img {
+                    max-width: 20px;
+                }
+            }
+        }
+
+        &--countdown {
+            .countdown {
+                display: inline-flex;
+                align-items: center;
+
+                &__item {
+                    margin-right: 5px;
+
+                    &:last-child {
+                        margin: 0;
+                    }
+
+                    span {
+                        font-weight: 700;
+                    }
+
+                    &--span {
+                        background-color: $black;
+                        border-radius: 4px;
+                        padding: 2px 4px;
+                        font-weight: 700;
+                        font-size: 14px;
+                        color: $white;
+                    }
+                }
+            }
+        }
+    }
+
+    &__content {
+
+    }
+}
+
+.product__silde {
+    &__item {
+        padding: 10px;
+        background-color: $white;
+        border: solid 1px $white;
+        transition: all linear .3s;
+
+        &__image {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 15px 0;
+            position: relative;
+
+            a {
+                display: flex;
+                align-items: center;
+
+                img {
+                    display: block;
+                    margin: 0 auto;
+                    transition: all linear .15s;
+                }
+            }
+        }
+
+        &__box{
+            &--name{
+                display: block;
+                h3{
+                    color: $black;
+                    font-weight: 700;
+                }
+            }
+        }
+
+        &:hover {
+            border-radius: 2px;
+            border-color: $border;
+            box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+            transition: all linear .15s;
+
+            .product__silde__item__image {
+                a {
+                    img {
+                        transform: scale(1.05);
+                        transition: all linear .3s;
+                    }
+                }
+            }
+        }
+    }
+}
