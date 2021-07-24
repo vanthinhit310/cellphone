@@ -1,0 +1,9 @@
+.gradient-title {
+    color: #ef3f23;
+    background: -webkit-linear-gradient(left, #ef3f23, #ff8a00);
+    background: -o-linear-gradient(right, #ef3f23, #ff8a00);
+    background: -moz-linear-gradient(right, #ef3f23, #ff8a00);
+    background: linear-gradient(to right, #ef3f23, #ff8a00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

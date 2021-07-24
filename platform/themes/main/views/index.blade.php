@@ -17,6 +17,9 @@
                     <img class="img-fluid w-100" src="{{ Theme::asset()->url('images/cv1200x75.png') }}" alt="Promotion">
                 </a>
             </section>
+            <section class="home__sale">
+                @includeIf('theme.main::views.components.hot-sale-product', ['some' => 'data'])
+            </section>
         </div>
     </div>
 </div>

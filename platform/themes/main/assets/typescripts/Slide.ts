@@ -30,9 +30,27 @@ const Slide = {
         } catch (e) {
             console.log(e.message)
         }
+    },
+    productSlide: function () {
+        try {
+            if ($('.product__silde__container').length) {
+                const productSwiper = new Swiper(".product__silde__container", {
+                    spaceBetween: 0,
+                    slidesPerView: 5,
+                    slidesPerGroup: 5,
+                    navigation: {
+                        nextEl: ".product__silde__container .swiper-button-next",
+                        prevEl: ".product__silde__container .swiper-button-prev",
+                    },
+                });
+            }
+        } catch (e) {
+            console.log(e.message)
+        }
     }
 };
 
 $(document).ready(function () {
     Slide.bannerSlide();
+    Slide.productSlide();
 });
