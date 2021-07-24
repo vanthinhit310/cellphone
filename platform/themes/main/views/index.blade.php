@@ -12,6 +12,11 @@
                     @include('theme.main::views.templates.home.sections.top-ads')
                 </div>
             </section>
+            <section class="home-promotion">
+                <a href="javascript:void(0);">
+                    <img class="img-fluid w-100" src="{{ Theme::asset()->url('images/cv1200x75.png') }}" alt="Promotion">
+                </a>
+            </section>
         </div>
     </div>
 </div>
