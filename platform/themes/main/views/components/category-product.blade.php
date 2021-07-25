@@ -1,17 +1,19 @@
 <div class="category">
     <div class="category__title">
         <div class="category__title--content">
-            <h3 class="font16">Laptop</h3>
+            <h3 class="font16">{!! @$item["title"] !!}</h3>
         </div>
         <div class="category__title--tags">
             <ul class="tags">
-                @for ($tag = 0; $tag < 4; $tag++)
+                @forelse ($item["tags"] as $tag)
                     <li class="tags__item">
                         <a href="javascript:void(0);" class="tags__item__href">
-                            <span class="font12">Apple</span>
+                            <span class="font12">{!! @$tag !!}</span>
                         </a>
                     </li>
-                @endfor
+                @empty
+
+                @endforelse
                 <li class="tags__item">
                     <a href="javascript:void(0);" class="tags__item__href">
                         <span class="font12">Xem tất cả</span>
@@ -28,39 +30,46 @@
                         <div class="swiper-slide category__silde__item">
                             <div class="category__silde__item__image">
                                 <a href="javascript:void(0);">
-                                    <img class="img-fluid w-100" alt="Product" src="{{ Theme::asset()->url("images/mac.jpg") }}">
+                                    <img class="img-fluid w-100" alt="Product" src="{{ Theme::asset()->url(@$item["image"]) }}">
                                 </a>
                                 <div class="category__silde__item__image--sticker">
-                                    <div class="percent font12">-10%</div>
+                                    <div class="percent font12">-{!! @$item["discount"] !!}</div>
                                     <div class="flashsale">Hot <br> Sale</div>
                                 </div>
                             </div>
                             <div class="category__silde__item__box">
                                 <a href="javascript:void(0);" class="category__silde__item__box--name">
-                                    <h3 class="font14">Apple MacBook Air M1 256GB 2020 I Chính hãng Apple Việt Nam </h3>
+                                    <h3 class="font14">{!! @$item["name"] !!}</h3>
                                 </a>
 
                                 <div class="category__silde__item__box--price">
-                                    <p class="price font14">25.190.000 ₫</p>
-                                    <p class="strike-price font12">27.990.000 ₫</p>
+                                    <p class="price font14">{!! @$item["price"] !!}</p>
+                                    <p class="strike-price font12">{!! @$item["old_price"] !!}</p>
                                 </div>
 
-                                <div class="category__silde__item__box--configuration">
-                                    <ul>
-                                        <li><strong>CPU: </strong>8 nhân với 4 nhân hiệu năng cao và 4 nhân tiết kiệm điện</li>
-                                        <li><strong>Màn hình:</strong>13.3 inches</li>
-                                    </ul>
-                                </div>
+                                @if ($item["configurations"])
+                                    <div class="category__silde__item__box--configuration">
+                                        <ul>
+                                            @forelse ($item["configurations"] as $title => $value)
+                                                <li><strong>{!! @$title !!}</strong>{!! @$value !!}</li>
+                                            @empty
+                                            @endforelse
+                                        </ul>
+                                    </div>
+                                @endif
 
-                                <div class="category__silde__item__box--promotion">
-                                    <p class="gift-cont font12">Mua kèm AirTag (hộp 1 chiếc) giá chỉ 590k (tối đa 3 sản phẩm/máy)</p>
-                                </div>
+                                @if ($item["promotion"])
+                                    <div class="category__silde__item__box--promotion">
+                                        <p class="gift-cont font12">{!! @$item["promotion"] !!}</p>
+                                    </div>
+
+                                @endif
 
                                 <div class="category__silde__item__box--rate">
                                     @for ($start = 0; $start < 5; $start++)
                                         <i class="fas fa-star  checked"></i>
                                     @endfor
-                                    <span class="text font12">47 đánh giá</span>
+                                    <span class="text font12">{!! @$item["comments"] !!} đánh giá</span>
                                 </div>
                             </div>
                         </div>
