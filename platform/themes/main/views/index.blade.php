@@ -29,6 +29,25 @@
             </section>
 
             @php
+                $highlight = [
+	                "title" => "Điện thoại nổi bật nhất",
+                	"image" => "images/note20.jpg",
+                	"name" => "Samsung Galaxy Note 20 Ultra 5G",
+                	"discount" => "39%",
+                	"price" => "19.990.000 ₫",
+                	"old_price" => "32.990.000 ₫",
+                	"comments" => 16,
+                	"promotion" => "Thu cũ lên đời trợ giá 1 triệu",
+                	"configurations" => [],
+                	"tags" => ["Apple", "Samsung", "Xiaomi","OPPO", "Nokia", "Realme", "Vsmart", "ASUS", "Vivo"]
+                ];
+            @endphp
+
+            <section class="category-product box-shadown-sm mb-15">
+                @includeIf('theme.main::views.components.highlight-product', ['item' => $highlight])
+            </section>
+
+            @php
                 $laptop = [
 	                "title" => "Laptop",
                 	"image" => "images/mac.jpg",
