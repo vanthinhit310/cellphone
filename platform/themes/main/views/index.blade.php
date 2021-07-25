@@ -23,6 +23,13 @@
             <section class="home__sale box-shadown-sm mb-15 ">
                 @includeIf('theme.main::views.components.hot-sale-accessory', ['some' => 'data'])
             </section>
+            <section class="brands mb-15">
+                @includeIf('theme.main::views.components.product-brand', ['some' => 'data'])
+            </section>
+
+            <section class="category-product box-shadown-sm mb-15">
+                @includeIf('theme.main::views.components.category-product', ['some' => 'data'])
+            </section>
         </div>
     </div>
 </div>

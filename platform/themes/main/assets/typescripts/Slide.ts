@@ -47,10 +47,41 @@ const Slide = {
         } catch (e) {
             console.log(e.message)
         }
-    }
+    },
+    brandSlide: function () {
+        try {
+            if ($('.brand__slide').length) {
+                const brandSwiper = new Swiper(".brand__slide__container", {
+                    spaceBetween: 10,
+                    slidesPerView: 4,
+                });
+            }
+        } catch (e) {
+            console.log(e.message)
+        }
+    },
+    categorySlide: function () {
+        try {
+            if ($('.category__silde__container').length) {
+                const categorySwiper = new Swiper(".category__silde__container", {
+                    spaceBetween: 0,
+                    slidesPerView: 5,
+                    slidesPerGroup: 5,
+                    navigation: {
+                        nextEl: ".category__silde__container .swiper-button-next",
+                        prevEl: ".category__silde__container .swiper-button-prev",
+                    },
+                });
+            }
+        } catch (e) {
+            console.log(e.message)
+        }
+    },
 };
 
 $(document).ready(function () {
     Slide.bannerSlide();
     Slide.productSlide();
+    Slide.brandSlide();
+    Slide.categorySlide();
 });
