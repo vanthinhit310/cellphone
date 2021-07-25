@@ -68,6 +68,44 @@
             <section class="category-product box-shadown-sm mb-15">
                 @includeIf('theme.main::views.components.category-product', ['item' => $monitor])
             </section>
+
+            @php
+                $tablet = [
+	                "title" => "Tablet",
+                	"image" => "images/tab7.jpg",
+                	"name" => "Samsung Galaxy Tab S7",
+                	"discount" => "18%",
+                	"price" => "15.400.000 ₫",
+                	"old_price" => "18.990.000 ₫",
+                	"comments" => 6,
+                	"promotion" => "Bao da kiêm bàn phím chính hãng Samsung Galaxy Tab S7 trị giá 4 triệu",
+                	"configurations" => [],
+                	"tags" => ["iPad", "Samsung", "Lenovo","Máy đọc sách"]
+                ];
+            @endphp
+
+            <section class="category-product box-shadown-sm mb-15">
+                @includeIf('theme.main::views.components.category-product', ['item' => $tablet])
+            </section>
+
+            @php
+                $bluetooth = [
+	                "title" => "Âm thanh",
+                	"image" => "images/bl.jpg",
+                	"name" => "Tai nghe Bluetooth Apple AirPods 2 VN/A",
+                	"discount" => "16%",
+                	"price" => "3.350.000 ₫",
+                	"old_price" => "3.990.000 ₫",
+                	"comments" => 28,
+                	"promotion" => "Giảm thêm 300.000đ khi mùa kèm Apple Watch Series 6 và 1 km khác",
+                	"configurations" => [],
+                	"tags" => ["Load Bluetooth", "Loa Tivi|Soundbar", "Tai nghe","Tai nghe chụp tai"]
+                ];
+            @endphp
+
+            <section class="category-product box-shadown-sm mb-15">
+                @includeIf('theme.main::views.components.category-product', ['item' => $bluetooth])
+            </section>
         </div>
     </div>
 </div>

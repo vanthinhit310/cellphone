@@ -62,7 +62,7 @@
         padding: 10px;
         background-color: $white;
         border: solid 1px $white;
-        transition: all linear .3s;
+        transition: all linear .15s;
 
         &__image {
             display: flex;
@@ -76,9 +76,7 @@
                 align-items: center;
 
                 img {
-                    display: block;
-                    margin: 0 auto;
-                    transition: all linear .15s;
+                    transition: .3s;
                 }
             }
 
@@ -192,8 +190,8 @@
             .product__silde__item__image {
                 a {
                     img {
-                        transform: scale(1.05);
-                        transition: all linear .3s;
+                        transform: scale(1.04);
+                        transition: .3s;
                     }
                 }
             }
