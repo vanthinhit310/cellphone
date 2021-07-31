@@ -77,6 +77,32 @@ const Slide = {
             console.log(e.message)
         }
     },
+    productInfoSlide: function () {
+        try {
+            if ($('.product__info__slide').length) {
+                const psThumb = new Swiper(".ps__container__thumb", {
+                    spaceBetween: 10,
+                    slidesPerView: 1,
+                    freeMode: false,
+                    watchSlidesVisibility: true,
+                    watchSlidesProgress: true,
+                });
+                const psTop = new Swiper(".ps__container__top", {
+                    spaceBetween: 0,
+                    slidesPerView: 1,
+                    navigation: {
+                        nextEl: ".ps__container__top .swiper-button-next",
+                        prevEl: ".ps__container__top .swiper-button-prev",
+                    },
+                    thumbs: {
+                        swiper: psThumb,
+                    },
+                });
+            }
+        } catch (e) {
+            console.log(e.message)
+        }
+    },
 };
 
 $(document).ready(function () {
@@ -84,4 +110,5 @@ $(document).ready(function () {
     Slide.productSlide();
     Slide.brandSlide();
     Slide.categorySlide();
+    Slide.productInfoSlide();
 });
