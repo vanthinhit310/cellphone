@@ -63,6 +63,9 @@ return [
             $theme->asset()->usePath()->add('slick-theme-css', 'plugins/slick/slick-theme.css');
             $theme->asset()->usePath()->add('slick-css', 'plugins/slick/slick.css');
             $theme->asset()->usePath()->add('magnific-popup-css', 'css/magnific-popup.css');
+            $theme->asset()->usePath()->add('semantic', 'plugins/semantic/semantic.min.css');
+            $theme->asset()->usePath()->add('semantic-transition', 'plugins/semantic/transition.min.css');
+            $theme->asset()->usePath()->add('semantic-dropdown', 'plugins/semantic/dropdown.min.css');
             $theme->asset()->usePath()->add('style', 'css/style.css', [], [], '1.0.17');
 
             if (BaseHelper::siteLanguageDirection() == 'rtl') {
@@ -83,7 +86,8 @@ return [
             $theme->asset()->container('footer')->usePath()->add('script', 'js/script.js', ['jquery'], [], '1.0.16');
             $theme->asset()->container('footer')->usePath()->add('backend-js', 'js/backend.js', ['jquery'], [], '1.0.16');
             $theme->asset()->container('footer')->add('change-product-swatches', 'vendor/core/plugins/ecommerce/js/change-product-swatches.js', ['jquery']);
-
+            $theme->asset()->container('footer')->usePath()->add('semantic-dropdown-js', 'plugins/semantic/dropdown.min.js', ['jquery']);
+            $theme->asset()->container('footer')->usePath()->add('semantic-transition-js', 'plugins/semantic/transition.min.js', ['jquery']);
             $theme->asset()->container('footer')->usePath()->add('countdown', 'js/jquery.countdown.min.js', ['jquery']);
             /*$theme->asset()->container('footer')->usePath()->add('imagesloaded', 'js/imagesloaded.pkgd.min.js', ['jquery']);
             $theme->asset()->container('footer')->usePath()->add('isotope', 'js/isotope.min.js', ['jquery']);*/

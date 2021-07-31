@@ -61,13 +61,13 @@
                 </div>
 
                 <div class="info__price">
-                    <ul class="price">
-                        <li class="old-price">
-                            <span>16.300.000 ₫</span>
-                        </li>
-
+                    <ul class="price box-shadown-sm">
                         <li class="price">
                             <span>25.900.000 ₫</span>
+                        </li>
+
+                        <li class="old-price">
+                            <span>16.300.000 ₫</span>
                         </li>
 
                         <li class="discount">
@@ -75,33 +75,66 @@
                         </li>
                     </ul>
                 </div>
-                <div class="product-attr form-group color">
+                <div class="product-attr color">
                     <label class="font14">Màu sắc</label>
-                    <select name="color">
+                    {{-- <select name="color">
                         <option value="red">Red</option>
                         <option value="red">Black</option>
                         <option value="red">Blue</option>
-                    </select>
+                    </select> --}}
+                    <div class="ui fluid selection dropdown">
+                        <input type="hidden" name="user">
+                        <i class="dropdown icon"></i>
+                        <span class="default text">Chọn màu sắc</span>
+                        <div class="menu">
+                            <div class="item">
+                                <div style="background-color: green; border-color: green;" class="ui empty circular label"></div>
+                                Red
+                            </div>
+                            <div class="item">
+                                <div style="background-color: green; border-color: green;" class="ui empty circular label"></div>
+                                Blue
+                            </div>
+                            <div class="item">
+                                <div style="background-color: green; border-color: green;" class="ui empty circular label"></div>
+                                Black
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="product-attr form-group color">
+                <div class="product-attr color">
                     <label class="font14">Kích cỡ</label>
-                    <select name="color">
+                    <select name="color" class="ui fluid dropdown">
+                        <option value="">Chọn kích cỡ</option>
                         <option value="red">X</option>
                         <option value="red">L</option>
                         <option value="red">M</option>
                     </select>
                     <a class="view-size-table font14" href="javascript:void(0);">Bảng quy đổi kích cỡ</a>
                 </div>
-                <div class="product-attr form-group color">
+                <div class="product-attr quantity">
                     <label class="font14">Số lượng</label>
-                    <div class="quantity-control" data-quantity="">
-                        <button class="minus font14" data-quantity-minus=""><i class="fal fa-minus"></i></button>
-                        <input type="number" class="number font14" data-quantity-target="" value="1" step="1" min="1" max="" name="quantity">
-                        <button class="plus font14" data-quantity-plus=""><i class="fal fa-plus"></i></button>
+                    <div class="quantity-control">
+                        <button type="button" class="minus ui button">
+                            <i class="fal fa-minus"></i>
+                        </button>
+                        <div class="ui input">
+                            <input type="text" class="numberQuantity" value="1" step="1" min="1" name="quantity">
+                        </div>
+                        <button type="button" class="plus ui button">
+                            <i class="fal fa-plus"></i>
+                        </button>
                     </div>
                 </div>
                 <div class="product-action action">
-                    <a class="action__item"><i class="fal fa-cart-plus"></i> <span>Thêm vào giỏ hàng</span></a>
+                    <a class="action__item">
+                        <div class="ui animated fade button" tabindex="0">
+                            <div class="hidden content">Thêm vào giỏ hàng</div>
+                            <div class="visible content">
+                                <i class="fal fa-cart-plus icon"></i>
+                            </div>
+                        </div>
+                    </a>
                     <a class="action__item"><span>Mua ngay</span></a>
                 </div>
             </div>

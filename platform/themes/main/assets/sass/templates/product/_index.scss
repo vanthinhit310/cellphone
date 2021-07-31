@@ -78,10 +78,11 @@
                     font-size: 25px;
                     color: $text-color;
                     font-weight: normal;
-                    margin-bottom: 10px;
+                    margin-bottom: 20px;
                 }
 
                 &__rate {
+                    margin-bottom: 20px;
                     ul.rate {
                         display: flex;
                         width: 100%;
@@ -125,6 +126,75 @@
                             .checked {
                                 color: orange;
                             }
+                        }
+                    }
+                }
+
+                &__description{
+                    margin-bottom: 20px;
+                    p{
+                        margin: 0;
+                        text-align: justify;
+                    }
+                }
+
+                &__price{
+                    margin-bottom: 20px;
+                    .price{
+                        display: flex;
+                        align-items: center;
+                        padding: 15px;
+                        background-color: $white-opacity;
+
+                        li{
+                            span{
+                                display: block;
+                                line-height: 1;
+                            }
+                        }
+
+                        .price{
+                            font-size: 20px;
+                            span{
+                                font-weight: 500;
+                                color: red;
+                            }
+                        }
+                        .old-price{
+                            font-size: 14px;
+                            color: $text-color;
+                            span{
+                                text-decoration: line-through;
+                            }
+                        }
+                    }
+                }
+
+                .product-attr{
+                    margin-bottom: 20px;
+                    width: 100%;
+                    max-width: 50%;
+                    display: flex;
+                    flex-direction: column;
+
+                    label{
+                        color: $text-color;
+                    }
+                }
+
+                .quantity{
+                    .quantity-control{
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+
+                        .input{
+                            margin: 0 .25em 0 0;
+                            flex: 1;
+                        }
+
+                        .plus{
+                            margin: 0;
                         }
                     }
                 }

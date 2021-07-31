@@ -70,8 +70,8 @@
                     </div>
                 </div>
                 <div class="product__highlight__item__action">
-                    <a href="javascript:void(0);" class="button red-button buy">Mua ngay</a>
-                    <a href="javascript:void(0);" class="button gray-button">So sánh</a>
+                    <a href="javascript:void(0);" class="btn red-btn buy">Mua ngay</a>
+                    <a href="javascript:void(0);" class="btn gray-btn">So sánh</a>
                 </div>
             </li>
         @endfor
