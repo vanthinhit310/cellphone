@@ -3,5 +3,75 @@
         display: flex;
         width: 100%;
         max-width: 100%;
+        background-color: $white;
+        padding: 15px;
+        border-radius: 2px;
+
+        &__left{
+            width: 100%;
+            max-width: 40%;
+            flex: 0 40%;
+            overflow: hidden;
+            margin-right: 25px;
+
+            .ps__container__thumb{
+                margin-top: 20px;
+
+                &__item{
+                    padding: 5px;
+                    border: solid 2px $border;
+                    transition: border-color linear .3s;
+                    cursor: pointer;
+
+                    &:hover{
+                        border-color: $red;
+                        transition: border-color linear .3s;
+                    }
+                }
+            }
+
+            .ps__container__button {
+                width: 30px;
+                height: 60px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background: $white;
+                box-shadow: 0 0 4px 0 rgba(0, 0, 0, .2);
+                color: #707070;
+                top: 45%;
+                transition: .3s;
+                outline: none;
+                opacity: .9;
+
+                &:after {
+                    font-size: 12px;
+                    font-weight: bold;
+                }
+            }
+
+            .swiper-button-next {
+                padding-left: 7px;
+                border-radius: 100px 0 0 100px;
+                right: 0;
+            }
+
+            .swiper-button-prev {
+                padding-right: 7px;
+                border-radius: 0 100px 100px 0;
+                left: 0;
+            }
+
+            .swiper-button-disabled {
+                opacity: 0;
+            }
+        }
+
+        &__right{
+            width: 100%;
+            max-width: 60%;
+            flex: 0 60%;
+            overflow: hidden;
+        }
     }
 }

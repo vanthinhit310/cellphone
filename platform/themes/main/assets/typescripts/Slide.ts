@@ -82,18 +82,20 @@ const Slide = {
             if ($('.product__info__slide').length) {
                 const psThumb = new Swiper(".ps__container__thumb", {
                     spaceBetween: 10,
-                    slidesPerView: 1,
+                    speed: 800,
+                    slidesPerView: 4,
                     freeMode: false,
                     watchSlidesVisibility: true,
                     watchSlidesProgress: true,
+                    navigation: {
+                        nextEl: ".ps__container__thumb .swiper-button-next",
+                        prevEl: ".ps__container__thumb .swiper-button-prev",
+                    },
                 });
                 const psTop = new Swiper(".ps__container__top", {
                     spaceBetween: 0,
+                    speed: 800,
                     slidesPerView: 1,
-                    navigation: {
-                        nextEl: ".ps__container__top .swiper-button-next",
-                        prevEl: ".ps__container__top .swiper-button-prev",
-                    },
                     thumbs: {
                         swiper: psThumb,
                     },

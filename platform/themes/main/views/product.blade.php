@@ -3,32 +3,37 @@
         <div class="container">
             <ul class="breadcrumb box-shadown-sm mb-15">
                 @foreach (Theme::breadcrumb()->getCrumbs() as $i => $crumb)
-                @if ($i != (count(Theme::breadcrumb()->getCrumbs()) - 1))
-                <li class="font12"><a href="{{ $crumb['url'] }}">{!! $crumb['label'] !!}</a><span class="divider">/</span></li>
+                    @if ($i != (count(Theme::breadcrumb()->getCrumbs()) - 1))
+                    <li class="font12"><a href="{{ $crumb['url'] }}">{!! $crumb['label'] !!}</a><span class="divider">/</span></li>
                 @else
-                <li class="font12" class="active">{!! $crumb['label'] !!}</li>
+                    <li class="font12" class="active">{!! $crumb['label'] !!}</li>
                 @endif
                 @endforeach
             </ul>
 
-            <div class="product__info">
+            <div class="product__info box-shadown-sm mb-15">
                 <div class="product__info__left">
                     <div class="product__info__slide">
                         <div class="swiper-container ps__container__top">
                             <div class="swiper-wrapper ps__container__top__wp">
-                                <div class="swiper-slide ps__container__top__item">
-                                    <img class="img-fluid w-100" src="{!! Theme::asset()->url("images/product.jpg") !!}" alt="Product Image" />
-                                </div>
+                                @for ($i = 0; $i < 10; $i++)
+                                    <div class="swiper-slide ps__container__top__item">
+                                        <img class="img-fluid w-100" src="{!! Theme::asset()->url('images/product.jpg') !!}" alt="Product Image" />
+                                    </div>
+                                @endfor
                             </div>
-                            <div class="ps__container__button swiper-button-next"></div>
-                            <div class="ps__container__button swiper-button-prev"></div>
                         </div>
                         <div class="swiper-container ps__container__thumb">
                             <div class="swiper-wrapper ps__container__thumb__wp">
-                                <div class="swiper-slide ps__container__thumb__item">
-                                    <img class="img-fluid w-100" src="{!! Theme::asset()->url("images/product.jpg") !!}" alt="Product Image" />
-                                </div>
+                                @for ($i = 0; $i < 10; $i++)
+                                    <div class="swiper-slide ps__container__thumb__item">
+                                        <img class="img-fluid w-100" src="{!! Theme::asset()->url('images/product.jpg') !!}" alt="Product Image" />
+                                    </div>
+                                @endfor
                             </div>
+
+                            <div class="ps__container__button swiper-button-next"></div>
+                            <div class="ps__container__button swiper-button-prev"></div>
                         </div>
                     </div>
                 </div>
@@ -38,9 +43,10 @@
                         <div class="info__rate">
                             <ul class="rate">
                                 <li class="start">
-                                    5
-                                    @for ($start = 0; $start < 5; $start++) <i class="fas fa-star  checked"></i>
-                                        @endfor
+                                    <span>5</span>
+                                    @for ($start = 0; $start < 5; $start++)
+                                        <i class="fas fa-star  checked"></i>
+                                    @endfor
                                 </li>
                                 <li class="rate">
                                     <span>50 Đánh giá</span>
@@ -52,7 +58,7 @@
                         </div>
 
                         <div class="info__description">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                         </div>
 
                         <div class="info__price">
@@ -85,6 +91,7 @@
                                 <option value="red">L</option>
                                 <option value="red">M</option>
                             </select>
+                            <a class="view-size-table" href="javascript:void(0);">Bảng quy đổi kích cỡ</a>
                         </div>
                         <div class="product-attr form-group color">
                             <label>Số lượng</label>
@@ -93,6 +100,10 @@
                                 <input type="number" class="number" data-quantity-target="" value="1" step="1" min="1" max="" name="quantity">
                                 <button class="plus" data-quantity-plus=""><i class="fal fa-plus"></i></button>
                             </div>
+                        </div>
+                        <div class="product-action action">
+                            <a class="action__item"><i class="fal fa-cart-plus"></i> <span>Thêm vào giỏ hàng</span></a>
+                            <a class="action__item"><span>Mua ngay</span></a>
                         </div>
                     </div>
                 </div>
