@@ -43,22 +43,22 @@
                         <div class="info__rate">
                             <ul class="rate">
                                 <li class="start">
-                                    <span>5</span>
+                                    <span class="font14">5</span>
                                     @for ($start = 0; $start < 5; $start++)
                                         <i class="fas fa-star  checked"></i>
                                     @endfor
                                 </li>
                                 <li class="rate">
-                                    <span>50 Đánh giá</span>
+                                    <span class="font14">50 Đánh giá</span>
                                 </li>
                                 <li class="sale">
-                                    <span>140 Đã bán</span>
+                                    <span class="font14">140 Đã bán</span>
                                 </li>
                             </ul>
                         </div>
 
                         <div class="info__description">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                            <p class="font16">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                         </div>
 
                         <div class="info__price">
@@ -77,7 +77,7 @@
                             </ul>
                         </div>
                         <div class="product-attr form-group color">
-                            <label>Màu sắc</label>
+                            <label class="font14">Màu sắc</label>
                             <select name="color">
                                 <option value="red">Red</option>
                                 <option value="red">Black</option>
@@ -85,20 +85,20 @@
                             </select>
                         </div>
                         <div class="product-attr form-group color">
-                            <label>Kích cỡ</label>
+                            <label class="font14">Kích cỡ</label>
                             <select name="color">
                                 <option value="red">X</option>
                                 <option value="red">L</option>
                                 <option value="red">M</option>
                             </select>
-                            <a class="view-size-table" href="javascript:void(0);">Bảng quy đổi kích cỡ</a>
+                            <a class="view-size-table font14" href="javascript:void(0);">Bảng quy đổi kích cỡ</a>
                         </div>
                         <div class="product-attr form-group color">
-                            <label>Số lượng</label>
+                            <label class="font14">Số lượng</label>
                             <div class="quantity-control" data-quantity="">
-                                <button class="minus" data-quantity-minus=""><i class="fal fa-minus"></i></button>
-                                <input type="number" class="number" data-quantity-target="" value="1" step="1" min="1" max="" name="quantity">
-                                <button class="plus" data-quantity-plus=""><i class="fal fa-plus"></i></button>
+                                <button class="minus font14" data-quantity-minus=""><i class="fal fa-minus"></i></button>
+                                <input type="number" class="number font14" data-quantity-target="" value="1" step="1" min="1" max="" name="quantity">
+                                <button class="plus font14" data-quantity-plus=""><i class="fal fa-plus"></i></button>
                             </div>
                         </div>
                         <div class="product-action action">
