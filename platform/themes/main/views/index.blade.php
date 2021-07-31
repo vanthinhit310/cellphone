@@ -125,6 +125,10 @@
             <section class="category-product box-shadown-sm mb-15">
                 @includeIf('theme.main::views.components.category-product', ['item' => $bluetooth])
             </section>
+
+            <section class="category-box box-shadown-sm mb-15">
+                @includeIf('theme.main::views.components.category-box')
+            </section>
         </div>
     </div>
 </div>
