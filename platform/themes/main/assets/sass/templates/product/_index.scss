@@ -1,5 +1,5 @@
-.product-wrapper{
-    .product__info{
+.product-wrapper {
+    .product__info {
         display: flex;
         width: 100%;
         max-width: 100%;
@@ -7,25 +7,25 @@
         padding: 15px;
         border-radius: 2px;
 
-        &__left{
+        &__left {
             width: 100%;
             max-width: 40%;
             flex: 0 40%;
             overflow: hidden;
             margin-right: 25px;
 
-            .ps__container__thumb{
+            .ps__container__thumb {
                 margin-top: 20px;
 
-                &__item{
+                &__item {
                     padding: 5px;
                     border: solid 2px $border;
-                    transition: border-color linear .3s;
+                    transition: border-color linear 0.3s;
                     cursor: pointer;
 
-                    &:hover{
+                    &:hover {
                         border-color: $red;
-                        transition: border-color linear .3s;
+                        transition: border-color linear 0.3s;
                     }
                 }
             }
@@ -37,12 +37,12 @@
                 justify-content: center;
                 align-items: center;
                 background: $white;
-                box-shadow: 0 0 4px 0 rgba(0, 0, 0, .2);
+                box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);
                 color: #707070;
                 top: 45%;
-                transition: .3s;
+                transition: 0.3s;
                 outline: none;
-                opacity: .9;
+                opacity: 0.9;
 
                 &:after {
                     font-size: 12px;
@@ -67,11 +67,68 @@
             }
         }
 
-        &__right{
+        &__right {
             width: 100%;
             max-width: 60%;
             flex: 0 60%;
             overflow: hidden;
+
+            .info {
+                &__title {
+                    font-size: 25px;
+                    color: $text-color;
+                    font-weight: normal;
+                    margin-bottom: 10px;
+                }
+
+                &__rate {
+                    ul.rate {
+                        display: flex;
+                        width: 100%;
+                        align-items: center;
+                        li {
+                            border-right: solid 2px $border;
+                            padding-right: 15px;
+                            margin-left: 15px;
+                            display: flex;
+                            align-items: center;
+                            &:first-child{
+                                margin-left: 0;
+                            }
+                            &:last-child {
+                                border: none;
+                            }
+
+                            span{
+                                display: block;
+                            }
+
+                            .number-text{
+                                font-weight: 500;
+                                color: red;
+                                margin-right: 10px;
+                                text-decoration: underline;
+                            }
+
+                            .text{
+                                color: $text-color;
+                            }
+                        }
+                        .start {
+                            display: flex;
+                            align-items: center;
+                            svg,
+                            i {
+                                font-size: 14px;
+                                transform: translateY(-1px);
+                            }
+                            .checked {
+                                color: orange;
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }
