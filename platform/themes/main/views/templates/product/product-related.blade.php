@@ -1,38 +1,10 @@
-<div class="hot__sale">
-    <div class="hot__sale__title">
-        <div class="hot__sale__title--content falsh-title">
-            <span class="text gradient-title font20">Hot</span>
-            <span class="flash-gif">
-                <img alt="Falsh Gif" class="img-fluid" src="{{ Theme::asset()->url('images/flash.gif') }}">
-            </span>
-            <span class="text gradient-title font20">Sale</span>
-        </div>
-        <div class="hot__sale__title--countdown">
-            <div id="countdown">
-                <ul class="countdown">
-                    <li class="countdown__item">
-                        <span class="font14">Kết thúc sau</span>
-                    </li>
-                    <li class="countdown__item">
-                        <span class="countdown__item--span" id="days">00</span>
-                        :
-                    </li>
-                    <li class="countdown__item">
-                        <span class="countdown__item--span" id="hours">00</span>
-                        :
-                    </li>
-                    <li class="countdown__item">
-                        <span class="countdown__item--span" id="minutes">00</span>
-                        :
-                    </li>
-                    <li class="countdown__item">
-                        <span class="countdown__item--span" id="seconds">00</span>
-                    </li>
-                </ul>
-            </div>
+<div class="p__related">
+    <div class="p__related__title">
+        <div class="p__related__title--content">
+            <h3 class="font16">Sản phẩm liên quan</h3>
         </div>
     </div>
-    <div class="hot__sale__content">
+    <div class="p__related__content">
         <div class="product__silde">
             <div class="swiper-container product__silde__container">
                 <div class="swiper-wrapper product__silde__wrapper">
