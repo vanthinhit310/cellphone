@@ -18,12 +18,24 @@
                 margin-top: 20px;
 
                 &__item {
-                    padding: 5px;
-                    border: solid 2px $border;
-                    transition: border-color linear 0.3s;
                     cursor: pointer;
 
+                    .thumb-img{
+                        padding: 5px;
+                        border: solid 2px $border;
+                        transition: border-color linear 0.3s;
+                    }
+
                     &:hover {
+                        .thumb-img{
+                            border-color: $red;
+                            transition: border-color linear 0.3s;
+                        }
+                    }
+                }
+
+                .swiper-slide-thumb-active{
+                    .thumb-img{
                         border-color: $red;
                         transition: border-color linear 0.3s;
                     }
@@ -93,25 +105,25 @@
                             margin-left: 15px;
                             display: flex;
                             align-items: center;
-                            &:first-child{
+                            &:first-child {
                                 margin-left: 0;
                             }
                             &:last-child {
                                 border: none;
                             }
 
-                            span{
+                            span {
                                 display: block;
                             }
 
-                            .number-text{
+                            .number-text {
                                 font-weight: 500;
                                 color: red;
                                 margin-right: 10px;
                                 text-decoration: underline;
                             }
 
-                            .text{
+                            .text {
                                 color: $text-color;
                             }
                         }
@@ -130,77 +142,84 @@
                     }
                 }
 
-                &__description{
+                &__description {
                     margin-bottom: 20px;
-                    p{
+                    p {
                         margin: 0;
                         text-align: justify;
                     }
                 }
 
-                &__price{
+                &__price {
                     margin-bottom: 20px;
-                    .price{
+                    .price {
                         display: flex;
                         align-items: center;
                         padding: 15px;
                         background-color: $white-opacity;
 
-                        li{
-                            span{
+                        li {
+                            span {
                                 display: block;
                                 line-height: 1;
                             }
                         }
 
-                        .price{
+                        .price {
                             font-size: 20px;
-                            span{
+                            span {
                                 font-weight: 500;
                                 color: red;
                             }
                         }
-                        .old-price{
+                        .old-price {
                             font-size: 14px;
                             color: $text-color;
-                            span{
+                            span {
                                 text-decoration: line-through;
                             }
                         }
                     }
                 }
 
-                .product-attr{
+                .product-attr {
                     margin-bottom: 20px;
                     width: 100%;
                     max-width: 50%;
                     display: flex;
                     flex-direction: column;
 
-                    label{
+                    label {
                         color: $text-color;
                     }
                 }
 
-                .quantity{
-                    .quantity-control{
+                .quantity {
+                    .quantity-control {
                         display: flex;
                         align-items: center;
                         justify-content: space-between;
 
-                        .input{
-                            margin: 0 .25em 0 0;
+                        .input {
+                            margin: 0 0.25em 0 0;
                             flex: 1;
                         }
 
-                        .plus{
+                        .plus {
                             margin: 0;
                         }
                     }
                 }
-                .product-action{
+                .product-action {
                     display: flex;
                     align-items: center;
+
+                    .button {
+                        .content {
+                            font-family: $primaryFont;
+                            font-size: 14px;
+                        }
+                    }
                 }
             }
         }

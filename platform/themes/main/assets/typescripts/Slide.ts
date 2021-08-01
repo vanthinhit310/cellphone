@@ -84,7 +84,7 @@ const Slide = {
                     spaceBetween: 10,
                     speed: 600,
                     slidesPerView: 4,
-                    freeMode: true,
+                    freeMode: false,
                     watchSlidesVisibility: true,
                     watchSlidesProgress: true,
                     navigation: {

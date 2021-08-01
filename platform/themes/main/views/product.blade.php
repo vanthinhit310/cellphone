@@ -27,7 +27,9 @@
                             <div class="swiper-wrapper ps__container__thumb__wp">
                                 @for ($i = 0; $i < 10; $i++)
                                     <div class="swiper-slide ps__container__thumb__item">
-                                        <img class="img-fluid w-100" src="{!! Theme::asset()->url('images/product.jpg') !!}" alt="Product Image" />
+                                        <div class="thumb-img">
+                                            <img class="img-fluid w-100" src="{!! Theme::asset()->url('images/product.jpg') !!}" alt="Product Image" />
+                                        </div>
                                     </div>
                                 @endfor
                             </div>
@@ -124,6 +126,7 @@
                             </div>
                         </div>
                         <div class="product-action action">
+                            <a class="action__item ui button red"><span>Mua ngay</span></a>
                             <div class="ui animated fade button" tabindex="0">
                                 <div class="hidden content">
                                     <i class="fal fa-cart-plus icon"></i>
@@ -132,7 +135,6 @@
                                     <span>Thêm vào giỏ hàng</span>
                                 </div>
                             </div>
-                            <a class="action__item"><span>Mua ngay</span></a>
                         </div>
                     </div>
                 </div>

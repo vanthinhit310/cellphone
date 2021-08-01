@@ -40,3 +40,13 @@ body {
 .ui.fade:not(.show) {
     opacity: 1;
 }
+
+.ui.button{
+    font-family: $primaryFont;
+    font-weight: 500;
+}
+
+.ui.button.red{
+    background-color: $red;
+    color: $white;
+}
