@@ -96,6 +96,37 @@ const Slide = {
                     spaceBetween: 0,
                     speed: 600,
                     slidesPerView: 1,
+                    on: {
+                        init: function (item) {
+                            let image = $(`#product-image-${item.activeIndex}`);
+                            let zoomActive = false;
+                            zoomActive = !zoomActive;
+                            if (zoomActive) {
+                                image.elevateZoom({
+                                    cursor: 'crosshair',
+                                    zoomType: 'inner',
+                                });
+                            } else {
+                                $.removeData(image, 'elevateZoom');//remove zoom instance from image
+                                $('.zoomContainer:last-child').remove();// remove zoom container from DOM
+                            }
+
+                        },
+                        slideChange: function (item) {
+                            let image = $(`#product-image-${item.activeIndex}`);
+                            let zoomActive = false;
+                            zoomActive = !zoomActive;
+                            if (zoomActive) {
+                                image.elevateZoom({
+                                    cursor: 'crosshair',
+                                    zoomType: 'inner',
+                                });
+                            } else {
+                                $.removeData(image, 'elevateZoom');//remove zoom instance from image
+                                $('.zoomContainer:last-child').remove();// remove zoom container from DOM
+                            }
+                        }
+                    },
                     thumbs: {
                         swiper: psThumb,
                     },

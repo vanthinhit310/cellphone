@@ -5,7 +5,7 @@
                 <div class="swiper-wrapper ps__container__top__wp">
                     @for ($i = 0; $i < 10; $i++)
                         <div class="swiper-slide ps__container__top__item">
-                            <img class="img-fluid w-100" src="{!! Theme::asset()->url('images/product.jpg') !!}" alt="Product Image" />
+                            <div><img id="product-image-{{ $i }}" class="img-fluid w-100" data-zoom-image="{!! Theme::asset()->url('images/product.jpg') !!}" src="{!! Theme::asset()->url('images/product.jpg') !!}" alt="Product Image"/></div>
                         </div>
                     @endfor
                 </div>
@@ -15,7 +15,7 @@
                     @for ($i = 0; $i < 10; $i++)
                         <div class="swiper-slide ps__container__thumb__item">
                             <div class="thumb-img">
-                                <img class="img-fluid w-100" src="{!! Theme::asset()->url('images/product.jpg') !!}" alt="Product Image" />
+                                <img class="img-fluid product_image w-100" src="{!! Theme::asset()->url('images/product.jpg') !!}" alt="Product Image"/>
                             </div>
                         </div>
                     @endfor
@@ -26,6 +26,7 @@
             </div>
         </div>
     </div>
+
     <div class="product__info__right">
         <div class="info">
             <h1 class="info__title">Samsung Galaxy Note 20 Ultra 5G</h1>
@@ -62,7 +63,7 @@
                     </li>
 
                     <li class="discount">
-                        <span class="font12"> -10% </span>
+                        <span class="font12"> -10%</span>
                     </li>
                 </ul>
             </div>
@@ -113,7 +114,9 @@
                 </div>
             </div>
             <div class="product-action action">
-                <a class="action__item ui button red"><span>Mua ngay</span></a>
+                <a class="action__item ui button red">
+                    <span>Mua ngay</span>
+                </a>
                 <div class="ui animated fade button red-outline" tabindex="0">
                     <div class="hidden content">
                         <i class="fal fa-cart-plus icon"></i>

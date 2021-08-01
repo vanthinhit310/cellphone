@@ -70,6 +70,27 @@ const Utils = {
                 `));
             });
         });
+    },
+    initInnerZoom: function (id) {
+        let image = $(`#${id}`);
+        let zoomActive = false;
+
+        zoomActive = !zoomActive;
+        if (zoomActive) {
+
+            if ($(image).length > 0) {
+                console.log(id);
+                console.log(image);
+
+                $(image).elevateZoom({
+                    cursor: 'crosshair',
+                    zoomType: 'inner',
+                });
+            }
+        } else {
+            $.removeData(image, 'elevateZoom');//remove zoom instance from image
+            $('.zoomContainer:last-child').remove();// remove zoom container from DOM
+        }
     }
 };
 
