@@ -1,7 +1,7 @@
 // @ts-nocheck
 const Utils = {
-    quantityControl: function() {
-        $(document).on("click", ".plus", function() {
+    quantityControl: function () {
+        $(document).on("click", ".plus", function () {
             let val = $(".numberQuantity").val();
             val++;
             if (val > 0) {
@@ -13,7 +13,7 @@ const Utils = {
             }
         });
 
-        $(document).on("click", ".minus", function() {
+        $(document).on("click", ".minus", function () {
             let val = $(".numberQuantity").val();
             val--;
             if (val > 0) {
@@ -25,9 +25,9 @@ const Utils = {
             }
         });
     },
-    quantityCheck: function() {
+    quantityCheck: function () {
         if ($(".numberQuantity").length) {
-            $(document).on("input", ".numberQuantity", function() {
+            $(document).on("input", ".numberQuantity", function () {
                 let val = $(".numberQuantity").val();
                 if (val == 0) {
                     $(".numberQuantity").val(1);
@@ -37,13 +37,45 @@ const Utils = {
             });
         }
     },
-    initSemantic: function() {
+    initSemantic: function () {
         $(".ui.dropdown").dropdown();
+    },
+    initCountdown: function () {
+        $('[data-countdown]').each(function () {
+            const $this = $(this), finalDate = $(this).data('countdown');
+            const nextYear = moment.tz(`${finalDate}`, "Asia/Ho_Chi_Minh");
+
+            $this.countdown(nextYear.toDate(), function (event) {
+                $this.html(event.strftime(`
+                    <ul class="countdown">
+                        <li class="countdown__item">
+                            <span class="font14">Kết thúc sau</span>
+                        </li>
+                        <li class="countdown__item">
+                            <span class="countdown__item--span">%D</span>
+                            :
+                        </li>
+                        <li class="countdown__item">
+                            <span class="countdown__item--span">%H</span>
+                            :
+                        </li>
+                        <li class="countdown__item">
+                            <span class="countdown__item--span">%M</span>
+                            :
+                        </li>
+                        <li class="countdown__item">
+                            <span class="countdown__item--span">%S</span>
+                        </li>
+                    </ul>
+                `));
+            });
+        });
     }
 };
 
-$(document).ready(function() {
+$(document).ready(function () {
     Utils.quantityCheck();
     Utils.quantityControl();
     Utils.initSemantic();
+    Utils.initCountdown();
 });

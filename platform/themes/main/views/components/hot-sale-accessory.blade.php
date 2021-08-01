@@ -8,28 +8,7 @@
             <span class="text gradient-title font20">Phụ Kiện</span>
         </div>
         <div class="hot__sale__title--countdown">
-            <div id="countdown">
-                <ul class="countdown">
-                    <li class="countdown__item">
-                        <span class="font14">Kết thúc sau</span>
-                    </li>
-                    <li class="countdown__item">
-                        <span class="countdown__item--span" id="days">00</span>
-                        :
-                    </li>
-                    <li class="countdown__item">
-                        <span class="countdown__item--span" id="hours">00</span>
-                        :
-                    </li>
-                    <li class="countdown__item">
-                        <span class="countdown__item--span" id="minutes">00</span>
-                        :
-                    </li>
-                    <li class="countdown__item">
-                        <span class="countdown__item--span" id="seconds">00</span>
-                    </li>
-                </ul>
-            </div>
+            <div id="countdown" data-countdown="2021-10-02 00:00"></div>
         </div>
     </div>
     <div class="hot__sale__content">
