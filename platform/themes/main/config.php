@@ -49,6 +49,7 @@ return [
             // });
 
             // You may use this event to set up your assets.
+            $theme->asset()->usePath()->add('semantic', 'plugins/semantic/semantic.min.css');
             $theme->asset()->usePath()->add('animate', 'css/animate.css');
             $theme->asset()->usePath()->add('bootstrap-css', 'bootstrap/css/bootstrap.min.css');
             $theme->asset()->usePath()->add('ionicons', 'css/ionicons.min.css');
@@ -65,8 +66,6 @@ return [
             $theme->asset()->usePath()->add('magnific-popup-css', 'css/magnific-popup.css');
             $theme->asset()->usePath()->add('semantic-transition', 'plugins/semantic/transition.min.css');
             $theme->asset()->usePath()->add('semantic-dropdown', 'plugins/semantic/dropdown.min.css');
-            // $theme->asset()->usePath()->add('semantic-button', 'plugins/semantic/button.min.css');
-            $theme->asset()->usePath()->add('semantic', 'plugins/semantic/semantic.min.css');
             $theme->asset()->usePath()->add('style', 'css/style.css', [], [], '1.0.17');
 
             if (BaseHelper::siteLanguageDirection() == 'rtl') {
