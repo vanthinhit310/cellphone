@@ -49,4 +49,11 @@ body {
 .ui.button.red{
     background-color: $red;
     color: $white;
+    border: solid 1px $red;
+}
+
+.ui.button.red-outline{
+    border: solid 1px $red;
+    background-color: $white;
+    color: $red;
 }
