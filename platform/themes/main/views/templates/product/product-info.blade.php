@@ -5,7 +5,9 @@
                 <div class="swiper-wrapper ps__container__top__wp">
                     @for ($i = 0; $i < 10; $i++)
                         <div class="swiper-slide ps__container__top__item">
-                            <div><img id="product-image-{{ $i }}" class="img-fluid w-100" data-zoom-image="{!! Theme::asset()->url('images/product.jpg') !!}" src="{!! Theme::asset()->url('images/product.jpg') !!}" alt="Product Image"/></div>
+                            <div class="product-hero-slider">
+                                <img class="img-fluid w-100" data-zoom-image="{!! Theme::asset()->url('images/product.jpg') !!}" src="{!! Theme::asset()->url('images/product.jpg') !!}" alt="Product Image"/>
+                            </div>
                         </div>
                     @endfor
                 </div>
