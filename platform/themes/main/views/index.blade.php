@@ -1,4 +1,4 @@
-<div class="content">
+<div class="page-content">
     <div class="home-wrapper">
         <div class="container">
             <section class="home__top">

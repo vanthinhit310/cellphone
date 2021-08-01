@@ -82,9 +82,9 @@ const Slide = {
             if ($('.product__info__slide').length) {
                 const psThumb = new Swiper(".ps__container__thumb", {
                     spaceBetween: 10,
-                    speed: 800,
+                    speed: 600,
                     slidesPerView: 4,
-                    freeMode: false,
+                    freeMode: true,
                     watchSlidesVisibility: true,
                     watchSlidesProgress: true,
                     navigation: {
@@ -94,7 +94,7 @@ const Slide = {
                 });
                 const psTop = new Swiper(".ps__container__top", {
                     spaceBetween: 0,
-                    speed: 800,
+                    speed: 600,
                     slidesPerView: 1,
                     thumbs: {
                         swiper: psThumb,

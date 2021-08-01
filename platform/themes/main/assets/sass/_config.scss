@@ -17,7 +17,7 @@ button {
     outline: none !important;
 }
 
-.content {
+.page-content {
     margin-top: 64px;
 }
 
@@ -35,4 +35,8 @@ body {
 
 .box-shadown-sm {
     box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075) !important;
+}
+
+.ui.fade:not(.show) {
+    opacity: 1;
 }
