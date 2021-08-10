@@ -1,0 +1,89 @@
+.news-detail-wrapper {
+    background-color: $white;
+
+    .post {
+        &__title {
+            font-size: 30px;
+            font-weight: 700;
+            color: $black;
+            text-align: justify;
+            margin-bottom: 15px;
+        }
+
+        &__time {
+            color: $red;
+        }
+
+        .post-content {
+            display: flex;
+
+            .post__left{
+                @include flex-width(70);
+            }
+
+            .post__right{
+                margin-left: 15px;
+                @include flex-width(30);
+
+                .recents {
+                    &__list {
+                        display: flex;
+                        flex-direction: column;
+                    }
+
+                    &__item {
+                        margin-bottom: 30px;
+                        display: flex;
+                        align-items: flex-start;
+                        cursor: pointer;
+
+                        &--img {
+                            flex: 0 120px;
+                            margin-left: 15px;
+                            overflow: hidden;
+
+                            img {
+                                @include transition(all linear .2s);
+                            }
+                        }
+
+                        &--content {
+                            flex: 1;
+                        }
+
+                        &--title {
+                            a {
+                                text-align: justify;
+                                font-weight: 600;
+                                color: $black;
+                                @include transition(color linear .2s);
+                            }
+                        }
+
+                        &--time {
+                            color: $c707070;
+                            margin: 0;
+                        }
+
+                        &:hover {
+                            .population__item--img {
+                                img {
+                                    transform: scale(1.06);
+                                    @include transition(all linear .2s);
+                                }
+                            }
+
+                            .population__item--title {
+                                a {
+                                    color: $red;
+                                    @include transition(color linear .2s);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+}

@@ -216,7 +216,6 @@
 }
 
 @mixin flex-width($percent) {
-    display: flex;
     width: 100%;
     max-width: $percent * 1%;
     flex: 0 ($percent * 1%);
