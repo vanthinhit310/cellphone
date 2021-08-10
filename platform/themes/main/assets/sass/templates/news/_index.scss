@@ -272,6 +272,7 @@
     margin-top: 50px;
     display: flex;
     justify-content: center;
+
     ul li {
         list-style: none;
         line-height: 35px;
@@ -300,5 +301,27 @@
         background: $red;
         color: $white;
         @include transition(all linear .2s);
+    }
+}
+
+ul.breadcrumb {
+    background-color: transparent;
+    border-radius: 0;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+
+    li {
+        a {
+            color: $text-color;
+        }
+
+        .divider {
+            margin: 0 5px;
+        }
+    }
+
+    li.active {
+        color: $red;
     }
 }
