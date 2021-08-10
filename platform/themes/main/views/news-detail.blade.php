@@ -123,23 +123,31 @@
                         </ul>
                     </div>
 
-                    <div class="post__related">
-                        @for ($i = 0; $i < 6; $i++)
-                            <a href="javascript:void(0);" class="post__related__item">
-                                <span class="post__related__item--img">
-                                    <img alt="News" class="img-fluid w-100" src="{{ Theme::asset()->url("images/related.jpg") }}"/>
-                                </span>
-                                <span class="post__related__item--content">
-                                    <span class="post__related__item--title">Xiaomi Mi 11 Lite NE đang được phát triển, Mi 11T series sẽ có màn hình OLED</span>
-                                    <span class="post__related__item--time"><i class="fal fa-clock"></i> 2 day agos</span>
-                                </span>
-                            </a>
-                        @endfor
+                    <div class="related-list">
+                        <div class="news-section-title">
+                            <span>Bài viết liên quan</span>
+                        </div>
+                        <div class="post__related">
+                            @for ($i = 0; $i < 6; $i++)
+                                <a href="javascript:void(0);" class="post__related__item">
+                                    <span class="post__related__item--img">
+                                        <img alt="News" class="img-fluid w-100" src="{{ Theme::asset()->url("images/related.jpg") }}"/>
+                                    </span>
+                                    <span class="post__related__item--content">
+                                        <span class="post__related__item--title">Xiaomi Mi 11 Lite NE đang được phát triển, Mi 11T series sẽ có màn hình OLED</span>
+                                        <span class="post__related__item--time"><i class="fal fa-clock"></i> 2 day agos</span>
+                                    </span>
+                                </a>
+                            @endfor
+                        </div>
                     </div>
                 </div>
 
                 <div class="post__right">
                     <div class="recents">
+                        <div class="news-section-title">
+                            <span>Bài viết mới cập nhật</span>
+                        </div>
                         <div class="recents__list">
                             @for ($i = 0; $i <5 ; $i++)
                                 <div class="recents__item">
