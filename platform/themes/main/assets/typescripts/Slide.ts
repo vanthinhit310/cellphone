@@ -105,6 +105,18 @@ const Slide = {
             console.log(e.message)
         }
     },
+    featureNews: function () {
+        try {
+            if ($('.feature__slide').length) {
+                const featureSwiper = new Swiper(".feature__slide__container", {
+                    spaceBetween: 20,
+                    slidesPerView: 3,
+                });
+            }
+        } catch (e) {
+            console.log(e.message)
+        }
+    },
 };
 
 $(document).ready(function () {
@@ -113,4 +125,5 @@ $(document).ready(function () {
     Slide.brandSlide();
     Slide.categorySlide();
     Slide.productInfoSlide();
+    Slide.featureNews();
 });

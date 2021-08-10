@@ -1,5 +1,5 @@
 <div class="page-content">
-    <div class="news-wrapper">
+    <div class="news-wrapper pt-15">
         <div class="container">
             <section class="hot-post box-shadown-sm mb-15 pt-15">
                 <div class="feature-posts">
