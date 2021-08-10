@@ -12,4 +12,11 @@ class NewsController extends Controller
         $data = [];
         return Theme::scope("news", $data)->render();
     }
+
+    public function getDetail()
+    {
+        $data = [];
+        Theme::breadcrumb()->add('Tin tức', 'https://google.com.vn')->add('Thị trường', 'https://:facebook.com');
+        return Theme::scope("news-detail", $data)->render();
+    }
 }

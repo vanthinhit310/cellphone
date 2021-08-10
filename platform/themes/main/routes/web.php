@@ -13,6 +13,7 @@ Route::group(['namespace' => 'Theme\Main\Http\Controllers', 'middleware' => ['we
         // Ex: Route::get('hello', 'MainController@getHello');
         Route::group(['prefix' => 'news'], function () {
             Route::get('', [NewsController::class, 'index'])->name('news.index');
+            Route::get('{category}/{slug}', [NewsController::class, 'getDetail'])->name('news.detail');
         });
         Route::get('{category}/{slug}', [ProductController::class, 'getProductDetail'])->name('product.detail');
 
