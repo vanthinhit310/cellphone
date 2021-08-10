@@ -3,6 +3,7 @@
 // Custom routes
 // You can delete this route group if you don't need to add your custom routes.
 
+use Theme\Main\Http\Controllers\NewsController;
 use Theme\Main\Http\Controllers\ProductController;
 
 Route::group(['namespace' => 'Theme\Main\Http\Controllers', 'middleware' => ['web', 'core']], function () {
@@ -10,6 +11,9 @@ Route::group(['namespace' => 'Theme\Main\Http\Controllers', 'middleware' => ['we
 
         // Add your custom route here
         // Ex: Route::get('hello', 'MainController@getHello');
+        Route::group(['prefix' => 'news'], function () {
+            Route::get('', [NewsController::class, 'index'])->name('news.index');
+        });
         Route::get('{category}/{slug}', [ProductController::class, 'getProductDetail'])->name('product.detail');
 
     });
