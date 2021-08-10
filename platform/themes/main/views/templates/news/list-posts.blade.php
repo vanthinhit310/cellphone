@@ -2,7 +2,7 @@
     <div class="posts__list">
         @for ($i = 0; $i < 9; $i++)
             <div class="posts__item">
-                <a class="posts__item--img">
+                <a href="javascript:void(0);" class="posts__item--img">
                     <img alt="News" class="img-fluid w-100" src="{{ Theme::asset()->url("images/news_item.jpg") }}"/>
                 </a>
                 <h3 class="font16 posts__item--title">
