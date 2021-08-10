@@ -1,45 +1,69 @@
-.news-wrapper{
+.news-wrapper {
     .hot-post {
         background-color: $white;
         padding: 15px;
         @include flex-width(100);
         flex-direction: row;
 
-        .feature-posts{
+        .feature-posts {
             @include flex-width(70);
         }
 
-        .population-posts{
+        .population-posts {
             margin-left: 15px;
             @include flex-width(30);
 
-            .population{
-                &__list{
+            .population {
+                &__list {
                     display: flex;
                     flex-direction: column;
                 }
-                &__item{
+
+                &__item {
                     margin-bottom: 30px;
                     display: flex;
                     align-items: flex-start;
                     cursor: pointer;
 
-                    &--img{
+                    &--img {
                         flex: 0 120px;
                         margin-left: 15px;
                         overflow: hidden;
-                        img{
-                            
+
+                        img {
+                            @include transition(all linear .2s);
                         }
                     }
 
-                    &--content{
+                    &--content {
                         flex: 1;
                     }
 
-                    &--title{
-                        a{
-                            color: $text-color;
+                    &--title {
+                        a {
+                            font-weight: 600;
+                            color: $black;
+                            @include transition(color linear .2s);
+                        }
+                    }
+
+                    &--time {
+                        color: $c707070;
+                        margin: 0;
+                    }
+
+                    &:hover {
+                        .population__item--img {
+                            img {
+                                transform: scale(1.06);
+                                @include transition(all linear .2s);
+                            }
+                        }
+                        .population__item--title{
+                            a{
+                                color: $red;
+                                @include transition(color linear .2s);
+                            }
                         }
                     }
                 }
@@ -47,16 +71,16 @@
         }
     }
 
-    .list-posts{
+    .list-posts {
         background-color: $white;
         padding: 15px;
     }
 
-    .posts{
+    .posts {
 
-        &__list{
+        &__list {
             display: grid;
-            grid-template-columns: repeat(3,1fr);
+            grid-template-columns: repeat(3, 1fr);
             column-gap: 15px;
             row-gap: 15px;
         }
