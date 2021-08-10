@@ -9,7 +9,7 @@
                 <p class="post__time font12"><i class="fal fa-clock"></i> 2 day agos</p>
                 <div class="post-content">
                     <div class="post__left">
-                        <p class="post__short-description">Với việc năm học mới sắp bắt đầu, chắc hẳn có nhiều bạn học sinh, sinh viên đang tìm kiếm cho mình một chiếc điện thoại chất lượng, giá hợp túi tiền để phục vụ cho nhu cầu học tập cũng như giải trí.</p>
+                        <p class="post__short-description font16">Với việc năm học mới sắp bắt đầu, chắc hẳn có nhiều bạn học sinh, sinh viên đang tìm kiếm cho mình một chiếc điện thoại chất lượng, giá hợp túi tiền để phục vụ cho nhu cầu học tập cũng như giải trí.</p>
                         <div class="post__content">
                             <h2><strong>Xiaomi Mi 11 Lite 5G (gi&aacute; 8.49 triệu đồng)</strong></h2>
 
