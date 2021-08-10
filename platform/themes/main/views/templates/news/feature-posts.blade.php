@@ -1,4 +1,7 @@
 <div class="feature">
+    <div class="news-section-title">
+        <span>Bài viết nổi bật</span>
+    </div>
     <div class="feature__list">
         <a href="javascript:void(0);" class="feature__highlight" style="background-image: url({{ Theme::asset()->url("images/highlight.jpg") }})">
             <span class="feature__highlight__content">

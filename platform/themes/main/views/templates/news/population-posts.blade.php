@@ -1,4 +1,7 @@
 <div class="population">
+    <div class="news-section-title">
+        <span>Bài viết được xem nhiều</span>
+    </div>
     <div class="population__list">
         @for ($i = 0; $i <6 ; $i++)
             <div class="population__item">

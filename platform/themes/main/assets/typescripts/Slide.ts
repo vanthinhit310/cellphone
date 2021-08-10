@@ -111,6 +111,11 @@ const Slide = {
                 const featureSwiper = new Swiper(".feature__slide__container", {
                     spaceBetween: 20,
                     slidesPerView: 3,
+                    autoplay: {
+                        delay: 3000,
+                        disableOnInteraction: false,
+                    },
+                    loop: true,
                 });
             }
         } catch (e) {
