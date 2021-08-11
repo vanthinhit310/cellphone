@@ -2,6 +2,9 @@
 
 namespace Platform\Gallery;
 
+use Eloquent;
+use Exception;
+use Illuminate\Http\Request;
 use Platform\Gallery\Repositories\Interfaces\GalleryMetaInterface;
 use Illuminate\Support\Arr;
 use Theme;
@@ -59,9 +62,9 @@ class Gallery
     }
 
     /**
-     * @param \Illuminate\Http\Request $request
-     * @param \Eloquent|false $data
-     * @throws \Exception
+     * @param Request $request
+     * @param Eloquent|false $data
+     * @throws Exception
      */
     public function saveGallery($request, $data)
     {
@@ -88,9 +91,9 @@ class Gallery
     }
 
     /**
-     * @param \Eloquent|false $data
+     * @param Eloquent|false $data
      * @return bool
-     * @throws \Exception
+     * @throws Exception
      */
     public function deleteGallery($data)
     {

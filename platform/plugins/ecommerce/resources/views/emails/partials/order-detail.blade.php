@@ -17,9 +17,9 @@
 
         @foreach ($order->products as $orderProduct)
             @php
-                $product = get_products([
+                use Platform\Base\Enums\BaseStatusEnum;$product = get_products([
                         'condition' => [
-                        'ec_products.status' => \Platform\Base\Enums\BaseStatusEnum::PUBLISHED,
+                        'ec_products.status' => BaseStatusEnum::PUBLISHED,
                         'ec_products.id' => $orderProduct->product_id,
                     ],
                         'take' => 1,

@@ -9,14 +9,14 @@ use Theme\Main\Http\Controllers\ProductController;
 Route::group(['namespace' => 'Theme\Main\Http\Controllers', 'middleware' => ['web', 'core']], function () {
     Route::group(apply_filters(BASE_FILTER_GROUP_PUBLIC_ROUTE, []), function () {
 
-        // Add your custom route here
-        // Ex: Route::get('hello', 'MainController@getHello');
-        Route::group(['prefix' => 'news'], function () {
-            Route::get('', [NewsController::class, 'index'])->name('news.index');
-            Route::get('{category}/{slug}', [NewsController::class, 'getDetail'])->name('news.detail');
-        });
-        Route::get('{category}/{slug}', [ProductController::class, 'getProductDetail'])->name('product.detail');
+        //----------------------------------------[Blog Route]----------------------------------------
+        Route::get('news', [NewsController::class, 'index'])->name('news.index');
+        Route::get('post/{slug}', [NewsController::class, 'getDetail'])->name('news.detail');
+        //----------------------------------------[Blog Route]----------------------------------------
 
+        //----------------------------------------[Product Route]----------------------------------------
+        Route::get('{category}/{slug}', [ProductController::class, 'getProductDetail'])->name('product.detail');
+        //----------------------------------------[Product Route]----------------------------------------
     });
 });
 

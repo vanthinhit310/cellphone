@@ -3,6 +3,7 @@
 namespace Platform\Payment\Http\Controllers;
 
 use Assets;
+use Illuminate\Contracts\Foundation\Application;
 use Platform\Base\Events\DeletedContentEvent;
 use Platform\Base\Http\Responses\BaseHttpResponse;
 use Platform\Payment\Enums\PaymentMethodEnum;
@@ -146,7 +147,7 @@ class PaymentController extends Controller
 
     /**
      * @param CheckoutRequest $request
-     * @return \Illuminate\Contracts\Foundation\Application|RedirectResponse|Redirector
+     * @return Application|RedirectResponse|Redirector
      */
     public function postCheckout(CheckoutRequest $request)
     {

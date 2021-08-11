@@ -2,6 +2,7 @@
 
 namespace Platform\Payment\Models;
 
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Platform\ACL\Models\User;
 use Platform\Base\Models\BaseModel;
 use Platform\Base\Traits\EnumCastable;
@@ -47,7 +48,7 @@ class Payment extends BaseModel
     ];
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return BelongsTo
      */
     public function user()
     {

@@ -9,7 +9,7 @@
                     <p>{{ trans('plugins/payment::payment.payment_methods_description') }}</p>
                 </div>
                 <div class="col-md-9">
-                    @php do_action(BASE_ACTION_META_BOXES, 'top', new \Platform\Payment\Models\Payment) @endphp
+                    @php use Platform\Payment\Models\Payment;do_action(BASE_ACTION_META_BOXES, 'top', new Payment) @endphp
 
                     <div class="wrapper-content pd-all-20">
                         {!! Form::open(['route' => 'payments.settings']) !!}
@@ -23,7 +23,7 @@
 
                     <br>
 
-                    @php $stripeStatus = setting('payment_stripe_status'); @endphp
+                    @php $stripeStatus = setting('payment_stripe_status') @endphp
                     <table class="table payment-method-item">
                         <tbody><tr class="border-pay-row">
                             <td class="border-pay-col"><i class="fa fa-theme-payments"></i></td>
@@ -119,7 +119,7 @@
                         </tbody>
                     </table>
 
-                    @php $payPalStatus = setting('payment_paypal_status'); @endphp
+                    @php $payPalStatus = setting('payment_paypal_status') @endphp
                     <table class="table payment-method-item">
                         <tbody>
                         <tr class="border-pay-row">
@@ -241,7 +241,7 @@
                         </tr>
                         </tbody>
 
-                        @php $codStatus = setting('payment_cod_status'); @endphp
+                        @php $codStatus = setting('payment_cod_status') @endphp
                         <tbody class="border-none-t">
                         <tr class="bg-white">
                             <td colspan="3">
@@ -282,7 +282,7 @@
                         </tr>
                         </tbody>
 
-                        @php $bankTransferStatus = setting('payment_bank_transfer_status'); @endphp
+                        @php $bankTransferStatus = setting('payment_bank_transfer_status') @endphp
                         <tbody class="border-none-t">
                         <tr class="bg-white">
                             <td colspan="3">
@@ -325,13 +325,13 @@
                     </table>
                 </div>
             </div>
-            @php do_action(BASE_ACTION_META_BOXES, 'main', new \Platform\Payment\Models\Payment) @endphp
+            @php use Platform\Payment\Models\Payment;do_action(BASE_ACTION_META_BOXES, 'main', new Payment) @endphp
             <div class="group">
                 <div class="col-md-3">
 
                 </div>
                 <div class="col-md-9">
-                    @php do_action(BASE_ACTION_META_BOXES, 'advanced', new \Platform\Payment\Models\Payment) @endphp
+                    @php use Platform\Payment\Models\Payment;do_action(BASE_ACTION_META_BOXES, 'advanced', new Payment) @endphp
                 </div>
             </div>
         </div>

@@ -9,11 +9,12 @@ use Eloquent;
 use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Support\ServiceProvider;
 use MetaBox;
+use Throwable;
 
 class HookServiceProvider extends ServiceProvider
 {
     /**
-     * @throws \Throwable
+     * @throws Throwable
      */
     public function boot()
     {
@@ -47,7 +48,7 @@ class HookServiceProvider extends ServiceProvider
 
     /**
      * @return string
-     * @throws \Throwable
+     * @throws Throwable
      */
     public function galleryMetaField()
     {

@@ -2,6 +2,8 @@
 
 namespace Platform\Gallery\Http\Controllers;
 
+use Illuminate\Contracts\View\Factory;
+use Illuminate\View\View;
 use Platform\Base\Events\BeforeEditContentEvent;
 use Platform\Base\Forms\FormBuilder;
 use Platform\Base\Http\Controllers\BaseController;
@@ -17,6 +19,7 @@ use Illuminate\Support\Facades\Auth;
 use Platform\Base\Events\CreatedContentEvent;
 use Platform\Base\Events\DeletedContentEvent;
 use Platform\Base\Events\UpdatedContentEvent;
+use Throwable;
 
 class GalleryController extends BaseController
 {
@@ -37,8 +40,9 @@ class GalleryController extends BaseController
 
     /**
      * @param GalleryTable $dataTable
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     * @throws \Throwable
+     *
+     * @return Factory|View
+     * @throws Throwable
      */
     public function index(GalleryTable $dataTable)
     {

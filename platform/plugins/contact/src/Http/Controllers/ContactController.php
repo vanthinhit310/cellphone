@@ -2,6 +2,8 @@
 
 namespace Platform\Contact\Http\Controllers;
 
+use Illuminate\Contracts\View\Factory;
+use Illuminate\View\View;
 use Platform\Base\Events\BeforeEditContentEvent;
 use Platform\Base\Forms\FormBuilder;
 use Platform\Base\Http\Controllers\BaseController;
@@ -20,6 +22,7 @@ use Exception;
 use Illuminate\Http\Request;
 use Platform\Base\Events\DeletedContentEvent;
 use Platform\Base\Events\UpdatedContentEvent;
+use Throwable;
 
 class ContactController extends BaseController
 {
@@ -40,8 +43,9 @@ class ContactController extends BaseController
 
     /**
      * @param ContactTable $dataTable
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     * @throws \Throwable
+     *
+     * @return Factory|View
+     * @throws Throwable
      */
     public function index(ContactTable $dataTable)
     {

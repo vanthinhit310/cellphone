@@ -2,12 +2,14 @@
 
 namespace Platform\Gallery\Http\Controllers;
 
+use Illuminate\Http\RedirectResponse;
 use Platform\Gallery\Models\Gallery as GalleryModel;
 use Platform\Gallery\Repositories\Interfaces\GalleryInterface;
 use Platform\Gallery\Services\GalleryService;
 use Gallery;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Response;
 use SeoHelper;
 use SlugHelper;
 use Theme;
@@ -30,7 +32,7 @@ class PublicController extends Controller
     }
 
     /**
-     * @return \Response
+     * @return Response
      */
     public function getGalleries()
     {
@@ -50,7 +52,8 @@ class PublicController extends Controller
     /**
      * @param string $slug
      * @param Request $request
-     * @return \Illuminate\Http\RedirectResponse|\Response
+     *
+     * @return RedirectResponse|Response
      */
     public function getGallery($slug, GalleryService $galleryService)
     {

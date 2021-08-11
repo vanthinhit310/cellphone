@@ -1,5 +1,5 @@
 @if (function_exists('get_galleries'))
-    @php $galleries = get_galleries($limit); @endphp
+    @php $galleries = get_galleries($limit) @endphp
     @if (!$galleries->isEmpty())
         <div class="page-content">
             <div class="post-group post-group--single">

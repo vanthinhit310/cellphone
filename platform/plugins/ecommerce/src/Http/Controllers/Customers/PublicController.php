@@ -27,6 +27,7 @@ use OrderHelper;
 use Response;
 use RvMedia;
 use SeoHelper;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Theme;
 use Throwable;
 
@@ -414,7 +415,8 @@ class PublicController extends Controller
     /**
      * @param int $id
      * @param BaseHttpResponse $response
-     * @return BaseHttpResponse|\Symfony\Component\HttpFoundation\BinaryFileResponse
+     *
+     * @return BaseHttpResponse|BinaryFileResponse
      * @throws BindingResolutionException
      */
     public function getPrintOrder($id, BaseHttpResponse $response)

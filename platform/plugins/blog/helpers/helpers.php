@@ -10,7 +10,6 @@ use Platform\Blog\Repositories\Interfaces\PostInterface;
 use Platform\Blog\Repositories\Interfaces\TagInterface;
 use Platform\Blog\Supports\PostFormat;
 use Illuminate\Support\Arr;
-use RvMedia;
 
 if (!function_exists('get_featured_posts')) {
     /**
@@ -269,7 +268,7 @@ if (!function_exists('register_post_format')) {
 if (!function_exists('get_post_image')) {
     function get_post_image($url, $size = null)
     {
-        return RvMedia::getImageUrl($url, $size, false, RvMedia::getDefaultImage());
+        return \RvMedia::getImageUrl($url, $size, false, \RvMedia::getDefaultImage());
     }
 }
 
@@ -277,6 +276,13 @@ if (!function_exists('limit_text')) {
     function limit_text($value, $size = 50)
     {
         return Str::limit($value, $size);
+    }
+}
+
+if (!function_exists('get_time_ago')) {
+    function get_time_ago($time)
+    {
+        return str_ireplace([' seconds', ' second', ' minutes', ' minute', ' hours', ' hour', ' days', ' day', ' weeks', ' week'], ['giây trước', 'giây trước', 'phút trước', 'phút trước', 'giờ trước', 'giờ trước', 'ngày trước', 'ngày trước', 'tuần trước', 'tuần trước'], $time->diffForHumans());
     }
 }
 

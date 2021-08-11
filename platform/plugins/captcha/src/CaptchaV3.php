@@ -3,8 +3,10 @@
 namespace Platform\Captcha;
 
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Support\Arr;
+use Platform\Theme\AssetContainer;
 use Theme;
 
 class CaptchaV3
@@ -48,7 +50,7 @@ class CaptchaV3
      * @param string $clientIp
      * @param array $parameters
      * @return bool|mixed
-     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws GuzzleException
      */
     public function verify($token, $clientIp, $parameters = [])
     {
@@ -112,7 +114,7 @@ class CaptchaV3
     }
 
     /**
-     * @return \Platform\Theme\AssetContainer
+     * @return AssetContainer
      */
     public function initJs($fieldId = null, $action = 'form')
     {

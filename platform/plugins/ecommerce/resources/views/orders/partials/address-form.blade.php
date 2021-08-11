@@ -9,7 +9,7 @@
     @if (auth('customer')->check())
         @php
             $addresses = get_customer_addresses();
-            $isAvailableAddress = !$addresses->isEmpty() ? true : false;
+            $isAvailableAddress = !$addresses->isEmpty() ? true : false
         @endphp
         <div class="form-group">
 
