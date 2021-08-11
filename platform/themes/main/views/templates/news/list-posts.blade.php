@@ -18,27 +18,5 @@
 
         @endforelse
     </div>
-
-    <div class="pagination-wrapper">
-        <ul class="pagination">
-            <li class="pageNumber active">
-                <a href="#">1</a>
-            </li>
-            <li class="pageNumber">
-                <a href="#">2</a>
-            </li>
-            <li class="pageNumber">
-                <a href="#">3</a>
-            </li>
-            <li class="pageNumber">
-                <a href="#">4</a>
-            </li>
-            <li class="pageNumber">
-                <a href="#">5</a>
-            </li>
-            <li class="pageNumber">
-                <a href="#">6</a>
-            </li>
-        </ul>
-    </div>
+    {!! @$posts->links() !!}
 </div>

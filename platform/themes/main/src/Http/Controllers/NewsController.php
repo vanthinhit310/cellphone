@@ -3,6 +3,7 @@
 namespace Theme\Main\Http\Controllers;
 
 use Illuminate\Routing\Controller;
+use Platform\Base\Supports\Helper;
 use Platform\Blog\Models\Post;
 use Platform\Blog\Repositories\Interfaces\CategoryInterface;
 use Platform\Blog\Repositories\Interfaces\PostInterface;
@@ -65,6 +66,8 @@ class NewsController extends Controller
 
         SeoHelper::setTitle(@$post->name)->setDescription(@$post->description);
 
+        Helper::handleViewCount($post, 'viewed_post');
+        
         $data['post'] = $post;
         $data['relateds'] = $this->postRepository->getRelated($post->id, 6);
         $data['recents'] = $this->postRepository->getRecentPosts(6);
