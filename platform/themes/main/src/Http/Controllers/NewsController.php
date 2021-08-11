@@ -33,7 +33,7 @@ class NewsController extends Controller
         SeoHelper::setTitle('Bài viết')->setDescription('Tổng hợp bài viết');
         $data = [];
 
-        $data['features'] = $this->postRepository->getFeatured(7);
+        $data['features'] = $this->postRepository->getFeatured(7, ['categories']);
         $data['populations'] = $this->postRepository->getPopularPosts(6);
         $data['posts'] = $this->postRepository->getAllPosts(9);
 

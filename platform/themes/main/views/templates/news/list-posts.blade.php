@@ -6,7 +6,7 @@
         @forelse ($posts as $item)
             <div class="posts__item">
                 <a href="{{ @$item->url }}" class="posts__item--img">
-                    <img alt="News" class="img-fluid w-100" src="{{ get_post_image(@$item->image, 'small') }}"/>
+                    <img alt="{{ @$item->name }}" class="img-fluid w-100" src="{{ get_post_image(@$item->image, 'small') }}"/>
                 </a>
                 <h3 class="font16 posts__item--title">
                     <a href="{{ @$item->url }}">{!! limit_text(@$item->name, 70) !!}</a>
