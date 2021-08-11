@@ -2,6 +2,7 @@
 
 namespace Platform\Blog\Forms;
 
+use Exception;
 use Platform\Base\Enums\BaseStatusEnum;
 use Platform\Base\Forms\Fields\TagField;
 use Platform\Base\Forms\FormAbstract;
@@ -20,7 +21,7 @@ class PostForm extends FormAbstract
 
     /**
      * {@inheritDoc}
-     * @throws \Exception
+     * @throws Exception
      */
     public function buildForm()
     {
