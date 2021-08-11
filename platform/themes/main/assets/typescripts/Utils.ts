@@ -81,6 +81,32 @@ const Utils = {
                 else stickyEl.nodeRef.classList.remove('widget--sticky')
             }
         }
+    },
+    zoomProductImage: function () {
+        try {
+            if ($('#product--img').length) {
+                let image = $('#product--img');
+                let zoomActive = false;
+
+                zoomActive = !zoomActive;
+                if (zoomActive) {
+                    if ($(image).length > 0) {
+                        $(image).elevateZoom({
+                            cursor: 'crosshair',
+                            easing: true,
+                            gallery: 'pr_item_gallery',
+                            zoomType: 'inner',
+                            galleryActiveClass: 'active'
+                        });
+                    }
+                } else {
+                    $.removeData(image, 'elevateZoom');//remove zoom instance from image
+                    $('.zoomContainer:last-child').remove();// remove zoom container from DOM
+                }
+            }
+        } catch (e) {
+            console.log(e.message)
+        }
     }
 };
 
@@ -90,4 +116,5 @@ $(document).ready(function () {
     Utils.initSemantic();
     Utils.initCountdown();
     Utils.stickyNDSection();
+    Utils.zoomProductImage();
 });

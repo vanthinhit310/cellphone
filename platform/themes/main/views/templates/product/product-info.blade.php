@@ -2,18 +2,31 @@
     <div class="product__info__left">
         <div class="productimg">
             <div class="productimg__big">
-                <img id="product--img" class="w-100 img-fluid" alt="Product" src="{!! Theme::asset()->url('images/product.jpg') !!}" src="{!! Theme::asset()->url('images/product.jpg') !!}"/>
+                <img id="product--img" class="w-100 img-fluid" alt="Product" src="{!! Theme::asset()->url('images/pl1.jpg') !!}"/>
             </div>
             <div class="productimg__thumb">
                 <div class="swiper-container ps__container__thumb">
                     <div class="swiper-wrapper ps__container__thumb__wp">
-                        @for ($i = 0; $i < 10; $i++)
-                            <div class="swiper-slide ps__container__thumb__item">
-                                <div class="thumb-img">
-                                    <img class="img-fluid product_image w-100" src="{!! Theme::asset()->url('images/product.jpg') !!}" alt="Product Image"/>
-                                </div>
+                        <div class="swiper-slide ps__container__thumb__item">
+                            <div class="thumb-img">
+                                <img class="img-fluid product_image w-100" src="{!! Theme::asset()->url('images/ps1.jpg') !!}" alt="Product Image"/>
                             </div>
-                        @endfor
+                        </div>
+                        <div class="swiper-slide ps__container__thumb__item">
+                            <div class="thumb-img">
+                                <img class="img-fluid product_image w-100" src="{!! Theme::asset()->url('images/ps2.jpg') !!}" alt="Product Image"/>
+                            </div>
+                        </div>
+                        <div class="swiper-slide ps__container__thumb__item">
+                            <div class="thumb-img">
+                                <img class="img-fluid product_image w-100" src="{!! Theme::asset()->url('images/ps3.jpg') !!}" alt="Product Image"/>
+                            </div>
+                        </div>
+                        <div class="swiper-slide ps__container__thumb__item">
+                            <div class="thumb-img">
+                                <img class="img-fluid product_image w-100" src="{!! Theme::asset()->url('images/ps4.jpg') !!}" alt="Product Image"/>
+                            </div>
+                        </div>
                     </div>
                     <div class="ps__container__button swiper-button-next"></div>
                     <div class="ps__container__button swiper-button-prev"></div>
