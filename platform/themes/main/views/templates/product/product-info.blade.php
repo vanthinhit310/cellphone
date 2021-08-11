@@ -1,30 +1,23 @@
 <div class="product__info">
     <div class="product__info__left">
-        <div class="product__info__slide">
-            <div class="swiper-container ps__container__top">
-                <div class="swiper-wrapper ps__container__top__wp">
-                    @for ($i = 0; $i < 10; $i++)
-                        <div class="swiper-slide ps__container__top__item">
-                            <div class="product-hero-slider">
-                                <img class="img-fluid w-100" data-zoom-image="{!! Theme::asset()->url('images/product.jpg') !!}" src="{!! Theme::asset()->url('images/product.jpg') !!}" alt="Product Image"/>
-                            </div>
-                        </div>
-                    @endfor
-                </div>
+        <div class="productimg">
+            <div class="productimg__big">
+                <img id="product--img" class="w-100 img-fluid" alt="Product" src="{!! Theme::asset()->url('images/product.jpg') !!}" src="{!! Theme::asset()->url('images/product.jpg') !!}"/>
             </div>
-            <div class="swiper-container ps__container__thumb">
-                <div class="swiper-wrapper ps__container__thumb__wp">
-                    @for ($i = 0; $i < 10; $i++)
-                        <div class="swiper-slide ps__container__thumb__item">
-                            <div class="thumb-img">
-                                <img class="img-fluid product_image w-100" src="{!! Theme::asset()->url('images/product.jpg') !!}" alt="Product Image"/>
+            <div class="productimg__thumb">
+                <div class="swiper-container ps__container__thumb">
+                    <div class="swiper-wrapper ps__container__thumb__wp">
+                        @for ($i = 0; $i < 10; $i++)
+                            <div class="swiper-slide ps__container__thumb__item">
+                                <div class="thumb-img">
+                                    <img class="img-fluid product_image w-100" src="{!! Theme::asset()->url('images/product.jpg') !!}" alt="Product Image"/>
+                                </div>
                             </div>
-                        </div>
-                    @endfor
+                        @endfor
+                    </div>
+                    <div class="ps__container__button swiper-button-next"></div>
+                    <div class="ps__container__button swiper-button-prev"></div>
                 </div>
-
-                <div class="ps__container__button swiper-button-next"></div>
-                <div class="ps__container__button swiper-button-prev"></div>
             </div>
         </div>
     </div>
@@ -131,3 +124,33 @@
         </div>
     </div>
 </div>
+
+
+
+{{--<div class="product__info__slide">--}}
+{{--    <div class="swiper-container ps__container__top">--}}
+{{--        <div class="swiper-wrapper ps__container__top__wp">--}}
+{{--            @for ($i = 0; $i < 10; $i++)--}}
+{{--                <div class="swiper-slide ps__container__top__item">--}}
+{{--                    <div class="product-hero-slider">--}}
+{{--                        <img class="img-fluid w-100" data-zoom-image="{!! Theme::asset()->url('images/product.jpg') !!}" src="{!! Theme::asset()->url('images/product.jpg') !!}" alt="Product Image"/>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            @endfor--}}
+{{--        </div>--}}
+{{--    </div>--}}
+{{--    <div class="swiper-container ps__container__thumb">--}}
+{{--        <div class="swiper-wrapper ps__container__thumb__wp">--}}
+{{--            @for ($i = 0; $i < 10; $i++)--}}
+{{--                <div class="swiper-slide ps__container__thumb__item">--}}
+{{--                    <div class="thumb-img">--}}
+{{--                        <img class="img-fluid product_image w-100" src="{!! Theme::asset()->url('images/product.jpg') !!}" alt="Product Image"/>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            @endfor--}}
+{{--        </div>--}}
+
+{{--        <div class="ps__container__button swiper-button-next"></div>--}}
+{{--        <div class="ps__container__button swiper-button-prev"></div>--}}
+{{--    </div>--}}
+{{--</div>--}}

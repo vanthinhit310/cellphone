@@ -79,25 +79,15 @@ const Slide = {
     },
     productInfoSlide: function () {
         try {
-            if ($('.product__info__slide').length) {
+            if ($('.productimg__thumb').length) {
                 const psThumb = new Swiper(".ps__container__thumb", {
                     spaceBetween: 10,
                     speed: 600,
                     slidesPerView: 4,
                     freeMode: false,
-                    watchSlidesVisibility: true,
-                    watchSlidesProgress: true,
                     navigation: {
                         nextEl: ".ps__container__thumb .swiper-button-next",
                         prevEl: ".ps__container__thumb .swiper-button-prev",
-                    },
-                });
-                const psTop = new Swiper(".ps__container__top", {
-                    spaceBetween: 0,
-                    speed: 600,
-                    slidesPerView: 1,
-                    thumbs: {
-                        swiper: psThumb,
                     },
                 });
             }
