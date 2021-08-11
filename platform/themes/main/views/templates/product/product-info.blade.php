@@ -9,22 +9,22 @@
                     <div class="swiper-wrapper ps__container__thumb__wp">
                         <div class="swiper-slide ps__container__thumb__item">
                             <div class="thumb-img">
-                                <img class="img-fluid product_image w-100" src="{!! Theme::asset()->url('images/ps1.jpg') !!}" alt="Product Image"/>
+                                <img class="img-fluid product_thumb_image w-100" data-zoomimg="{!! Theme::asset()->url('images/pl1.jpg') !!}" src="{!! Theme::asset()->url('images/ps1.jpg') !!}" alt="Product Image"/>
                             </div>
                         </div>
                         <div class="swiper-slide ps__container__thumb__item">
                             <div class="thumb-img">
-                                <img class="img-fluid product_image w-100" src="{!! Theme::asset()->url('images/ps2.jpg') !!}" alt="Product Image"/>
+                                <img class="img-fluid product_thumb_image w-100" data-zoomimg="{!! Theme::asset()->url('images/pl2.jpg') !!}" src="{!! Theme::asset()->url('images/ps2.jpg') !!}" alt="Product Image"/>
                             </div>
                         </div>
                         <div class="swiper-slide ps__container__thumb__item">
                             <div class="thumb-img">
-                                <img class="img-fluid product_image w-100" src="{!! Theme::asset()->url('images/ps3.jpg') !!}" alt="Product Image"/>
+                                <img class="img-fluid product_thumb_image w-100" data-zoomimg="{!! Theme::asset()->url('images/pl3.jpg') !!}" src="{!! Theme::asset()->url('images/ps3.jpg') !!}" alt="Product Image"/>
                             </div>
                         </div>
                         <div class="swiper-slide ps__container__thumb__item">
                             <div class="thumb-img">
-                                <img class="img-fluid product_image w-100" src="{!! Theme::asset()->url('images/ps4.jpg') !!}" alt="Product Image"/>
+                                <img class="img-fluid product_thumb_image w-100" data-zoomimg="{!! Theme::asset()->url('images/pl4.jpg') !!}" src="{!! Theme::asset()->url('images/ps4.jpg') !!}" alt="Product Image"/>
                             </div>
                         </div>
                     </div>

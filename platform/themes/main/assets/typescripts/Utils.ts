@@ -107,6 +107,32 @@ const Utils = {
         } catch (e) {
             console.log(e.message)
         }
+    },
+    changeProductImage: function () {
+        try {
+            if ($('.product_thumb_image').length) {
+                $(document).on('click', '.product_thumb_image', function () {
+                    let orgImg = $('#product--img').attr('src');
+                    let imgZoom = $(this).data('zoomimg');
+
+                    if (orgImg !== imgZoom) {
+                        $('#product--img').attr('src', imgZoom);
+
+                        $.removeData($('#product--img'), 'elevateZoom');
+                        $('.zoomContainer:last-child').remove();
+                        $('#product--img').elevateZoom({
+                            cursor: 'crosshair',
+                            easing: true,
+                            gallery: 'pr_item_gallery',
+                            zoomType: 'inner',
+                            galleryActiveClass: 'active'
+                        });
+                    }
+                })
+            }
+        } catch (e) {
+            console.log(e.message)
+        }
     }
 };
 
@@ -117,4 +143,5 @@ $(document).ready(function () {
     Utils.initCountdown();
     Utils.stickyNDSection();
     Utils.zoomProductImage();
+    Utils.changeProductImage();
 });
