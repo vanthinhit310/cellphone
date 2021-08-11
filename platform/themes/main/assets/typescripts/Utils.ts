@@ -71,6 +71,15 @@ const Utils = {
             });
         });
     },
+    stickyNDSection: function () {
+        const stickyEl = new Sticksy('.sticky-widget', {
+            topSpacing: 80,
+        })
+        stickyEl.onStateChanged = function (state) {
+            if (state === 'fixed') stickyEl.nodeRef.classList.add('widget--sticky')
+            else stickyEl.nodeRef.classList.remove('widget--sticky')
+        }
+    }
 };
 
 $(document).ready(function () {
@@ -78,4 +87,5 @@ $(document).ready(function () {
     Utils.quantityControl();
     Utils.initSemantic();
     Utils.initCountdown();
+    Utils.stickyNDSection();
 });

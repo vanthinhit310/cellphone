@@ -51,32 +51,34 @@
                             </div>
                         </div>
                     </div>
-                    <div class="post__right">
-                        <div class="recents">
-                            <div class="news-section-title">
-                                <span>Bài viết mới cập nhật</span>
-                            </div>
-                            <div class="recents__list">
-                                @forelse (@$recents as $item)
-                                    <div class="recents__item">
-                                        <div class="recents__item--content">
-                                            <h3 class="font14 recents__item--title">
-                                                <a href="{{ @$item->url }}">
-                                                    {!! limit_text(@$item->name, 70) !!}
-                                                </a>
-                                            </h3>
-                                            <p class="recents__item--time font12"><i class="fal fa-clock"></i> {!! get_time_ago(@$item->created_at) !!}</p>
+                    <aside class="post__right">
+                        <div class="sticky-widget">
+                            <div class="recents">
+                                <div class="news-section-title">
+                                    <span>Bài viết mới cập nhật</span>
+                                </div>
+                                <div class="recents__list">
+                                    @forelse (@$recents as $item)
+                                        <div class="recents__item">
+                                            <div class="recents__item--content">
+                                                <h3 class="font14 recents__item--title">
+                                                    <a href="{{ @$item->url }}">
+                                                        {!! limit_text(@$item->name, 70) !!}
+                                                    </a>
+                                                </h3>
+                                                <p class="recents__item--time font12"><i class="fal fa-clock"></i> {!! get_time_ago(@$item->created_at) !!}</p>
+                                            </div>
+                                            <a class="recents__item--img" href="{{ @$item->url }}">
+                                                <img alt="{{ @$item->name }}" class="img-fluid w-100" src="{{ get_post_image(@$item->image, 'small') }}">
+                                            </a>
                                         </div>
-                                        <a class="recents__item--img" href="{{ @$item->url }}">
-                                            <img alt="{{ @$item->name }}" class="img-fluid w-100" src="{{ get_post_image(@$item->image, 'small') }}">
-                                        </a>
-                                    </div>
-                                @empty
+                                    @empty
 
-                                @endforelse
+                                    @endforelse
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </aside>
                 </div>
             </section>
         </div>

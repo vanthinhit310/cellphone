@@ -92,6 +92,7 @@ return [
             $theme->asset()->container('footer')->usePath()->add('momentjs', 'plugins/momentjs/moment.js', ['jquery']);
             $theme->asset()->container('footer')->usePath()->add('momenttz', 'plugins/momentjs/moment-timezone.js', ['jquery']);
             $theme->asset()->container('footer')->usePath()->add('countdown', 'js/jquery.countdown.min.js', ['jquery']);
+            $theme->asset()->container('footer')->usePath()->add('sticksy', 'js/sticksy.min.js', ['jquery']);
             /*$theme->asset()->container('footer')->usePath()->add('imagesloaded', 'js/imagesloaded.pkgd.min.js', ['jquery']);
             $theme->asset()->container('footer')->usePath()->add('isotope', 'js/isotope.min.js', ['jquery']);*/
 

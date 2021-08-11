@@ -8,9 +8,11 @@ use Platform\Blog\Models\Post;
 use Platform\Blog\Repositories\Interfaces\CategoryInterface;
 use Platform\Blog\Repositories\Interfaces\PostInterface;
 use Platform\Blog\Repositories\Interfaces\TagInterface;
+use Platform\SeoHelper\SeoOpenGraph;
 use Platform\Slug\Repositories\Interfaces\SlugInterface;
 use Theme;
 use SeoHelper;
+use RvMedia;
 
 class NewsController extends Controller
 {
@@ -64,10 +66,21 @@ class NewsController extends Controller
 
         Theme::breadcrumb()->add('Trang chủ', route('public.index'))->add('Tin tức', route('news.index'))->add($post->name, $post->url);
 
-        SeoHelper::setTitle(@$post->name)->setDescription(@$post->description);
+        SeoHelper::setTitle($post->name)->setDescription($post->description);
+
+        $meta = new SeoOpenGraph;
+        if ($post->image) {
+            $meta->setImage(RvMedia::getImageUrl($post->image));
+        }
+        $meta->setDescription($post->description);
+        $meta->setUrl($post->url);
+        $meta->setTitle($post->name);
+        $meta->setType('article');
+
+        SeoHelper::setSeoOpenGraph($meta);
 
         Helper::handleViewCount($post, 'viewed_post');
-        
+
         $data['post'] = $post;
         $data['relateds'] = $this->postRepository->getRelated($post->id, 6);
         $data['recents'] = $this->postRepository->getRecentPosts(6);
