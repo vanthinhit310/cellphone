@@ -3,7 +3,6 @@
         @foreach($categories as $category)
             <li class="menu__item has-sub-menu">
                 <a class="menu__item__link" href="{{ $category->url }}">
-                    <i class="{{ MetaBox::getMetaData($category, 'icon', true) }}"></i>
                     <span class="menu__item__link--text font12">
                         {{ $category->name }}
                     </span>
