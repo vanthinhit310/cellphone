@@ -1,22 +1,15 @@
 <div class="hot__sale">
     <div class="hot__sale__title">
         <div class="hot__sale__title--content falsh-title">
-            <span class="text gradient-title font20">Hot</span>
-            <span class="flash-gif">
-                <img alt="Falsh Gif" class="img-fluid" src="{{ Theme::asset()->url('images/flash.gif') }}">
-            </span>
-            <span class="text gradient-title font20">Sale</span>
-        </div>
-        <div class="hot__sale__title--countdown">
-            <div id="countdown" data-countdown="2022-08-02 00:00"></div>
+            <span class="text gradient-title font20">Sản phẩm mới</span>
         </div>
     </div>
     <div class="hot__sale__content">
         <div class="product__silde">
             <div class="swiper-container product__silde__container">
                 <div class="swiper-wrapper product__silde__wrapper">
-                    @if ($productHot->count() > 0)
-                        @foreach($productHot as $product)
+                    @if ($productNews->count() > 0)
+                        @foreach($productNews as $product)
                             <div class="swiper-slide">
                                 <div class="product__silde__item">
                                     <div class="product__silde__item__image">

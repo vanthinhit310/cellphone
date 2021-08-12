@@ -23,6 +23,9 @@
             <section class="home__sale box-shadown-sm mb-15 ">
                 @includeIf('theme.main::views.components.hot-sale-accessory', ['some' => 'data'])
             </section>
+            <section class="home__sale box-shadown-sm mb-15 ">
+                @includeIf('theme.main::views.components.news-product')
+            </section>
 
             <section class="brands mb-15">
                 @includeIf('theme.main::views.components.product-brand')
