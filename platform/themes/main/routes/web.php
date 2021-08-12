@@ -25,7 +25,7 @@ Theme::routes();
 Route::group(['namespace' => 'Theme\Main\Http\Controllers', 'middleware' => ['web', 'core']], function () {
     Route::group(apply_filters(BASE_FILTER_GROUP_PUBLIC_ROUTE, []), function () {
 
-        Route::get('/', 'MainController@getIndex')
+        Route::get('/', 'MainController@index')
             ->name('public.index');
 
         Route::get('sitemap.xml', 'MainController@getSiteMap')

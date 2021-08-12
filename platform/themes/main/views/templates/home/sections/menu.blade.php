@@ -1,73 +1,31 @@
 <div class="main-menu">
     <ul class="menu">
-        <li class="menu__item has-sub-menu">
-            <a class="menu__item__link" href="javascript:void(0);">
-                <span class="menu__item__link--text font12">
-                    Điện thoại
-                </span>
-                <span class="menu__item__link--icon"><i class="fal fa-chevron-right"></i></span>
-            </a>
-            <ul class="sub-list">
-                <li class="sub-list__item">
-                    <a class="sub-list__link" href="javascript:void(0);">
-                        <span class="menu__item__link--text font12">
-                            Samsung
-                        </span>
+        @foreach($categories as $category)
+            <li class="menu__item has-sub-menu">
+                <a class="menu__item__link" href="{{ $category->url }}">
+                    <i class="{{ MetaBox::getMetaData($category, 'icon', true) }}"></i>
+                    <span class="menu__item__link--text font12">
+                        {{ $category->name }}
+                    </span>
+                    @if ($category->children->count() > 0)
                         <span class="menu__item__link--icon"><i class="fal fa-chevron-right"></i></span>
-                    </a>
-                </li>
-                <li class="sub-list__item">
-                    <a class="sub-list__link" href="javascript:void(0);">
-                        <span class="menu__item__link--text font12">
-                            iPhone
-                        </span>
-                        <span class="menu__item__link--icon"><i class="fal fa-chevron-right"></i></span>
-                    </a>
-                </li>
-                <li class="sub-list__item">
-                    <a class="sub-list__link" href="javascript:void(0);">
-                        <span class="menu__item__link--text font12">
-                            Xiaomi
-                        </span>
-                        <span class="menu__item__link--icon"><i class="fal fa-chevron-right"></i></span>
-                    </a>
-                </li>
-            </ul>
-        </li>
-        <li class="menu__item has-sub-menu">
-            <a class="menu__item__link" href="javascript:void(0);">
-                <span class="menu__item__link--text font12">
-                    Laptop
-                </span>
-                <span class="menu__item__link--icon"><i class="fal fa-chevron-right"></i></span>
-            </a>
-            <ul class="sub-list">
-                <li class="sub-list__item">
-                    <a class="sub-list__link" href="javascript:void(0);">
-                        <span class="menu__item__link--text font12">
-                            Macbook
-                        </span>
-                        <span class="menu__item__link--icon"><i class="fal fa-chevron-right"></i></span>
-                    </a>
-                </li>
-                <li class="sub-list__item">
-                    <a class="sub-list__link" href="javascript:void(0);">
-                        <span class="menu__item__link--text font12">
-                            DELL
-                        </span>
-                        <span class="menu__item__link--icon"><i class="fal fa-chevron-right"></i></span>
-                    </a>
-                </li>
-                <li class="sub-list__item">
-                    <a class="sub-list__link" href="javascript:void(0);">
-                        <span class="menu__item__link--text font12">
-                            HP
-                        </span>
-                        <span class="menu__item__link--icon"><i class="fal fa-chevron-right"></i></span>
-                    </a>
-                </li>
-            </ul>
-        </li>
+                    @endif
+                </a>
+                @if ($category->children->count() > 0)
+                    <ul class="sub-list">
+                        @foreach($category->children as $childCategory)
+                            <li class="sub-list__item">
+                                <a class="sub-list__link" href="{{ $childCategory->url }}">
+                                    <span class="menu__item__link--text font12">
+                                        {{ $childCategory->name }}
+                                    </span>
+                                </a>
+                            </li>
+                        @endforeach
+                    </ul>
+                @endif
+            </li>
+        @endforeach
         <li class="menu__item">
             <a class="menu__item__link" href="javascript:void(0);">
                 <span class="menu__item__link--text font12">
