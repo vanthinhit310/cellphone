@@ -9,6 +9,7 @@ use Platform\Contact\Repositories\Interfaces\ContactInterface;
 use EmailHandler;
 use Exception;
 use Illuminate\Routing\Controller;
+use Throwable;
 
 class PublicController extends Controller
 {
@@ -29,7 +30,7 @@ class PublicController extends Controller
      * @param ContactRequest $request
      * @param BaseHttpResponse $response
      * @return BaseHttpResponse
-     * @throws \Throwable
+     * @throws Throwable
      */
     public function postSendContact(ContactRequest $request, BaseHttpResponse $response)
     {

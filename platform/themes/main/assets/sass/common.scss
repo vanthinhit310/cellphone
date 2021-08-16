@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+
+$primaryColor: var(--primary-color);
+//$primaryFont: var(--primary-font);
+$primaryFont: 'Roboto', sans-serif;
+
+@import "variables";
+@import "mixin";
+@import "config";
+@import "global";
+@import "fontsize";
+
+@import "partials/header";
+@import "partials/footer";
+
+@import "templates/home/index";
+@import "templates/product/index";
+@import "components/menu";
+@import "components/hot_sale";
+@import "components/brand";
+@import "components/category_product";
+@import "components/highlight_product";
+@import "components/category_box";
+@import "components/product_related";
+@import "templates/news/index";
+@import "templates/news/detail";

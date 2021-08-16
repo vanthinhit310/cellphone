@@ -2,6 +2,7 @@
 
 namespace Platform\Blog\Http\Controllers;
 
+use Illuminate\Http\RedirectResponse;
 use Platform\Blog\Models\Category;
 use Platform\Blog\Models\Post;
 use Platform\Blog\Models\Tag;
@@ -40,7 +41,7 @@ class PublicController extends Controller
     /**
      * @param string $slug
      * @param Request $request
-     * @return \Illuminate\Http\RedirectResponse|Response
+     * @return RedirectResponse|Response
      */
     public function getTag($slug, BlogService $blogService)
     {
@@ -63,7 +64,7 @@ class PublicController extends Controller
     /**
      * @param string $slug
      * @param BlogService $blogService
-     * @return \Illuminate\Http\RedirectResponse|Response
+     * @return RedirectResponse|Response
      */
     public function getPost($slug, BlogService $blogService)
     {
@@ -86,7 +87,7 @@ class PublicController extends Controller
     /**
      * @param string $slug
      * @param BlogService $blogService
-     * @return \Illuminate\Http\RedirectResponse|Response
+     * @return RedirectResponse|Response
      */
     public function getCategory($slug, BlogService $blogService)
     {

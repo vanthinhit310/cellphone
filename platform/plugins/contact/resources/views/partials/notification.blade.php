@@ -1,5 +1,5 @@
 <li class="dropdown dropdown-extended dropdown-inbox" id="header_inbox_bar">
-    <a href="javascript:;" class="dropdown-toggle dropdown-header-name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <a href="javascript:" class="dropdown-toggle dropdown-header-name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <i class="icon-envelope-open"></i>
         <span class="badge badge-default"> {{ count($contacts) }} </span>
     </a>

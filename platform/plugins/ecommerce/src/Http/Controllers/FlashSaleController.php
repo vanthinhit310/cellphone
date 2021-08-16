@@ -2,6 +2,8 @@
 
 namespace Platform\Ecommerce\Http\Controllers;
 
+use Illuminate\Contracts\View\Factory;
+use Illuminate\View\View;
 use Platform\Base\Events\BeforeEditContentEvent;
 use Platform\Ecommerce\Http\Requests\FlashSaleRequest;
 use Platform\Ecommerce\Models\FlashSale;
@@ -17,6 +19,7 @@ use Platform\Base\Http\Responses\BaseHttpResponse;
 use Platform\Ecommerce\Forms\FlashSaleForm;
 use Platform\Base\Forms\FormBuilder;
 use Illuminate\Support\Arr;
+use Throwable;
 
 class FlashSaleController extends BaseController
 {
@@ -35,8 +38,9 @@ class FlashSaleController extends BaseController
 
     /**
      * @param FlashSaleTable $table
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     * @throws \Throwable
+     *
+     * @return Factory|View
+     * @throws Throwable
      */
     public function index(FlashSaleTable $table)
     {

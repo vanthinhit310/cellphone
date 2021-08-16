@@ -45,7 +45,7 @@
                             @foreach(Cart::instance('cart')->content() as $key => $cartItem)
 
                                 @php
-                                    $product = $products->where('id', $cartItem->id)->first();
+                                    $product = $products->where('id', $cartItem->id)->first()
                                 @endphp
 
                                 @if(!empty($product))
@@ -329,7 +329,7 @@
                 @if (isset($products) && $products)
                     @foreach(Cart::instance('cart')->content() as $key => $cartItem)
                         @php
-                            $product = $products->where('id', $cartItem->id)->first();
+                            $product = $products->where('id', $cartItem->id)->first()
                         @endphp
                         @if(!empty($product))
                             <div class="row product-item">
@@ -344,7 +344,7 @@
                                     <p style="margin-bottom: 0">
                                         <small>
                                             @php
-                                                $attributes = get_product_attributes($product->id);
+                                                $attributes = get_product_attributes($product->id)
                                             @endphp
 
                                             @if (!empty($attributes))

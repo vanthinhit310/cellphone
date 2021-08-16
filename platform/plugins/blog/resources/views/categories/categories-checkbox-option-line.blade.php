@@ -2,7 +2,7 @@
 /**
  * @var string $value
  */
-$value = isset($value) ? (array)$value : [];
+$value = isset($value) ? (array)$value : []
 @endphp
 @if($categories)
     <ul>

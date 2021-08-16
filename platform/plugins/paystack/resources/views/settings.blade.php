@@ -1,4 +1,4 @@
-@php $paystackStatus = get_payment_setting('status', PAYSTACK_PAYMENT_METHOD_NAME); @endphp
+@php $paystackStatus = get_payment_setting('status', PAYSTACK_PAYMENT_METHOD_NAME) @endphp
 <table class="table payment-method-item">
     <tbody>
     <tr class="border-pay-row">

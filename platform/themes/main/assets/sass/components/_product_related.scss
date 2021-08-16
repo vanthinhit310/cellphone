@@ -1,0 +1,21 @@
+.p__related {
+    &__title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: $gray-opacity;
+        padding: 10px;
+
+        &--content {
+            display: inline-flex;
+            align-items: center;
+
+            h3 {
+                margin: 0;
+                font-weight: 700;
+                color: $black;
+                text-transform: uppercase;
+            }
+        }
+    }
+}

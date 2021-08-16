@@ -1,0 +1,234 @@
+.hot__sale {
+    &__title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: $gray-opacity;
+        padding: 10px;
+
+        &--content {
+            display: inline-flex;
+            align-items: center;
+
+            span {
+                display: block;
+                text-transform: uppercase;
+                font-weight: 700;
+            }
+
+            .flash-gif {
+                img {
+                    max-width: 20px;
+                }
+            }
+        }
+
+        &--countdown {
+            .countdown {
+                display: inline-flex;
+                align-items: center;
+
+                &__item {
+                    margin-right: 5px;
+
+                    &:last-child {
+                        margin: 0;
+                    }
+
+                    span {
+                        font-weight: 700;
+                    }
+
+                    &--span {
+                        background-color: $black;
+                        border-radius: 4px;
+                        padding: 2px 4px;
+                        font-weight: 700;
+                        font-size: 14px;
+                        color: $white;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.product__silde {
+    &__item {
+        cursor: pointer;
+        padding: 10px;
+        background-color: $white;
+        border: solid 1px $white;
+        transition: all linear .15s;
+
+        &__image {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            position: relative;
+            overflow: hidden;
+
+            a {
+                display: flex;
+                align-items: center;
+
+                img {
+                    transition: .3s;
+                }
+            }
+
+            &--sticker {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                left: 0;
+                top: 0;
+
+                .percent {
+                    background-image: url("../images/discount.png");
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 39px;
+                    height: 35px;
+                    overflow: hidden;
+                    font-weight: 700;
+                    color: $white;
+                    position: absolute;
+                    top: 0px;
+                    left: 0;
+                    padding: 0 0 5px;
+                    background-repeat: no-repeat;
+                    background-size: 100% 100%;
+                    background-position: center;
+                }
+
+                .flashsale {
+                    background-image: url("../images/fire.png");
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 40px;
+                    height: 50px;
+                    overflow: hidden;
+                    font-weight: 700;
+                    color: $white;
+                    line-height: 1.2;
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                    background-repeat: no-repeat;
+                    background-size: 100% 100%;
+                    background-position: center;
+                    text-transform: uppercase;
+                    font-size: 8px;
+                    padding: 20px 0 0;
+                    text-align: center;
+                }
+            }
+        }
+
+        &__box {
+            &--name {
+                margin-bottom: 10px;
+                display: block;
+
+                h3 {
+                    color: $black;
+                    font-weight: 700;
+                    margin: 0;
+                }
+            }
+
+            &--price {
+                display: inline-flex;
+                align-items: center;
+                margin-bottom: 10px;
+
+                .price {
+                    margin-bottom: 0;
+                    font-weight: 700;
+                    color: red;
+                    margin-right: 5px;
+                }
+
+                .strike-price {
+                    margin-bottom: 0;
+                    color: #716b6b;
+                    text-decoration: line-through;
+                }
+            }
+
+            &--rate {
+                display: inline-flex;
+                align-items: center;
+
+                svg, i {
+                    font-size: 12px;
+                    color: $text-color;
+                }
+
+                svg.checked, i.checked {
+                    color: orange;
+                }
+
+                .text {
+                    margin: 2px 0 0 5px;
+                }
+            }
+        }
+
+        &:hover {
+            border-radius: 2px;
+            border-color: $border;
+            box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+            transition: all linear .15s;
+
+            .product__silde__item__image {
+                a {
+                    img {
+                        transform: scale(1.04);
+                        transition: .3s;
+                    }
+                }
+            }
+        }
+    }
+
+    &__button {
+        width: 30px;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: $white;
+        box-shadow: 0 0 4px 0 rgba(0, 0, 0, .2);
+        color: #707070;
+        top: 45%;
+        transition: .3s;
+        outline: none;
+        opacity: .9;
+
+        &:after {
+            font-size: 12px;
+            font-weight: bold;
+        }
+    }
+
+    .swiper-button-next {
+        padding-left: 7px;
+        border-radius: 100px 0 0 100px;
+        right: 0;
+    }
+
+    .swiper-button-prev {
+        padding-right: 7px;
+        border-radius: 0 100px 100px 0;
+        left: 0;
+    }
+
+    .swiper-button-disabled {
+        opacity: 0;
+    }
+}

@@ -2,6 +2,7 @@
 
 namespace Platform\Ecommerce\Http\Controllers\Fronts;
 
+use Illuminate\Http\RedirectResponse;
 use Platform\Base\Enums\BaseStatusEnum;
 use Platform\Base\Http\Responses\BaseHttpResponse;
 use Platform\Base\Supports\Helper;
@@ -129,7 +130,7 @@ class PublicProductController
     }
 
     /**
-     * @return \Illuminate\Http\RedirectResponse|Response
+     * @return RedirectResponse|Response
      */
     public function getProduct($slug)
     {
@@ -208,7 +209,7 @@ class PublicProductController
      * @param string $slug
      * @param Request $request
      * @param ProductTagInterface $tagRepository
-     * @return \Illuminate\Http\RedirectResponse|Response
+     * @return RedirectResponse|Response
      */
     public function getProductTag($slug, Request $request, ProductTagInterface $tagRepository)
     {
@@ -283,7 +284,7 @@ class PublicProductController
      * @param Request $request
      * @param ProductCategoryInterface $categoryRepository
      * @param GetProductService $getProductService
-     * @return \Illuminate\Http\RedirectResponse|Response
+     * @return RedirectResponse|Response
      */
     public function getProductCategory(
         $slug,
@@ -464,7 +465,7 @@ class PublicProductController
      * @param string $slug
      * @param Request $request
      * @param GetProductService $getProductService
-     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|Response
+     * @return RedirectResponse|\Illuminate\Http\Response|Response
      */
     public function getBrand($slug, Request $request, GetProductService $getProductService)
     {

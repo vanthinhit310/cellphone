@@ -2,6 +2,7 @@
 
 namespace Platform\Captcha\Providers;
 
+use Illuminate\Contracts\Container\BindingResolutionException;
 use Platform\Base\Traits\LoadAndPublishDataTrait;
 use Platform\Captcha\Captcha;
 use Platform\Captcha\CaptchaV3;
@@ -11,6 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider;
+use Theme;
 
 class CaptchaServiceProvider extends ServiceProvider
 {
@@ -43,7 +45,7 @@ class CaptchaServiceProvider extends ServiceProvider
     }
 
     /**
-     * @throws \Illuminate\Contracts\Container\BindingResolutionException
+     * @throws BindingResolutionException
      */
     public function boot()
     {
@@ -55,7 +57,7 @@ class CaptchaServiceProvider extends ServiceProvider
         $this->bootValidator();
 
         if (defined('THEME_MODULE_SCREEN_NAME') && setting('captcha_hide_badge')) {
-            \Theme::asset()->writeStyle('hide-recaptcha-badge', '.grecaptcha-badge { visibility: hidden; }');
+            Theme::asset()->writeStyle('hide-recaptcha-badge', '.grecaptcha-badge { visibility: hidden; }');
         }
 
         $this->app->booted(function () {

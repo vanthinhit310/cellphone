@@ -1,4 +1,4 @@
-@php $razorpayStatus = get_payment_setting('status', RAZORPAY_PAYMENT_METHOD_NAME); @endphp
+@php $razorpayStatus = get_payment_setting('status', RAZORPAY_PAYMENT_METHOD_NAME) @endphp
 <table class="table payment-method-item">
     <tbody>
     <tr class="border-pay-row">

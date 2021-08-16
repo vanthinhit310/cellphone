@@ -2,6 +2,7 @@
 
 namespace Platform\Contact\Models;
 
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Platform\Base\Traits\EnumCastable;
 use Platform\Contact\Enums\ContactStatusEnum;
 use Platform\Base\Models\BaseModel;
@@ -50,7 +51,7 @@ class Contact extends BaseModel
     ];
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return HasMany
      */
     public function replies()
     {

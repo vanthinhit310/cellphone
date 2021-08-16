@@ -2,6 +2,7 @@
 
 namespace Platform\Ecommerce\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Platform\Base\Enums\BaseStatusEnum;
 use Platform\Base\Models\BaseModel;
 use Platform\Base\Traits\EnumCastable;
@@ -67,8 +68,8 @@ class FlashSale extends BaseModel
     }
 
     /**
-     * @param \Illuminate\Database\Eloquent\Builder $query
-     * @return \Illuminate\Database\Eloquent\Builder
+     * @param Builder $query
+     * @return Builder
      */
     public function scopeNotExpired($query)
     {
@@ -76,8 +77,8 @@ class FlashSale extends BaseModel
     }
 
     /**
-     * @param \Illuminate\Database\Eloquent\Builder $query
-     * @return \Illuminate\Database\Eloquent\Builder
+     * @param Builder $query
+     * @return Builder
      */
     public function scopeExpired($query)
     {

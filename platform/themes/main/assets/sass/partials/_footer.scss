@@ -1,0 +1,46 @@
+.footer{
+    padding: 15px 0;
+    background-color: $white;
+    border-top: solid 1px $border;
+
+    &__menu{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        &__item{
+            width: 100%;
+            max-width: calc(100% / 3);
+            padding: 10px 0 5px;
+            a{
+                line-height: 0;
+                display: flex;
+                align-items: center;
+                color: $text-color;
+                .icon{
+                    display: block;
+                    margin-right: 10px;
+                    font-size: 30px;
+                }
+
+                .text{
+                    font-size: 14px !important;
+                    display: block;
+                    font-weight: 700;
+                }
+            }
+        }
+    }
+
+}
+
+.copyright{
+    background-color: $gray-opacity;
+    padding: 10px 0;
+    span{
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

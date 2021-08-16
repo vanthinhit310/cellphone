@@ -3,6 +3,9 @@
 namespace Platform\Backup\Http\Controllers;
 
 use Assets;
+use Illuminate\Contracts\Filesystem\FileNotFoundException;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\View\View;
 use Platform\Backup\Http\Requests\BackupRequest;
 use Platform\Backup\Supports\Backup;
 use Platform\Base\Http\Controllers\BaseController;
@@ -12,6 +15,8 @@ use Exception;
 use Illuminate\Encryption\Encrypter;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
+use Throwable;
 
 class BackupController extends BaseController
 {
@@ -31,8 +36,8 @@ class BackupController extends BaseController
     }
 
     /**
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
+     * @return Factory|View
+     * @throws FileNotFoundException
      */
     public function getIndex()
     {
@@ -50,7 +55,7 @@ class BackupController extends BaseController
      * @param BackupRequest $request
      * @param BaseHttpResponse $response
      * @return BaseHttpResponse
-     * @throws \Throwable
+     * @throws Throwable
      */
     public function store(BackupRequest $request, BaseHttpResponse $response)
     {
@@ -123,7 +128,7 @@ class BackupController extends BaseController
 
     /**
      * @param string $folder
-     * @return \Symfony\Component\HttpFoundation\BinaryFileResponse|boolean
+     * @return BinaryFileResponse|boolean
      */
     public function getDownloadDatabase($folder)
     {
@@ -139,7 +144,7 @@ class BackupController extends BaseController
 
     /**
      * @param string $folder
-     * @return \Symfony\Component\HttpFoundation\BinaryFileResponse|boolean
+     * @return BinaryFileResponse|boolean
      */
     public function getDownloadUploadFolder($folder)
     {

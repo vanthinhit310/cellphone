@@ -2,6 +2,7 @@
 
 namespace Platform\Ecommerce\Models;
 
+use Eloquent;
 use Platform\Base\Supports\Avatar;
 use Platform\Ecommerce\Notifications\CustomerResetPassword;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -11,7 +12,7 @@ use Illuminate\Notifications\Notifiable;
 use RvMedia;
 
 /**
- * @mixin \Eloquent
+ * @mixin Eloquent
  */
 class Customer extends Authenticatable
 {

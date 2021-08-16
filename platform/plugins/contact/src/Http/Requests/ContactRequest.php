@@ -2,6 +2,7 @@
 
 namespace Platform\Contact\Http\Requests;
 
+use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Platform\Support\Http\Requests\Request;
 
 class ContactRequest extends Request
@@ -11,7 +12,7 @@ class ContactRequest extends Request
      *
      * @return array
      *
-     * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
+     * @throws FileNotFoundException
      */
     public function rules()
     {

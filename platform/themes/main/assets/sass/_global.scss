@@ -1,0 +1,52 @@
+.gradient-title {
+    color: #ef3f23;
+    background: -webkit-linear-gradient(left, #ef3f23, #ff8a00);
+    background: -o-linear-gradient(right, #ef3f23, #ff8a00);
+    background: -moz-linear-gradient(right, #ef3f23, #ff8a00);
+    background: linear-gradient(to right, #ef3f23, #ff8a00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.mb-15 {
+    margin-bottom: 15px;
+}
+
+.mt-15 {
+    margin-top: 15px;
+}
+
+.mr-15 {
+    margin-right: 15px;
+}
+
+.ml-15 {
+    margin-left: 15px;
+}
+
+.pt-15{
+    padding-top: 15px;
+}
+
+
+.btn {
+    width: calc(100% - 10px);
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2px;
+    font-size: 12px;
+    font-weight: 700;
+    text-align: center;
+    color: $white !important;
+    text-decoration: none;
+}
+
+.red-btn {
+    background-image: linear-gradient(to bottom, #f52f32, #d70018 50%);
+}
+
+.gray-btn {
+    background-image: linear-gradient(to bottom, rgba(108, 117, 125, .8), #6c757d 50%);
+}
