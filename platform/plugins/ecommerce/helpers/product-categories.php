@@ -38,7 +38,7 @@ if (!function_exists('get_product_categories')) {
 
         $categories = $categories
             ->orderBy('order', 'ASC')
-            ->orderBy('created_at', 'DESC')
+            ->orderBy('created_at', 'ASC')
             ->get();
 
         $categories = sort_item_with_children($categories);
