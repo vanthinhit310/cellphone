@@ -26,7 +26,7 @@
         "gulp-uglify": "^3.0.2",
         "jquery": "^3.5.1",
         "laravel-mix": "^6.0.11",
-        "lodash": "^4.17.20",
+        "lodash": "^4.17.21",
         "node-sass": "^6.0.1",
         "popper.js": "^1.16.1",
         "resolve-url-loader": "4.0.0",
@@ -40,8 +40,10 @@
         "@fullhuman/postcss-purgecss": "^4.0.0",
         "bootstrap-vue": "^2.21.1",
         "moment": "^2.29.1",
+        "nprogress": "^0.2.0",
         "postcss": "^8.2.4",
         "sanitize-html": "^1.27.5",
+        "vee-validate": "^3.4.13",
         "vue-router": "^3.5.2",
         "vue-template-compiler": "^2.6.12"
     }
