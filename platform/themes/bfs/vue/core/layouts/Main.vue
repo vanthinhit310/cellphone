@@ -1,23 +1,12 @@
 <template>
-    <section class="main h100">
+    <section class="main-wrapper">
         <router-view/>
     </section>
 </template>
 
 <script>
-import {mapGetters, mapMutations} from 'vuex';
 
 export default {
-    computed: {
-        ...mapGetters({
-            loading: 'common/getLoadingState',
-        }),
-    },
-    methods: {
-        ...mapMutations({
-            setLoadingState: 'common/setLoadingState',
-        }),
-    },
     mounted() {
     },
 };
