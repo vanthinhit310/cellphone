@@ -1,0 +1,37 @@
+.h100 {
+  height: 100%;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.5s;
+}
+
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
+
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.text-right {
+  text-align: right !important;
+}
+
+.ant-layout-header {
+  padding: 0 !important;
+  background: #ee4d2d !important;
+  height: 40px !important;
+  line-height: 40px !important;
+}
+
+.header-wrapper .ant-btn-link {
+  color: #FFF !important;
+}

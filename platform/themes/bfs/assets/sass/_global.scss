@@ -1,0 +1,27 @@
+.h100 {
+    height: 100%;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.fade-enter-active, .fade-leave-active {
+    transition: opacity 0.5s;
+}
+
+.fade-enter, .fade-leave-to {
+    opacity: 0;
+}
+
+
+.container {
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.text-right{
+    text-align: right !important;
+}
