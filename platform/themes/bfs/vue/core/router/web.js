@@ -7,7 +7,6 @@ let moduleRouters = [];
 files.keys().forEach(key => {
     const name = _.join(_.pull(key.split("/"), "."), "/");
     moduleRouters = [...moduleRouters, ...require(`@modules/${name}`).default];
-    console.log(moduleRouters);
 
 });
 

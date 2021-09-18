@@ -23,7 +23,7 @@
                         <a-space>
                             <a href="javascript:void(0);">
                                 <a-icon type="environment" />
-                                Tìm cửa hàng
+                                Cửa hàng
                             </a>
                         </a-space>
                     </a-col>
