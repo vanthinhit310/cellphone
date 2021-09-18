@@ -1,32 +1,33 @@
 <template>
     <section class="product-categories">
         <div class="container">
-            <div class="categories-content">
-                <template v-if="categories.length">
-                    <div class="section-header">
-                        Danh mục
-                    </div>
-                    <VueSlickCarousel v-bind="settings">
-                        <div v-for="(item, index) in categories" :key="index" class="category-item">
-                            <a href="javascript:void(0);">
-                                <span class="image">
-                                    <img alt="Category" class="img-fluid" :src="_.get(item, 'image')"/>
-                                </span>
-                                <span class="name">{{ _.get(item, "name") }}</span>
-                            </a>
-                        </div>
-                    </VueSlickCarousel>
-                </template>
-                <template v-else>
-                    <a-empty></a-empty>
-                </template>
-            </div>
+            <a-spin :spinning="processing">
+                <a-icon slot="indicator" type="loading" style="font-size: 24px" spin />
+                <div class="categories-content">
+                    <template v-if="categories.length">
+                        <div class="section-header">Danh mục</div>
+                        <VueSlickCarousel v-bind="settings">
+                            <div v-for="(item, index) in categories" :key="index" class="category-item">
+                                <a href="javascript:void(0);">
+                                    <span class="image">
+                                        <img alt="Category" class="img-fluid" :src="_.get(item, 'image')" />
+                                    </span>
+                                    <span class="name">{{ _.get(item, "name") }}</span>
+                                </a>
+                            </div>
+                        </VueSlickCarousel>
+                    </template>
+                    <template v-else>
+                        <a-empty></a-empty>
+                    </template>
+                </div>
+            </a-spin>
         </div>
     </section>
 </template>
 
 <script>
-import {mapActions} from "vuex";
+import { mapActions } from "vuex";
 import VueSlickCarousel from "vue-slick-carousel";
 import "vue-slick-carousel/dist/vue-slick-carousel.css";
 import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
@@ -40,12 +41,12 @@ export default {
         return {
             settings: {
                 arrows: true,
-                infinite: true,
+                infinite: false,
                 slidesToShow: 10,
                 speed: 500,
                 rows: 2,
                 slidesPerRow: 1,
-                touchMove: false,
+                touchMove: true,
                 draggable: false
             },
             categories: [],
