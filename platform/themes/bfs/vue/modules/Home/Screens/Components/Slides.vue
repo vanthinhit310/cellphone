@@ -3,7 +3,7 @@
         <a-spin :spinning="processing">
             <a-icon slot="indicator" type="loading" style="font-size: 24px" spin/>
             <template v-if="slides.length">
-                <VueSlickCarousel :autoplaySpeed="4000" :speed="800" :autoplay="true" :touchMove="false" :draggable="false" :arrows="true" :dots="true">
+                <VueSlickCarousel :autoplaySpeed="6000" :speed="800" :autoplay="true" :touchMove="false" :draggable="false" :arrows="true" :dots="true">
                     <div v-for="(item, index) in slides" :key="index" class="slide-item">
                         <a class="d-block" :href="_.get(item, 'link', 'javascript:void(0);')">
                             <img class="img-fluid w-100 d-block" alt="Slide" :src="_.get(item, 'image', '')">
