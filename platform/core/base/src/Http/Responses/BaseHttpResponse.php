@@ -29,12 +29,12 @@ class BaseHttpResponse implements Responsable
     /**
      * @var string
      */
-    protected $previousUrl = '';
+    protected $previousUrl = 'api';
 
     /**
      * @var string
      */
-    protected $nextUrl = '';
+    protected $nextUrl = 'api';
 
     /**
      * @var bool
