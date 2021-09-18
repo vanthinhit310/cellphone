@@ -23229,7 +23229,7 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
 
 .home-wrapper .home-slide {
   background: #FFF;
-  padding: 20px 0;
+  padding: 25px 0 20px;
 }
 .home-wrapper .slick-slider {
   position: relative;
@@ -23258,11 +23258,22 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
 .home-wrapper .banner-image {
   margin-left: 6px;
 }
+@media only screen and (max-width: 992px) {
+  .home-wrapper .banner-image {
+    margin-left: 0;
+  }
+}
 .home-wrapper .banner-image a:last-child {
   margin-top: 3.5px;
 }
+@media only screen and (max-width: 992px) {
+  .home-wrapper .banner-image a:last-child {
+    margin-top: 6px;
+  }
+}
 .home-wrapper .product-categories {
-  margin-top: 20px;
+  padding: 20px 0;
+  background: #f5f5f5;
 }
 .home-wrapper .product-categories .categories-content {
   background: #FFF;

@@ -1,6 +1,6 @@
 <template>
     <section class="main-wrapper">
-        <a-layout :style="{ background: '#f5f5f5' }">
+        <a-layout :style="{ background: '#fff' }">
             <a-layout-header
                 :style="{ position: 'fixed', zIndex: 20, width: '100%' }"
             >

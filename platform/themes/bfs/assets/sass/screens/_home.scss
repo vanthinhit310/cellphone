@@ -1,7 +1,7 @@
 .home-wrapper {
     .home-slide {
         background: $--white;
-        padding: 20px 0;
+        padding: 25px 0 20px;
     }
     .slick-slider {
         position: relative;
@@ -36,15 +36,22 @@
 
     .banner-image {
         margin-left: 6px;
+        @include maxWidth(992px) {
+            margin-left: 0;
+        }
         a {
             &:last-child {
                 margin-top: 3.5px;
+                @include maxWidth(992px) {
+                    margin-top: 6px;
+                }
             }
         }
     }
 
     .product-categories {
-        margin-top: 20px;
+        padding: 20px 0;
+        background: $--background-color;
         .categories-content {
             background: $--white;
 
@@ -54,16 +61,15 @@
                 .slick-prev {
                     z-index: 1;
                     left: -10px !important;
-                    &:before{
+                    &:before {
                         color: $--primary-color;
                     }
-
                 }
 
                 .slick-next {
                     right: -10px !important;
                     z-index: 1;
-                    &:before{
+                    &:before {
                         color: $--primary-color;
                     }
                 }
@@ -82,22 +88,22 @@
                     display: block;
                     text-align: center;
                 }
-                .image{
-                    img{
+                .image {
+                    img {
                         max-width: 80%;
                         display: block;
                         margin: 0 auto;
                     }
                 }
-                .name{
+                .name {
                     margin-top: 7px;
                     font-size: 14px;
                     text-transform: capitalize;
                 }
 
-                &:hover{
+                &:hover {
                     box-shadow: 0 0 0.8125rem 0 rgb(0 0 0 / 5%);
-                    border-color: rgba(0,0,0,.12);
+                    border-color: rgba(0, 0, 0, 0.12);
                 }
             }
         }
