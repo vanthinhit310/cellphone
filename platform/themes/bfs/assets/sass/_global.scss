@@ -16,8 +16,9 @@
 
 
 .container {
-    margin-right: auto;
-    margin-left: auto;
+    margin: 0 auto;
+    padding-left: 15px;
+    padding-right: 15px;
     width: 100%;
     max-width: 1200px;
 }
@@ -28,4 +29,21 @@
 
 .primary-bg{
     background-color: $--primary-color;
+}
+
+.img-fluid{
+    width: 100%;
+    height: auto;
+}
+
+.d-block{
+    display: block !important;
+}
+
+.d-flex{
+    display: flex !important;
+}
+
+.justify-content-end{
+    justify-content: flex-end;
 }

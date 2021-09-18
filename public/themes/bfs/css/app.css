@@ -23169,8 +23169,9 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
 }
 
 .container {
-  margin-right: auto;
-  margin-left: auto;
+  margin: 0 auto;
+  padding-left: 15px;
+  padding-right: 15px;
   width: 100%;
   max-width: 1200px;
 }
@@ -23183,6 +23184,23 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
   background-color: #ee4d2d;
 }
 
+.img-fluid {
+  width: 100%;
+  height: auto;
+}
+
+.d-block {
+  display: block !important;
+}
+
+.d-flex {
+  display: flex !important;
+}
+
+.justify-content-end {
+  justify-content: flex-end;
+}
+
 .ant-layout-header {
   padding: 0 !important;
   height: 40px !important;
@@ -23191,4 +23209,10 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
 
 .header-wrapper .ant-btn-link {
   color: #FFF !important;
+}
+.header-wrapper a {
+  color: #FFF !important;
+}
+.header-wrapper .bottom-header {
+  padding: 10px 0;
 }

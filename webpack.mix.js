@@ -28,6 +28,7 @@ mix.setPublicPath("public")
             javascriptEnabled: true,
         },
     })
+    .copyDirectory('platform/themes/bfs/assets/images', 'public/themes/bfs/images')
     .vue();
 
 // mix.disableNotifications();

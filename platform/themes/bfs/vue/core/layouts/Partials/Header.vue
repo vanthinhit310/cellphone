@@ -3,24 +3,24 @@
         <div class="top-header">
             <div class="container">
                 <a-row type="flex" justify="space-between">
-                    <a-col :span="12">
-                        <a-space :size="5">
-                            <a-button type="link" size="small">
-                                <a-icon type="facebook" />
+                    <a-col :xs="{span:14}" :lg="{span:12}">
+                        <a-space :size="10">
+                            <a href="javascript:void(0);">
+                                <a-icon type="facebook"/>
                                 Facebook
-                            </a-button>
-                            <a-button type="link" size="small">
-                                <a-icon type="instagram" />
+                            </a>
+                            <a href="javascript:void(0);">
+                                <a-icon type="instagram"/>
                                 Instagram
-                            </a-button>
+                            </a>
                         </a-space>
                     </a-col>
-                    <a-col class="text-right" :span="12">
-                        <a-space :size="5">
-                            <a-button type="link" size="small">
-                                <a-icon type="environment" />
+                    <a-col class="text-right" :xs="{span:10}" :lg="{span: 12}">
+                        <a-space>
+                            <a href="javascript:void(0);">
+                                <a-icon type="environment"/>
                                 Tìm cửa hàng
-                            </a-button>
+                            </a>
                         </a-space>
                     </a-col>
                 </a-row>
@@ -29,39 +29,26 @@
         <div class="bottom-header primary-bg">
             <div class="container">
                 <div class="bottom-header-content">
-                    <a-row>
-                        <a-col
-                            :xs="{ span: 5, offset: 1 }"
-                            :lg="{ span: 3, offset: 1 }"
-                        >
+                    <a-row type="flex" justify="space-between" align="bottom">
+                        <a-col :xs="{span: 8, offset: 0}" :md="{span: 5, offset: 0}" :lg="{span: 3, offset: 0}">
                             <div class="main-logo">
-                                <a-button type="link" size="small">
-                                    <img alt="Logo" src="logo_white.png" />
-                                </a-button>
+                                <a class="d-block" href="javascript:void(0);">
+                                    <img alt="Logo" class="img-fluid" src="/themes/bfs/images/logo.png">
+                                </a>
                             </div>
                         </a-col>
-                        <a-col
-                            :xs="{ span: 11, offset: 1 }"
-                            :lg="{ span: 15, offset: 1 }"
-                        >
-                            <div class="search-bar"></div>
+                        <a-col :xs="{span: 0, offset: 0}" :lg="{span: 18, offset: 1}">
+                            <div class="search-bar">
+                                <a-input-search size="large" placeholder="search anything..." class="w-100" @search="onSearch" />
+                            </div>
                         </a-col>
-                        <a-col
-                            :xs="{ span: 5, offset: 1 }"
-                            :lg="{ span: 3, offset: 1 }"
-                        >
+                        <a-col :xs="{span: 11, offset: 1}" :lg="{span: 1, offset: 1}">
                             <div class="cart-icon text-right">
-                                <a-button type="link" size="small">
+                                <a class="d-flex justify-content-end" href="javascript:void(0);">
                                     <a-badge :count="0" show-zero>
-                                        <a-icon
-                                            :style="{
-                                                fontSize: '25px',
-                                                color: '#fff',
-                                            }"
-                                            type="shopping"
-                                        />
+                                        <a-icon :style="{fontSize: '35px', color: '#fff' }" type="shopping"/>
                                     </a-badge>
-                                </a-button>
+                                </a>
                             </div>
                         </a-col>
                     </a-row>
@@ -72,7 +59,15 @@
 </template>
 
 <script>
-export default {};
+export default {
+    methods: {
+        onSearch(value) {
+            console.log(value);
+        },
+    },
+}
 </script>
 
-<style scoped></style>
+<style scoped>
+
+</style>
