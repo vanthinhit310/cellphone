@@ -30,16 +30,16 @@
             <div class="container">
                 <div class="bottom-header-content">
                     <a-row type="flex" justify="space-between" align="bottom">
-                        <a-col :xs="{span: 8, offset: 0}" :md="{span: 5, offset: 0}" :lg="{span: 3, offset: 0}">
+                        <a-col flex="140px">
                             <div class="main-logo">
                                 <a class="d-block" href="javascript:void(0);">
                                     <img alt="Logo" class="img-fluid" src="/themes/bfs/images/logo.png">
                                 </a>
                             </div>
                         </a-col>
-                        <a-col :xs="{span: 0, offset: 0}" :lg="{span: 18, offset: 1}">
+                        <a-col :xs="{span: 0, offset: 0}" :lg="{span: 17, offset: 1}">
                             <div class="search-bar">
-                                <a-input-search size="large" placeholder="search anything..." class="w-100" @search="onSearch" />
+                                <a-input-search size="large" placeholder="Bạn muốn tìm gì?" class="w-100" @search="onSearch" />
                             </div>
                         </a-col>
                         <a-col :xs="{span: 11, offset: 1}" :lg="{span: 1, offset: 1}">
