@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Theme\Bfs\Http\Controllers\Apis\ProductCategoryController;
 use Theme\Bfs\Http\Controllers\Apis\SlideController;
 
 Route::group([
@@ -9,4 +10,5 @@ Route::group([
     'namespace' => 'Theme\Bfs\Http\Controllers\Apis'
 ], function () {
     Route::get('get-slides', [SlideController::class, 'getSlides']);
+    Route::get('product-categories', [ProductCategoryController::class, 'getCategories']);
 });

@@ -1,0 +1,78 @@
+<template>
+    <section class="product-categories">
+        <div class="container">
+            <div class="categories-content">
+                <template v-if="categories.length">
+                    <div class="section-header">
+                        Danh mục
+                    </div>
+                    <VueSlickCarousel v-bind="settings">
+                        <div v-for="(item, index) in categories" :key="index" class="category-item">
+                            <a href="javascript:void(0);">
+                                <span class="image">
+                                    <img alt="Category" class="img-fluid" :src="_.get(item, 'image')"/>
+                                </span>
+                                <span class="name">{{ _.get(item, "name") }}</span>
+                            </a>
+                        </div>
+                    </VueSlickCarousel>
+                </template>
+                <template v-else>
+                    <a-empty></a-empty>
+                </template>
+            </div>
+        </div>
+    </section>
+</template>
+
+<script>
+import {mapActions} from "vuex";
+import VueSlickCarousel from "vue-slick-carousel";
+import "vue-slick-carousel/dist/vue-slick-carousel.css";
+import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
+
+export default {
+    components: {
+        VueSlickCarousel
+    },
+    name: "ProductCategories",
+    data() {
+        return {
+            settings: {
+                arrows: true,
+                infinite: true,
+                slidesToShow: 10,
+                speed: 500,
+                rows: 2,
+                slidesPerRow: 1,
+                touchMove: false,
+                draggable: false
+            },
+            categories: [],
+            processing: false,
+            error: ""
+        };
+    },
+    mounted() {
+        this.fetchProductCategories();
+    },
+    methods: {
+        ...mapActions("home", ["getProductCategories"]),
+        async fetchProductCategories() {
+            try {
+                this.processing = true;
+                const response = await this.getProductCategories();
+                const categories = _.get(response, "categories", []);
+                if (!!categories) {
+                    this.categories = categories;
+                }
+            } catch (e) {
+                console.log(e.message);
+            }
+            this.processing = false;
+        }
+    }
+};
+</script>
+
+<style scoped></style>
