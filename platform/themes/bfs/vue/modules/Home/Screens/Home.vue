@@ -3,10 +3,10 @@
         <div class="container">
             <a-row :gutter="16">
                 <a-col :span="16">
-                    <Slides></Slides>
+                    <Slides />
                 </a-col>
                 <a-col :span="8">
-                    <BannerImage></BannerImage>
+                    <BannerImage />
                 </a-col>
             </a-row>
         </div>
@@ -19,11 +19,10 @@ import BannerImage from "./Components/BannerImage";
 
 export default {
     components: {
-        Slides, BannerImage
+        Slides,
+        BannerImage,
     },
-}
+};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
