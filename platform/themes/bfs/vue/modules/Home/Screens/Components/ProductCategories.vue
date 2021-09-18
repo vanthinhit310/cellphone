@@ -43,11 +43,49 @@ export default {
                 arrows: true,
                 infinite: false,
                 slidesToShow: 10,
+                slidesToScroll: 10,
                 speed: 500,
                 rows: 2,
                 slidesPerRow: 1,
                 touchMove: true,
-                draggable: false
+                draggable: false,
+                responsive: [
+                    {
+                        breakpoint: 1200,
+                        settings: {
+                            slidesToShow: 8,
+                            slidesToScroll: 8,
+                        }
+                    },
+                    {
+                        breakpoint: 991,
+                        settings: {
+                            slidesToShow: 8,
+                            slidesToScroll: 8,
+                        }
+                    },
+                    {
+                        breakpoint: 767,
+                        settings: {
+                            slidesToShow: 6,
+                            slidesToScroll: 6,
+                        }
+                    },
+                    {
+                        breakpoint: 480,
+                        settings: {
+                            slidesToShow: 4,
+                            slidesToScroll: 4,
+                        }
+                    },
+                    {
+                        breakpoint: 414,
+                        settings: {
+                            slidesToShow: 3,
+                            slidesToScroll: 3,
+                        }
+                    },
+                ]
             },
             categories: [],
             processing: false,
