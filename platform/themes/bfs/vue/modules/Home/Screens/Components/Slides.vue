@@ -27,7 +27,24 @@
 
 <script>
 export default {
-
+    data() {
+        return {
+            processing: false,
+            slides: [],
+            error: ''
+        }
+    },
+    methods: {
+        fetchSlides() {
+            let self = this;
+            try {
+                self.processing = true;
+            }catch (e) {
+                console.log(e.message)
+            }
+            self.processing = false;
+        }
+    },
 };
 </script>
 

@@ -8,6 +8,7 @@ use Platform\Base\Enums\BaseStatusEnum;
 use Platform\Base\Http\Responses\BaseHttpResponse;
 use Platform\SimpleSlider\Repositories\Interfaces\SimpleSliderInterface;
 use Symfony\Component\HttpFoundation\Response;
+use Theme\Bfs\Http\Resources\Apis\SlideResource;
 
 class SlideController extends Controller
 {
@@ -31,7 +32,7 @@ class SlideController extends Controller
             'status' => BaseStatusEnum::PUBLISHED,
         ])->sliderItems;
 
-        return response()->json($data ?? [])->setStatusCode(Response::HTTP_OK);
+        return response()->json(SlideResource::collection($data), Response::HTTP_OK);
     }
 
 }

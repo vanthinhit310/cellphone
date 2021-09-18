@@ -7,16 +7,16 @@ import app from "@core/app.js";
 // Declare a Map to store the identification and cancellation functions for each request
 const pending = new Map();
 
-const addPending = config => {
+const addPending = (config) => {
     const url = [
         config.method,
         config.url,
         qs.stringify(config.params),
-        qs.stringify(config.data)
+        qs.stringify(config.data),
     ].join("&");
     config.cancelToken =
         config.cancelToken ||
-        new axios.CancelToken(cancel => {
+        new axios.CancelToken((cancel) => {
             if (!pending.has(url)) {
                 // If the current request does not exist in pending, add it
                 pending.set(url, cancel);
@@ -24,12 +24,12 @@ const addPending = config => {
         });
 };
 
-const removePending = config => {
+const removePending = (config) => {
     const url = [
         config.method,
         config.url,
         qs.stringify(config.params),
-        qs.stringify(config.data)
+        qs.stringify(config.data),
     ].join("&");
     if (pending.has(url)) {
         // If the current request identity exists in pending, you need to cancel the current request and remove it
@@ -50,26 +50,27 @@ export const clearPending = () => {
 const axiosClient = axios.create({
     baseURL: "/api/v1/",
     headers: { "content-type": "application/json" },
-    paramsSerializer: params => queryString.stringify(params)
+    paramsSerializer: (params) => queryString.stringify(params),
 });
 axiosClient.interceptors.request.use(
-    async config => {
-        removePending(config); // Check previous requests to cancel before the request starts
-        addPending(config); // Add current request to pending
-        config.headers["Authorization"] = `Bearer ${localStorage.getItem(
-            "accessToken"
-        )}`;
-        return {
-            ...config
-        };
+    async (config) => {
+        // Check previous requests to cancel before the request starts
+        removePending(config);
+
+        // Add current request to pending
+        addPending(config);
+
+        // config.headers["Authorization"] = `Bearer ${localStorage.getItem("accessToken")}`;
+
+        return { ...config };
     },
-    error => {
+    (error) => {
         return Promise.reject(error);
     }
 );
 
 axiosClient.interceptors.response.use(
-    response => {
+    (response) => {
         removePending(response.config);
         if (response && response.data) {
             const message = _.get(response, "data.message");
@@ -78,25 +79,25 @@ axiosClient.interceptors.response.use(
                     title: "Notification System",
                     message: message,
                     type: "success",
-                    duration : 5000
+                    duration: 5000,
                 });
             }
             return response.data;
         }
         return response;
     },
-    error => {
+    (error) => {
         removePending(error.response.config);
         if (!!error.response) {
             const status = _.get(error, "response.status", 400);
             const message = _.get(error, "response.data.message", "");
             switch (status) {
-                case 401:
+                /*case 401:
                     if (!localStorage.getItem("accessToken")) break;
 
                     app.$notify.error({
                         title: "Notification System",
-                        message: message
+                        message: message,
                     });
 
                     localStorage.setItem("accessToken", "");
@@ -108,16 +109,16 @@ axiosClient.interceptors.response.use(
                     app.$router.push({ name: "dashboard" });
                     app.$notify.error({
                         title: "Notification System",
-                        message: message
+                        message: message,
                     });
-                    break;
+                    break;*/
 
                 case 422:
                     const errors = _.get(error, "response.data.errors", "");
                     if (!!message)
                         app.$notify.error({
                             title: "Notification System",
-                            message: message
+                            message: message,
                         });
 
                     if (!!errors)
@@ -125,14 +126,14 @@ axiosClient.interceptors.response.use(
                             title: "Notification System",
                             message:
                                 Object.values(errors)[0][0] ||
-                                "Validator errors!"
+                                "Validator errors!",
                         });
                     break;
 
                 default:
                     app.$notify.error({
                         title: "Notification System",
-                        message: message
+                        message: message,
                     });
                     break;
             }
