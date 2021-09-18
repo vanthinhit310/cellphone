@@ -1,11 +1,11 @@
 <template>
     <section class="home-wrapper">
         <div class="container">
-            <a-row :gutter="16">
-                <a-col :span="16">
+            <a-row type="flex" justify="center">
+                <a-col class="gutter-row" :span="16">
                     <Slides />
                 </a-col>
-                <a-col :span="8">
+                <a-col class="gutter-row" :span="8">
                     <BannerImage />
                 </a-col>
             </a-row>

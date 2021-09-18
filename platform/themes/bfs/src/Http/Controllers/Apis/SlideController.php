@@ -32,7 +32,9 @@ class SlideController extends Controller
             'status' => BaseStatusEnum::PUBLISHED,
         ])->sliderItems;
 
-        return response()->json(SlideResource::collection($data), Response::HTTP_OK);
+        return response()->json([
+            "slides" => SlideResource::collection($data)
+        ], Response::HTTP_OK);
     }
 
 }

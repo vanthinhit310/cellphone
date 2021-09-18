@@ -1,0 +1,41 @@
+.home-wrapper{
+    .slick-slider {
+        position: relative;
+
+        .slick-prev {
+            z-index: 1;
+            left: 15px !important;
+        }
+
+        .slick-next {
+            right: 15px !important;
+            z-index: 1;
+        }
+
+        .slick-dots {
+            bottom: 15px !important;
+            li{
+                width: 10px;
+                height: 10px;
+
+                button:before{
+                    font-size: 10px;
+                }
+            }
+            li.slick-active{
+                button:before{
+                    color: $--primary-color;
+                }
+            }
+        }
+    }
+
+    .banner-image{
+        margin-left: 6px;
+        a{
+            &:last-child{
+                margin-top: 3.5px;
+            }
+        }
+    }
+}

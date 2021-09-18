@@ -23216,3 +23216,34 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
 .header-wrapper .bottom-header {
   padding: 10px 0;
 }
+
+.home-wrapper .slick-slider {
+  position: relative;
+}
+.home-wrapper .slick-slider .slick-prev {
+  z-index: 1;
+  left: 15px !important;
+}
+.home-wrapper .slick-slider .slick-next {
+  right: 15px !important;
+  z-index: 1;
+}
+.home-wrapper .slick-slider .slick-dots {
+  bottom: 15px !important;
+}
+.home-wrapper .slick-slider .slick-dots li {
+  width: 10px;
+  height: 10px;
+}
+.home-wrapper .slick-slider .slick-dots li button:before {
+  font-size: 10px;
+}
+.home-wrapper .slick-slider .slick-dots li.slick-active button:before {
+  color: #ee4d2d;
+}
+.home-wrapper .banner-image {
+  margin-left: 6px;
+}
+.home-wrapper .banner-image a:last-child {
+  margin-top: 3.5px;
+}
