@@ -13,6 +13,7 @@
             <!--                Footer-->
             <!--            </a-layout-footer>-->
         </a-layout>
+        <a-back-top />
     </section>
 </template>
 

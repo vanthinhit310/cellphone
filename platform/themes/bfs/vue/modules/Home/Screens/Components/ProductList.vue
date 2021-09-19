@@ -5,7 +5,7 @@
                 <a-icon slot="indicator" type="loading" style="font-size: 24px" spin />
                 <div class="product-list-content">
                     <template v-if="products.length">
-                        <div class="section-header">Tất cả sản phẩm</div>
+                        <div class="section-header-underline">Danh sách sản phẩm</div>
                         <div class="products">
                             <a-row :gutter="[10, 10]">
                                 <a-col v-for="(item, index) in products" :key="index" :xs="{ span: 12 }" :md="{ span: 6 }" :lg="{ span: 4 }">
