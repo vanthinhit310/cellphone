@@ -4,6 +4,7 @@
         <ProductCategories />
         <SellingProducts />
         <FeaturedProducts />
+        <ProductList />
     </section>
 </template>
 
@@ -12,13 +13,15 @@ import TopSlide from "./Components/TopSlide";
 import ProductCategories from "./Components/ProductCategories";
 import FeaturedProducts from "./Components/FeaturedProducts";
 import SellingProducts from "./Components/SellingProducts";
+import ProductList from "./Components/ProductList";
 
 export default {
     components: {
         TopSlide,
         ProductCategories,
         FeaturedProducts,
-        SellingProducts
+        SellingProducts,
+        ProductList
     }
 };
 </script>

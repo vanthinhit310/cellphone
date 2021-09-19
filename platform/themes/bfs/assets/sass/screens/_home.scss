@@ -358,3 +358,12 @@
         transition: transform linear .25s;
     }
 }
+
+.product-list{
+    padding: 0 0 20px;
+    background: $--background-color;
+
+    .product-list-content{
+        background: $--white;
+    }
+}

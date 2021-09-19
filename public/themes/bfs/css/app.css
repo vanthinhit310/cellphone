@@ -23534,3 +23534,11 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
   box-shadow: rgba(0, 0, 0, 0.1) 0 0 20px;
   transition: transform linear 0.25s;
 }
+
+.product-list {
+  padding: 0 0 20px;
+  background: #f5f5f5;
+}
+.product-list .product-list-content {
+  background: #FFF;
+}
