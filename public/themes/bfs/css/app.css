@@ -23360,6 +23360,12 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
   color: #38383d;
   transition: transform linear 0.25s;
 }
+.product-item .ant-rate {
+  font-size: 10px;
+}
+.product-item .ant-rate .ant-rate-star:not(:last-child) {
+  margin-right: 0;
+}
 .product-item__content {
   display: flex;
   flex-direction: column;
@@ -23429,14 +23435,19 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
 }
-.product-item__content .discount-text {
+.product-item__content .rate-discount {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.product-item__content .rate-discount .discount-text {
   display: flex;
   height: 1rem;
   align-items: center;
   overflow: hidden;
   margin-top: 0.3125rem;
 }
-.product-item__content .discount-text .discount-text-content {
+.product-item__content .rate-discount .discount-text .discount-text-content {
   color: #f69113;
   box-sizing: border-box;
   display: inline-block;
@@ -23448,21 +23459,22 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
   font-weight: 500;
   line-height: 1rem;
   flex-shrink: 0;
+  margin-right: 4px;
 }
-.product-item__content .discount-text .discount-text-content .svg_icon {
+.product-item__content .rate-discount .discount-text .discount-text-content .svg_icon {
   width: 0.25rem;
   height: 1rem;
   position: absolute;
   top: 0;
   transform: translateZ(0);
 }
-.product-item__content .discount-text .discount-text-content .svg_icon:first-of-type {
+.product-item__content .rate-discount .discount-text .discount-text-content .svg_icon:first-of-type {
   left: 0;
 }
-.product-item__content .discount-text .discount-text-content .svg_icon:nth-of-type(2) {
+.product-item__content .rate-discount .discount-text .discount-text-content .svg_icon:nth-of-type(2) {
   right: 0;
 }
-.product-item__content .discount-text .discount-text-content .text {
+.product-item__content .rate-discount .discount-text .discount-text-content .text {
   line-height: 1rem;
   height: 1rem;
   margin: 0 0.1875rem;
@@ -23476,7 +23488,7 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
   color: #FFF;
   background-color: #f69113;
 }
-.product-item__content .discount-text .discount-text-content:before {
+.product-item__content .rate-discount .discount-text .discount-text-content:before {
   transform: none;
   transform-origin: 0 0;
   top: 0;
@@ -23488,7 +23500,7 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
   left: 0.25rem;
   right: 0.25rem;
 }
-.product-item__content .discount-text .discount-text-content:after {
+.product-item__content .rate-discount .discount-text .discount-text-content:after {
   content: "";
   display: block;
   height: 0.0625rem;
