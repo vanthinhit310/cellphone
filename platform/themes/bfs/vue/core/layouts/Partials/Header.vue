@@ -39,7 +39,10 @@
                         </a-col>
                         <a-col :offset="0" :span="21" :lg="{ span: 18, offset: 1 }">
                             <div class="search-bar">
-                                <a-input-search size="large" placeholder="Bạn muốn tìm gì?" class="w-100" @search="onSearch" />
+                                <a-input placeholder="Bạn muốn tìm gì?" class="w-100 custom-input-search"/>
+                                <a-button class="button-search">
+                                    <a-icon :style="{fontSize: '18px',color: '#fff'}" type="search" />
+                                </a-button>
                             </div>
                         </a-col>
                         <a-col :offset="1" :span="2" :lg="{ span: 1 }">

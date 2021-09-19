@@ -23240,6 +23240,55 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
 .header-wrapper .bottom-header {
   padding: 10px 0;
 }
+.header-wrapper .search-bar {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: space-between;
+  background-color: #FFF;
+  width: 100%;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.09);
+  box-sizing: border-box;
+  padding: 0.1875rem;
+  height: 2.5rem;
+  border-radius: 2px;
+}
+.header-wrapper .search-bar input {
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+  font-size: 0.875rem;
+  color: #38383d;
+  align-items: center;
+  outline: none;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  padding: 0 0.625rem;
+  height: 100%;
+  line-height: normal;
+}
+.header-wrapper .search-bar .button-search {
+  display: flex;
+  height: 100%;
+  color: #FFF;
+  background-color: #ee4d2d;
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+  box-sizing: border-box;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.09);
+  border-radius: 2px;
+  justify-content: center;
+  text-transform: capitalize;
+  outline: 0;
+  cursor: pointer;
+  padding: 0 15px;
+  min-width: 60px;
+  max-width: 190px;
+  align-items: center;
+}
 
 .home-wrapper .home-slide {
   background: #FFF;
