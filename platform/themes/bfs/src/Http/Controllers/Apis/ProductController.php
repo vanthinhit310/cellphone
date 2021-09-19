@@ -46,4 +46,22 @@ class ProductController extends Controller
         ], Response::HTTP_OK);
     }
 
+    public function getAllProducts()
+    {
+        $perPage = $this->request->get("perPage") ?? theme_option('number_of_products_per_page');
+        $page = $this->request->get("page") ?? 1;
+        $params = [
+            'paginate' => [
+                'per_page' => $perPage,
+                'current_paged' => $page,
+            ],
+        ];
+
+        $data = get_products($params);
+
+        return response()->json([
+            "products" => ProductResource::collection($data)
+        ], Response::HTTP_OK);
+    }
+
 }
