@@ -109,7 +109,7 @@ export default {
                         }
                     },
                     {
-                        breakpoint: 360,
+                        breakpoint: 414,
                         settings: {
                             slidesToShow: 2,
                             slidesToScroll: 2
