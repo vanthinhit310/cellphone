@@ -159,10 +159,54 @@
         padding: 10px 0;
 
         &--image{
+            position: relative;
             margin-bottom: 10px;
             img{
                 display: block;
                 margin: 0 auto;
+            }
+
+            .percent-discount{
+                position: absolute;
+                right: 0;
+                top: 0;
+                z-index: 1;
+
+                .percent-discount-content{
+                    display: flex;
+                    flex-direction: column;
+                    text-align: center;
+                    position: relative;
+                    font-weight: 400;
+                    line-height: .8125rem;
+                    color: $--primary-color;
+                    text-transform: uppercase;
+                    font-size: .75rem;
+                    width: 36px;
+                    height: 32px;
+                    box-sizing: border-box;
+                    padding: 4px 2px 3px;
+                    background-color: rgba(255,212,36,.9);
+
+                    .percent{
+                        color: red;
+                    }
+                    .text{
+                        color: $--white;
+                    }
+
+                    &:after{
+                        content: "";
+                        width: 0;
+                        height: 0;
+                        left: 0;
+                        bottom: -4px;
+                        position: absolute;
+                        border-color: transparent rgba(255,212,36,.9);
+                        border-style: solid;
+                        border-width: 0 18px 4px;
+                    }
+                }
             }
         }
 
@@ -181,11 +225,23 @@
                 -webkit-line-clamp: 2;
             }
         }
+
+        &--price{
+            user-select: none;
+            margin-top: 10px;
+            .price{
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                font-size: 14px;
+                color: $--primary-color;
+            }
+        }
     }
 
     &:hover{
         box-shadow: rgb(0 0 0 / 10%) 0 0 20px;
-        transform: translateY(-.0625rem);
+        //transform: translateY(-.0625rem);
         transition: transform linear .25s;
     }
 }

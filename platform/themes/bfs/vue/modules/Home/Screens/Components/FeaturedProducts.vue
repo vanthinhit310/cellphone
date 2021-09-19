@@ -12,9 +12,18 @@
                                     <div class="product-item__content">
                                         <div class="product-item__content--image">
                                             <img alt="Product" class="img-fluid w-100" :src="_.get(item, 'image')" />
+                                            <div class="percent-discount" v-show="_.get(item, 'percentage_off', 0) !== 0">
+                                                <div class="percent-discount-content">
+                                                    <span class="percent">{{ _.get(item, 'percentage_off', 0) }}%</span>
+                                                    <span class="text">Giảm</span>
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="product-item__content--name">
                                             <span>{{ _.get(item, "name") }}</span>
+                                        </div>
+                                        <div class="product-item__content--price">
+                                            <span class="price">{{ _.get(item, 'price_formated')}}</span>
                                         </div>
                                     </div>
                                 </a>

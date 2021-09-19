@@ -16,8 +16,10 @@ class ProductResource extends JsonResource
             'order' => $this->order,
             'slug' => $this->slug,
             'price' => $this->price,
+            'price_formated' => format_price($this->front_sale_price_with_taxes),
             'sale_price' => $this->sale_price,
-            'image' => RvMedia::getImageUrl($this->image, 'product-thumb'),
+            'image' => RvMedia::getImageUrl($this->image, 'product-thumb', false, RvMedia::getDefaultImage()),
+            'percentage_off' => (float) get_sale_percentage($this->price, $this->front_sale_price, true, false),
             'price_with_taxes' => $this->price_with_taxes,
             'front_sale_price' => $this->front_sale_price,
         ];

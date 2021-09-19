@@ -23209,7 +23209,7 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
   height: 3.75rem;
   display: flex;
   align-items: center;
-  font-weight: 600;
+  font-weight: 500;
   color: #ee4d2d;
 }
 
@@ -23369,11 +23369,51 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
   padding: 10px 0;
 }
 .product-item__content--image {
+  position: relative;
   margin-bottom: 10px;
 }
 .product-item__content--image img {
   display: block;
   margin: 0 auto;
+}
+.product-item__content--image .percent-discount {
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 1;
+}
+.product-item__content--image .percent-discount .percent-discount-content {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  position: relative;
+  font-weight: 400;
+  line-height: 0.8125rem;
+  color: #ee4d2d;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  width: 36px;
+  height: 32px;
+  box-sizing: border-box;
+  padding: 4px 2px 3px;
+  background-color: rgba(255, 212, 36, 0.9);
+}
+.product-item__content--image .percent-discount .percent-discount-content .percent {
+  color: red;
+}
+.product-item__content--image .percent-discount .percent-discount-content .text {
+  color: #FFF;
+}
+.product-item__content--image .percent-discount .percent-discount-content:after {
+  content: "";
+  width: 0;
+  height: 0;
+  left: 0;
+  bottom: -4px;
+  position: absolute;
+  border-color: transparent rgba(255, 212, 36, 0.9);
+  border-style: solid;
+  border-width: 0 18px 4px;
 }
 .product-item__content--name {
   min-height: 1.75rem;
@@ -23389,8 +23429,21 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
 }
+.product-item__content--price {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  margin-top: 10px;
+}
+.product-item__content--price .price {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 14px;
+  color: #ee4d2d;
+}
 .product-item:hover {
   box-shadow: rgba(0, 0, 0, 0.1) 0 0 20px;
-  transform: translateY(-0.0625rem);
   transition: transform linear 0.25s;
 }
