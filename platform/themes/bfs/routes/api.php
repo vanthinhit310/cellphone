@@ -13,4 +13,5 @@ Route::group([
     Route::get('get-slides', [SlideController::class, 'getSlides']);
     Route::get('product-categories', [ProductCategoryController::class, 'getCategories']);
     Route::get('feature-products', [ProductController::class, 'getFeatureProducts']);
+    Route::get('selling-products', [ProductController::class, 'getSellingProducts']);
 });

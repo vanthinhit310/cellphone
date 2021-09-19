@@ -33,4 +33,17 @@ class ProductController extends Controller
         ], Response::HTTP_OK);
     }
 
+    public function getSellingProducts()
+    {
+        $data = get_products_by_collections([
+            'collections' => ['by' => 'slug', 'value_in' => ['selling-products']],
+            'take' => 15,
+            'with' => ['slugable', 'promotions']
+        ]);
+
+        return response()->json([
+            "products" => ProductResource::collection($data)
+        ], Response::HTTP_OK);
+    }
+
 }

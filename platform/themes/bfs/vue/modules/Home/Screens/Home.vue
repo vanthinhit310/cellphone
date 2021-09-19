@@ -15,6 +15,7 @@
 
         <ProductCategories />
         <FeaturedProducts />
+        <SellingProducts />
     </section>
 </template>
 
@@ -23,13 +24,15 @@ import Slides from "./Components/Slides";
 import BannerImage from "./Components/BannerImage";
 import ProductCategories from "./Components/ProductCategories";
 import FeaturedProducts from "./Components/FeaturedProducts";
+import SellingProducts from "./Components/SellingProducts";
 
 export default {
     components: {
         Slides,
         BannerImage,
         ProductCategories,
-        FeaturedProducts
+        FeaturedProducts,
+        SellingProducts
     }
 };
 </script>

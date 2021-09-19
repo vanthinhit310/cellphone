@@ -12,4 +12,8 @@ export default {
     async getFeaturedProducts() {
         return await axios.get("feature-products");
     },
+
+    async getSellingProducts() {
+        return await axios.get("selling-products");
+    },
 };
