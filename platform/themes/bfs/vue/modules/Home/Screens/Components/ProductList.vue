@@ -114,11 +114,22 @@ export default {
 
             this.processing = false;
         },
-        handleSizeChange(pageSize) {
-            this.perPage = pageSize;
+        async handleSizeChange(current, pageSize) {
+            try {
+                await this.fetchProducts(current, pageSize);
+                this.currentPage = current;
+                this.perPage = pageSize;
+            } catch (e) {
+                console.log(e.message);
+            }
         },
-        handlePageChange(page) {
-            this.currentPage = page;
+        async handlePageChange(page) {
+            try {
+                const { perPage } = this;
+                await this.fetchProducts(page, perPage);
+            } catch (e) {
+                console.log(e.message);
+            }
         }
     }
 };

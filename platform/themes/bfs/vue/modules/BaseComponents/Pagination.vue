@@ -20,7 +20,7 @@ export default {
     },
     methods: {
         onSizeChange(current, pageSize) {
-            this.$emit("onSizeChange", pageSize);
+            this.$emit("onSizeChange", current, pageSize);
         },
         onPageChange(page) {
             this.$emit("onPageChange", page);
