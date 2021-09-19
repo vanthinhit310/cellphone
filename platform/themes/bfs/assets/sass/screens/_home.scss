@@ -162,7 +162,7 @@
     display: block;
     padding: 12px;
     color: $--text;
-    transition: transform linear .25s;
+    transition: all linear .25s;
 
     &__content {
         display: flex;
@@ -355,7 +355,7 @@
     &:hover {
         box-shadow: rgb(0 0 0 / 10%) 0 0 20px;
         //transform: translateY(-.0625rem);
-        transition: transform linear .25s;
+        transition: all linear .25s;
     }
 }
 

@@ -23227,6 +23227,10 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
   line-height: 40px !important;
 }
 
+.ant-spin-nested-loading > div > .ant-spin {
+  max-height: 100%;
+}
+
 .header-wrapper .ant-btn-link {
   color: #FFF !important;
 }
@@ -23366,7 +23370,7 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
   display: block;
   padding: 12px;
   color: #38383d;
-  transition: transform linear 0.25s;
+  transition: all linear 0.25s;
 }
 .product-item__content {
   display: flex;
@@ -23540,7 +23544,7 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
 }
 .product-item:hover {
   box-shadow: rgba(0, 0, 0, 0.1) 0 0 20px;
-  transition: transform linear 0.25s;
+  transition: all linear 0.25s;
 }
 
 .product-list {

@@ -111,7 +111,6 @@ export default {
             } catch (e) {
                 console.log(e.message);
             }
-
             this.processing = false;
         },
         async handleSizeChange(current, pageSize) {
