@@ -8,4 +8,8 @@ export default {
     async getProductCategories() {
         return await axios.get("product-categories");
     },
+
+    async getFeaturedProducts() {
+        return await axios.get("feature-products");
+    },
 };

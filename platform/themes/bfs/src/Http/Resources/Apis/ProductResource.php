@@ -17,7 +17,7 @@ class ProductResource extends JsonResource
             'slug' => $this->slug,
             'price' => $this->price,
             'sale_price' => $this->sale_price,
-            'image' => RvMedia::getImageUrl($this->image),
+            'image' => RvMedia::getImageUrl($this->image, 'product-thumb'),
             'price_with_taxes' => $this->price_with_taxes,
             'front_sale_price' => $this->front_sale_price,
         ];

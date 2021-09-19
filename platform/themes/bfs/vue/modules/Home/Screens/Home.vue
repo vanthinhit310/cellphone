@@ -3,10 +3,10 @@
         <div class="home-slide">
             <div class="container">
                 <a-row type="flex" justify="center">
-                    <a-col class="gutter-row" :lg="{span : 16}" :span="24">
+                    <a-col class="gutter-row" :lg="{ span: 16 }" :span="24">
                         <Slides />
                     </a-col>
-                    <a-col class="gutter-row" :lg="{span: 8}" :span="24">
+                    <a-col class="gutter-row" :lg="{ span: 8 }" :span="24">
                         <BannerImage />
                     </a-col>
                 </a-row>
@@ -14,6 +14,7 @@
         </div>
 
         <ProductCategories />
+        <FeaturedProducts />
     </section>
 </template>
 
@@ -21,12 +22,14 @@
 import Slides from "./Components/Slides";
 import BannerImage from "./Components/BannerImage";
 import ProductCategories from "./Components/ProductCategories";
+import FeaturedProducts from "./Components/FeaturedProducts";
 
 export default {
     components: {
         Slides,
         BannerImage,
-        ProductCategories
+        ProductCategories,
+        FeaturedProducts
     }
 };
 </script>
