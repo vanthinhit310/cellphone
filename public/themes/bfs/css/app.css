@@ -23429,12 +23429,84 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
 }
+.product-item__content .discount-text {
+  display: flex;
+  height: 1rem;
+  align-items: center;
+  overflow: hidden;
+  margin-top: 0.3125rem;
+}
+.product-item__content .discount-text .discount-text-content {
+  color: #f69113;
+  box-sizing: border-box;
+  display: inline-block;
+  height: 1rem;
+  min-width: 0;
+  position: relative;
+  overflow: hidden;
+  font-size: 0.625rem;
+  font-weight: 500;
+  line-height: 1rem;
+  flex-shrink: 0;
+}
+.product-item__content .discount-text .discount-text-content .svg_icon {
+  width: 0.25rem;
+  height: 1rem;
+  position: absolute;
+  top: 0;
+  transform: translateZ(0);
+}
+.product-item__content .discount-text .discount-text-content .svg_icon:first-of-type {
+  left: 0;
+}
+.product-item__content .discount-text .discount-text-content .svg_icon:nth-of-type(2) {
+  right: 0;
+}
+.product-item__content .discount-text .discount-text-content .text {
+  line-height: 1rem;
+  height: 1rem;
+  margin: 0 0.1875rem;
+  padding: 0 0.0625rem;
+  padding: 0 calc(var(--ns-a, .25rem) - .1875rem);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  position: relative;
+  z-index: 1;
+  color: #FFF;
+  background-color: #f69113;
+}
+.product-item__content .discount-text .discount-text-content:before {
+  transform: none;
+  transform-origin: 0 0;
+  top: 0;
+  content: "";
+  display: block;
+  height: 0.0625rem;
+  background: currentColor;
+  position: absolute;
+  left: 0.25rem;
+  right: 0.25rem;
+}
+.product-item__content .discount-text .discount-text-content:after {
+  content: "";
+  display: block;
+  height: 0.0625rem;
+  transform: scaleY(0.5);
+  background: currentColor;
+  position: absolute;
+  left: 0.25rem;
+  right: 0.25rem;
+  transform-origin: 0 100%;
+  bottom: 0;
+  transform: none;
+}
 .product-item__content--price {
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  margin-top: 10px;
+  margin-top: 0.3125rem;
 }
 .product-item__content--price .price {
   overflow: hidden;

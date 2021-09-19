@@ -226,9 +226,87 @@
             }
         }
 
+        .discount-text{
+            display: flex;
+            height: 1rem;
+            align-items: center;
+            overflow: hidden;
+            margin-top: .3125rem;
+            .discount-text-content{
+                color: rgb(246, 145, 19);
+                box-sizing: border-box;
+                display: inline-block;
+                height: 1rem;
+                min-width: 0;
+                position: relative;
+                overflow: hidden;
+                font-size: .625rem;
+                font-weight: 500;
+                line-height: 1rem;
+                flex-shrink: 0;
+
+                .svg_icon{
+                    width: .25rem;
+                    height: 1rem;
+                    position: absolute;
+                    top: 0;
+                    transform: translateZ(0);
+                    &:first-of-type{
+                        left: 0;
+                    }
+                    &:nth-of-type(2){
+                        right: 0;
+                    }
+                }
+
+                .text{
+                    line-height: 1rem;
+                    height: 1rem;
+                    margin: 0 .1875rem;
+                    padding: 0 .0625rem;
+                    padding: 0 calc(var(--ns-a, .25rem) - .1875rem);
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    position: relative;
+                    z-index: 1;
+                    color: $--white;
+                    background-color: rgb(246, 145, 19);
+                }
+
+                &:before{
+                    transform: none;
+                    transform-origin: 0 0;
+                    top: 0;
+                    content: "";
+                    display: block;
+                    height: .0625rem;
+                    background: currentColor;
+                    position: absolute;
+                    left: .25rem;
+                    right: .25rem;
+                }
+
+                &:after{
+                    content: "";
+                    display: block;
+                    height: .0625rem;
+                    -webkit-transform: scaleY(.5);
+                    transform: scaleY(.5);
+                    background: currentColor;
+                    position: absolute;
+                    left: .25rem;
+                    right: .25rem;
+                    transform-origin: 0 100%;
+                    bottom: 0;
+                    transform: none;
+                }
+            }
+        }
+
         &--price{
             user-select: none;
-            margin-top: 10px;
+            margin-top: .3125rem;
             .price{
                 overflow: hidden;
                 text-overflow: ellipsis;
