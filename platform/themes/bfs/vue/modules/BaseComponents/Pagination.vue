@@ -1,6 +1,6 @@
 <template>
-    <div class="pagination">
-        <a-pagination v-model="current" :page-size-options="sizeOptions" :total="total" show-size-changer :page-size="pageSize" @change="onPageChange" @showSizeChange="onSizeChange" />
+    <div class="pagination-wrapper">
+        <a-pagination v-model="current" :showLessItems="true" :hideOnSinglePage="true" :page-size-options="sizeOptions" :total="total" show-size-changer :page-size="pageSize" @change="onPageChange" @showSizeChange="onSizeChange" />
     </div>
 </template>
 

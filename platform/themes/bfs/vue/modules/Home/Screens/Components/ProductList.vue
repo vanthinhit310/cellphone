@@ -8,7 +8,7 @@
                         <div class="section-header">Tất cả sản phẩm</div>
                         <div class="products">
                             <a-row :gutter="[10, 10]">
-                                <a-col v-for="(item, index) in products" :key="index" :span="4">
+                                <a-col v-for="(item, index) in products" :key="index" :xs="{ span: 12 }" :md="{ span: 6 }" :lg="{ span: 4 }">
                                     <a class="d-block product-item" href="javascript:void(0);">
                                         <div class="product-item__content">
                                             <div class="product-item__content--image">
@@ -85,7 +85,7 @@ export default {
     name: "ProductList",
     data() {
         return {
-            pageSizeOptions: ["6", "12", "24", "48"],
+            pageSizeOptions: ["12", "24", "48"],
             processing: false,
             products: [],
             currentPage: 1,
