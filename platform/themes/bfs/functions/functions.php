@@ -10,3 +10,4 @@ register_sidebar([
     'description' => 'This is a sample sidebar for bfs theme',
 ]);
 
+RvMedia::addSize('product-thumb', 320, 320);
