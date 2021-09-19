@@ -164,13 +164,6 @@
     color: $--text;
     transition: transform linear .25s;
 
-    .ant-rate {
-        font-size: 10px;
-        .ant-rate-star:not(:last-child){
-            margin-right: 0;
-        }
-    }
-
     &__content {
         display: flex;
         flex-direction: column;
@@ -251,8 +244,7 @@
 
         .rate-discount {
             display: flex;
-            flex-direction: row;
-            align-items: center;
+            flex-direction: column;
             .discount-text {
                 display: flex;
                 height: 1rem;
@@ -331,6 +323,16 @@
                         transform-origin: 0 100%;
                         bottom: 0;
                         transform: none;
+                    }
+                }
+            }
+            .rate{
+                margin-top: .3125rem;
+                height: 1rem;
+                .ant-rate {
+                    font-size: 12px;
+                    .ant-rate-star:not(:last-child){
+                        margin-right: 0;
                     }
                 }
             }

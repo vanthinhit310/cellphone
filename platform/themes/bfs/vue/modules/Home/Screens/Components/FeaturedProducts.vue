@@ -33,7 +33,7 @@
                                                             stroke="currentColor"
                                                             fill="#f69113"></path>
                                                     </svg>
-                                                    <div class="text">Giảm {{ _.get(item, 'discount_text') }}</div>
+                                                    <div class="text">Giảm {{ _.get(item, "discount_text") }}</div>
                                                     <svg class="svg_icon" viewBox="-0.5 -0.5 4 16">
                                                         <path
                                                             d="M4 0h-3q-1 0 -1 1a1.2 1.5 0 0 1 0 3v0.333a1.2 1.5 0 0 1 0 3v0.333a1.2 1.5 0 0 1 0 3v0.333a1.2 1.5 0 0 1 0 3q0 1 1 1h3"
@@ -44,7 +44,9 @@
                                                     </svg>
                                                 </div>
                                             </div>
-                                            <div class="rate"><a-rate :defaultValue="_.get(item, 'rate_start', 0)" disabled allow-half /></div>
+                                            <div class="rate">
+                                                <a-rate :defaultValue="_.get(item, 'rate_start', 0)" disabled allow-half />
+                                            </div>
                                         </div>
                                         <div class="product-item__content--price">
                                             <div class="price">{{ _.get(item, "price_formated") }}</div>
@@ -83,7 +85,37 @@ export default {
                 speed: 800,
                 slidesToShow: 6,
                 slidesToScroll: 6,
-                touchThreshold: 5
+                touchThreshold: 5,
+                responsive: [
+                    {
+                        breakpoint: 991,
+                        settings: {
+                            slidesToShow: 5,
+                            slidesToScroll: 5
+                        }
+                    },
+                    {
+                        breakpoint: 767,
+                        settings: {
+                            slidesToShow: 4,
+                            slidesToScroll: 4
+                        }
+                    },
+                    {
+                        breakpoint: 480,
+                        settings: {
+                            slidesToShow: 3,
+                            slidesToScroll: 3
+                        }
+                    },
+                    {
+                        breakpoint: 360,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 2
+                        }
+                    }
+                ]
             },
             processing: false,
             products: []
