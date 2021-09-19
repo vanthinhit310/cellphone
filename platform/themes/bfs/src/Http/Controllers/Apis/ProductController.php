@@ -5,6 +5,7 @@ namespace Theme\Bfs\Http\Controllers\Apis;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Symfony\Component\HttpFoundation\Response;
+use Theme\Bfs\Http\Resources\Apis\PaginationResource;
 use Theme\Bfs\Http\Resources\Apis\ProductResource;
 
 class ProductController extends Controller
@@ -60,7 +61,8 @@ class ProductController extends Controller
         $data = get_products($params);
 
         return response()->json([
-            "products" => ProductResource::collection($data)
+            "products" => ProductResource::collection($data),
+            "pagination" => new PaginationResource($data)
         ], Response::HTTP_OK);
     }
 
