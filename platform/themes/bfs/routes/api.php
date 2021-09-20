@@ -5,6 +5,7 @@ use Theme\Bfs\Http\Controllers\Apis\ContactController;
 use Theme\Bfs\Http\Controllers\Apis\NewsletterController;
 use Theme\Bfs\Http\Controllers\Apis\ProductCategoryController;
 use Theme\Bfs\Http\Controllers\Apis\ProductController;
+use Theme\Bfs\Http\Controllers\Apis\SettingController;
 use Theme\Bfs\Http\Controllers\Apis\SlideController;
 
 Route::group([
@@ -24,5 +25,9 @@ Route::group([
 
     Route::prefix('contact')->group(function () {
         Route::post('send', [ContactController::class, 'sendContact']);
+    });
+
+    Route::prefix('settings')->group(function () {
+        Route::get('get', [SettingController::class, 'getSettings']);
     });
 });
