@@ -23334,6 +23334,29 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
 .footer-wrapper .footer-catrgories .footer-categories-list a:hover {
   color: #ee4d2d;
 }
+.footer-wrapper .footer-catrgories .footer-categories-list .footer-link-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.footer-wrapper .footer-catrgories .footer-categories-list .footer-link-content a {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  min-height: 2rem;
+}
+.footer-wrapper .footer-catrgories .footer-categories-list .footer-link-content a span {
+  display: block;
+}
+.footer-wrapper .footer-catrgories .footer-categories-list .footer-link-content a span img {
+  display: block;
+  width: 25px;
+  height: 25px;
+  margin: 0 auto;
+}
+.footer-wrapper .footer-catrgories .footer-categories-list .footer-link-content a .text {
+  margin-left: 5px;
+}
 .footer-wrapper .copyright {
   background-color: #f5f5f5;
   padding: 10px 0;

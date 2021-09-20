@@ -31,6 +31,31 @@
                     color: $--primary-color;
                 }
             }
+
+            .footer-link-content{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                a{
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    min-height: 2rem;
+                    span{
+                        display: block;
+                        img{
+                            display: block;
+                            width: 25px;
+                            height: 25px;
+                            margin: 0 auto;
+                        }
+                    }
+
+                    .text{
+                        margin-left: 5px;
+                    }
+                }
+            }
         }
     }
 
