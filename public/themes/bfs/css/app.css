@@ -15397,7 +15397,7 @@ textarea.ant-mentions {
   position: fixed;
   top: 16px;
   left: 0;
-  z-index: 7;
+  z-index: 16;
   width: 100%;
   pointer-events: none;
 }
@@ -15698,7 +15698,7 @@ textarea.ant-mentions {
   list-style: none;
   font-feature-settings: 'tnum';
   position: fixed;
-  z-index: 7;
+  z-index: 16;
   width: 384px;
   max-width: calc(100vw - 32px);
   margin-right: 24px;
@@ -23243,6 +23243,28 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
 
 .ant-spin-nested-loading > div > .ant-spin {
   max-height: 100%;
+}
+
+.ant-modal-title {
+  text-transform: uppercase;
+  font-size: 1rem;
+}
+
+.ant-modal-close-x {
+  font-size: 1rem;
+}
+
+.ant-form-explain, .ant-form-extra {
+  min-height: 18px;
+  font-size: 0.7rem;
+}
+
+.ant-form-item-with-help {
+  margin-bottom: 18px;
+}
+
+.ant-notification-notice-with-icon .ant-notification-notice-message {
+  font-size: 1rem;
 }
 
 .header-wrapper .ant-btn-link {

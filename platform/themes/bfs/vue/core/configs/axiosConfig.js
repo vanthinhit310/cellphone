@@ -3,6 +3,7 @@ import axios from "axios";
 import queryString from "query-string";
 import qs from "qs";
 import app from "@core/app.js";
+import {notification} from "ant-design-vue";
 
 // Declare a Map to store the identification and cancellation functions for each request
 const pending = new Map();
@@ -73,15 +74,10 @@ axiosClient.interceptors.response.use(
     (response) => {
         removePending(response.config);
         if (response && response.data) {
-            const message = _.get(response, "data.message");
-            if (!!message) {
-                app.$notify({
-                    title: "Notification System",
-                    message: message,
-                    type: "success",
-                    duration: 5000,
-                });
-            }
+            // const message = _.get(response, "data.message");
+            // if (!!message) {
+            //     app.$message.success(message);
+            // }
             return response.data;
         }
         return response;
@@ -116,25 +112,14 @@ axiosClient.interceptors.response.use(
                 case 422:
                     const errors = _.get(error, "response.data.errors", "");
                     if (!!message)
-                        app.$notify.error({
-                            title: "Notification System",
-                            message: message,
-                        });
+                        app.$message.error(message);
 
                     if (!!errors)
-                        app.$notify.error({
-                            title: "Notification System",
-                            message:
-                                Object.values(errors)[0][0] ||
-                                "Validator errors!",
-                        });
+                        app.$message.error(message);
                     break;
 
                 default:
-                    app.$notify.error({
-                        title: "Notification System",
-                        message: message,
-                    });
+                    app.$message.error(message);
                     break;
             }
         }

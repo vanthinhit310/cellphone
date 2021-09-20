@@ -1,7 +1,7 @@
 <template>
     <section class="main-wrapper">
         <a-layout :style="{ background: '#fff' }">
-            <a-layout-header :style="{ position: 'fixed', zIndex: 20, width: '100%' }">
+            <a-layout-header :style="{ position: 'fixed', zIndex: 15, width: '100%' }">
                 <Header />
             </a-layout-header>
             <a-layout-content :style="{ marginTop: '106px' }">

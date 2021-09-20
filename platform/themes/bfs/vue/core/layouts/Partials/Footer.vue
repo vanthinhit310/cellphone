@@ -49,7 +49,7 @@
                                 </a-col>
                                 <a-col :span="12" :lg="{ span: 6 }">
                                     <div class="footer-link-content">
-                                        <a class="footer--link">
+                                        <a type="button" @click="showContactForm" class="footer--link">
                                             <span class="text">Gửi phản hồi</span>
                                         </a>
                                     </div>
@@ -72,17 +72,23 @@
                 <p>Buyfirstsotre ©2018 Created by Anonymous</p>
             </div>
         </div>
+        <ContactForm @closeForm="handleCloseContactForm" :visible="contactVisible" />
     </section>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
+import ContactForm from "@modules/BaseComponents/ContactForm";
 
 export default {
+    components: {
+        ContactForm
+    },
     name: "Footer",
     data() {
         return {
             processing: true,
+            contactVisible: false,
             list: []
         };
     },
@@ -90,6 +96,14 @@ export default {
         ...mapGetters({
             categories: "home/getCategories"
         })
+    },
+    methods: {
+        showContactForm() {
+            this.contactVisible = true;
+        },
+        handleCloseContactForm() {
+            this.contactVisible = false;
+        }
     },
     watch: {
         categories() {

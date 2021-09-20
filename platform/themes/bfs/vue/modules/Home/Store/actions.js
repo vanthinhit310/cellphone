@@ -19,5 +19,9 @@ export default {
 
     async getProducts({ commit, state, dispatch }, { page, perPage }) {
         return await axios.get("products", { params: { page, perPage } });
+    },
+
+    async postContact({ commit, state, dispatch }, payload) {
+        return await axios.post("contact/send", payload);
     }
 };

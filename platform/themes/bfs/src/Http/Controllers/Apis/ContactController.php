@@ -43,10 +43,10 @@ class ContactController extends Controller
                 ])
                 ->sendUsingTemplate('notice');
 
-            return response()->json(['message' => __('Send message successfully!')]);
+            return response()->json(['message' => __('Send message successfully!'), 'error' => false]);
         } catch (Exception $exception) {
             info($exception->getMessage());
-            return response()->json(['message' => trans('plugins/contact::contact.email.failed')], 500);
+            return response()->json(['message' => trans('plugins/contact::contact.email.failed'), 'error' => true], 500);
         }
     }
 

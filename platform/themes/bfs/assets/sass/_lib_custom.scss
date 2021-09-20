@@ -6,3 +6,22 @@
 .ant-spin-nested-loading > div > .ant-spin {
     max-height: 100%;
 }
+
+.ant-modal-title{
+    text-transform: uppercase;
+    font-size: 1rem;
+}
+.ant-modal-close-x {
+    font-size: 1rem;
+}
+
+.ant-form-explain, .ant-form-extra{
+    min-height: 18px;
+    font-size: 0.7rem;
+}
+.ant-form-item-with-help{
+    margin-bottom: 18px;
+}
+.ant-notification-notice-with-icon .ant-notification-notice-message{
+    font-size: 1rem;
+}
