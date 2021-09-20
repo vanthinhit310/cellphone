@@ -24,15 +24,43 @@
                         <div class="footer-categories-list">
                             <a-row :gutter="16">
                                 <a-col :span="12" :lg="{ span: 6 }">
-                                    <a>Facebook</a>
-                                    <a>Zalo</a>
+                                    <div class="footer-link-content">
+                                        <a class="footer--link">
+                                            <span class="image"><img alt="icon" src="/themes/bfs/images/facebook.png" /></span>
+                                            <span class="text">Facebook</span>
+                                        </a>
+                                        <a class="footer--link">
+                                            <span class="image"><img alt="icon" src="/themes/bfs/images/zalo.png" /></span>
+                                            <span class="text">Zalo</span>
+                                        </a>
+                                    </div>
                                 </a-col>
                                 <a-col :span="12" :lg="{ span: 6 }">
-                                    <a>0982650542</a>
-                                    <a>buyfirststore@gmail.com</a>
+                                    <div class="footer-link-content">
+                                        <a class="footer--link">
+                                            <a-icon :rotate="90" type="phone" />
+                                            <span class="text">0982650542</span>
+                                        </a>
+                                        <a class="footer--link">
+                                            <a-icon type="mail" />
+                                            <span class="text">buyfirststore@gmail.com</span>
+                                        </a>
+                                    </div>
                                 </a-col>
-                                <a-col :span="12" :lg="{ span: 6 }"> <a>Gửi phản hồi</a> </a-col>
-                                <a-col :span="12" :lg="{ span: 6 }"> <a>Đăng ký nhận tin</a> </a-col>
+                                <a-col :span="12" :lg="{ span: 6 }">
+                                    <div class="footer-link-content">
+                                        <a class="footer--link">
+                                            <span class="text">Gửi phản hồi</span>
+                                        </a>
+                                    </div>
+                                </a-col>
+                                <a-col :span="12" :lg="{ span: 6 }">
+                                    <div class="footer-link-content">
+                                        <a class="footer--link">
+                                            <span class="text">Đăng ký nhận tin</span>
+                                        </a>
+                                    </div>
+                                </a-col>
                             </a-row>
                         </div>
                     </div>
