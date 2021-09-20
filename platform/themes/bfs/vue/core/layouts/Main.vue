@@ -7,7 +7,9 @@
             <a-layout-content :style="{ marginTop: '106px' }">
                 <router-view />
             </a-layout-content>
-            <a-layout-footer> Footer </a-layout-footer>
+            <a-layout-footer>
+                <Footer />
+            </a-layout-footer>
         </a-layout>
         <a-back-top />
     </section>
@@ -15,10 +17,12 @@
 
 <script>
 import Header from "@core/layouts/Partials/Header";
+import Footer from "@core/layouts/Partials/Footer";
 
 export default {
     components: {
-        Header
+        Header,
+        Footer
     },
     mounted() {}
 };

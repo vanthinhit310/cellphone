@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapActions, mapGetters, mapMutations } from "vuex";
 import VueSlickCarousel from "vue-slick-carousel";
 import "vue-slick-carousel/dist/vue-slick-carousel.css";
 import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
@@ -54,56 +54,63 @@ export default {
                         breakpoint: 1200,
                         settings: {
                             slidesToShow: 8,
-                            slidesToScroll: 8,
+                            slidesToScroll: 8
                         }
                     },
                     {
                         breakpoint: 991,
                         settings: {
                             slidesToShow: 8,
-                            slidesToScroll: 8,
+                            slidesToScroll: 8
                         }
                     },
                     {
                         breakpoint: 767,
                         settings: {
                             slidesToShow: 6,
-                            slidesToScroll: 6,
+                            slidesToScroll: 6
                         }
                     },
                     {
                         breakpoint: 480,
                         settings: {
                             slidesToShow: 4,
-                            slidesToScroll: 4,
+                            slidesToScroll: 4
                         }
                     },
                     {
                         breakpoint: 414,
                         settings: {
                             slidesToShow: 3,
-                            slidesToScroll: 3,
+                            slidesToScroll: 3
                         }
-                    },
+                    }
                 ]
             },
-            categories: [],
             processing: false,
             error: ""
         };
+    },
+    computed: {
+        ...mapGetters({
+            categories: "home/getCategories"
+        })
     },
     mounted() {
         this.fetchProductCategories();
     },
     methods: {
         ...mapActions("home", ["getProductCategories"]),
+        ...mapMutations({
+            setCategories: "home/setCategories"
+        }),
         async fetchProductCategories() {
             try {
                 this.processing = true;
                 const response = await this.getProductCategories();
                 const categories = _.get(response, "categories", []);
                 if (!!categories) {
-                    this.categories = categories;
+                    this.setCategories(categories);
                 }
             } catch (e) {
                 console.log(e.message);

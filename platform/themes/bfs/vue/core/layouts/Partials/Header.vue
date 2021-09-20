@@ -3,23 +3,15 @@
         <div class="top-header">
             <div class="container">
                 <a-row type="flex" justify="space-between">
-                    <a-col :xs="{ span: 14 }" :lg="{ span: 12 }">
+                    <a-col :xs="{ span: 24 }" :lg="{ span: 24 }">
                         <a-space :size="10">
                             <a href="javascript:void(0);">
-                                <a-icon type="facebook" />
-                                Facebook
+                                <a-icon type="phone" />
+                                0982650542
                             </a>
                             <a href="javascript:void(0);">
-                                <a-icon type="instagram" />
-                                Instagram
-                            </a>
-                        </a-space>
-                    </a-col>
-                    <a-col class="text-right" :xs="{ span: 10 }" :lg="{ span: 12 }">
-                        <a-space>
-                            <a href="javascript:void(0);">
-                                <a-icon type="environment" />
-                                Cửa hàng
+                                <a-icon type="mail" />
+                                buyfirststore@gmail.com
                             </a>
                         </a-space>
                     </a-col>
