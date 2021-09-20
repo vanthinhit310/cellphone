@@ -23,5 +23,9 @@ export default {
 
     async postContact({ commit, state, dispatch }, payload) {
         return await axios.post("contact/send", payload);
+    },
+
+    async subscribeNewsletter({ commit, state, dispatch }, payload) {
+        return await axios.post("newsletter/subscribe", payload);
     }
 };

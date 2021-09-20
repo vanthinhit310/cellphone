@@ -56,7 +56,7 @@
                                 </a-col>
                                 <a-col :span="12" :lg="{ span: 6 }">
                                     <div class="footer-link-content">
-                                        <a class="footer--link">
+                                        <a type="button" @click="showNewsletterForm" class="footer--link">
                                             <span class="text">Đăng ký nhận tin</span>
                                         </a>
                                     </div>
@@ -73,22 +73,26 @@
             </div>
         </div>
         <ContactForm @closeForm="handleCloseContactForm" :visible="contactVisible" />
+        <NewsletterForm @closeForm="handleCloseNewsletterForm" :visible="newsletterVisible" />
     </section>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
 import ContactForm from "@modules/BaseComponents/ContactForm";
+import NewsletterForm from "@modules/BaseComponents/NewsletterForm";
 
 export default {
     components: {
-        ContactForm
+        ContactForm,
+        NewsletterForm,
     },
     name: "Footer",
     data() {
         return {
             processing: true,
             contactVisible: false,
+            newsletterVisible: false,
             list: []
         };
     },
@@ -103,6 +107,12 @@ export default {
         },
         handleCloseContactForm() {
             this.contactVisible = false;
+        },
+        showNewsletterForm() {
+            this.newsletterVisible = true;
+        },
+        handleCloseNewsletterForm() {
+            this.newsletterVisible = false;
         }
     },
     watch: {

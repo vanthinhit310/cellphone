@@ -69,10 +69,10 @@ export default {
                     }
                     this.processing = true;
                     const response = await this.postContact(values);
-                    if(!response.error){
+                    if (!response.error) {
                         this.$notification.success({
                             message: "System Notification",
-                            description : response.message,
+                            description: response.message
                         });
                     }
                     this.processing = false;
@@ -81,8 +81,10 @@ export default {
             } catch (e) {
                 this.$notification.success({
                     message: "System Notification",
-                    description : e.message,
+                    description: e.message
                 });
+                this.processing = false;
+                this.closeForm();
             }
         },
         closeForm() {
