@@ -25,26 +25,34 @@
                             <a-row :gutter="16">
                                 <a-col :span="12" :lg="{ span: 6 }">
                                     <div class="footer-link-content">
-                                        <a class="footer--link">
-                                            <span class="image"><img alt="icon" src="/themes/bfs/images/facebook.png" /></span>
-                                            <span class="text">Facebook</span>
-                                        </a>
-                                        <a class="footer--link">
-                                            <span class="image"><img alt="icon" src="/themes/bfs/images/zalo.png" /></span>
-                                            <span class="text">Zalo</span>
-                                        </a>
+                                        <transition name="fade" mode="out-in">
+                                            <a target="_blank" v-if="_.get(siteSettings, 'theme--shop_facebook_link')" :href="_.get(siteSettings, 'theme--shop_facebook_link')" class="footer--link">
+                                                <span class="image"><img alt="icon" src="/themes/bfs/images/facebook.png" /></span>
+                                                <span class="text">Facebook</span>
+                                            </a>
+                                        </transition>
+                                        <transition name="fade" mode="out-in">
+                                            <a target="_blank" v-if="_.get(siteSettings, 'theme--shop_zalo_link')" :href="_.get(siteSettings, 'theme--shop_zalo_link')" class="footer--link">
+                                                <span class="image"><img alt="icon" src="/themes/bfs/images/zalo.png" /></span>
+                                                <span class="text">Zalo</span>
+                                            </a>
+                                        </transition>
                                     </div>
                                 </a-col>
                                 <a-col :span="12" :lg="{ span: 6 }">
                                     <div class="footer-link-content">
-                                        <a class="footer--link">
-                                            <a-icon :rotate="90" type="phone" />
-                                            <span class="text">0982650542</span>
-                                        </a>
-                                        <a class="footer--link">
-                                            <a-icon type="mail" />
-                                            <span class="text">buyfirststore@gmail.com</span>
-                                        </a>
+                                        <transition name="fade" mode="out-in">
+                                            <a v-if="_.get(siteSettings, 'ecommerce_store_phone')" :href="`tel:${_.get(siteSettings, 'ecommerce_store_phone')}`" class="footer--link">
+                                                <a-icon :rotate="90" type="phone" />
+                                                <span class="text">{{ _.get(siteSettings, "ecommerce_store_phone") }}</span>
+                                            </a>
+                                        </transition>
+                                        <transition name="fade" mode="out-in">
+                                            <a v-if="_.get(siteSettings, 'theme--shop_email')" :href="`mailto:${_.get(siteSettings, 'theme--shop_email')}`" class="footer--link">
+                                                <a-icon type="mail" />
+                                                <span class="text">{{ _.get(siteSettings, "theme--shop_email") }}</span>
+                                            </a>
+                                        </transition>
                                     </div>
                                 </a-col>
                                 <a-col :span="12" :lg="{ span: 6 }">
@@ -69,7 +77,9 @@
         </div>
         <div class="copyright">
             <div class="container">
-                <p>Buyfirstsotre ©2018 Created by Anonymous</p>
+                <transition name="fade" mode="out-in">
+                    <p v-if="_.get(siteSettings, 'theme--copyright')">{{ _.get(siteSettings, "theme--copyright") }}</p>
+                </transition>
             </div>
         </div>
         <ContactForm @closeForm="handleCloseContactForm" :visible="contactVisible" />
@@ -85,7 +95,7 @@ import NewsletterForm from "@modules/BaseComponents/NewsletterForm";
 export default {
     components: {
         ContactForm,
-        NewsletterForm,
+        NewsletterForm
     },
     name: "Footer",
     data() {
@@ -93,12 +103,14 @@ export default {
             processing: true,
             contactVisible: false,
             newsletterVisible: false,
-            list: []
+            list: [],
+            siteSettings: []
         };
     },
     computed: {
         ...mapGetters({
-            categories: "home/getCategories"
+            categories: "home/getCategories",
+            settings: "home/getSettings"
         })
     },
     methods: {
@@ -119,6 +131,9 @@ export default {
         categories() {
             this.list = this.categories;
             this.processing = false;
+        },
+        settings() {
+            this.siteSettings = this.settings;
         }
     }
 };

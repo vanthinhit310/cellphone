@@ -6,16 +6,16 @@
                     <a-col :xs="{ span: 24 }" :lg="{ span: 24 }">
                         <a-space :size="10">
                             <transition name="fade" mode="out-in">
-                            <a v-if="_.get(siteSettings, 'ecommerce_store_phone')" :href="`tel:${_.get(siteSettings, 'ecommerce_store_phone')}`">
-                                <a-icon type="phone" />
-                                {{ _.get(siteSettings, "ecommerce_store_phone") }}
-                            </a>
+                                <a v-if="_.get(siteSettings, 'ecommerce_store_phone')" :href="`tel:${_.get(siteSettings, 'ecommerce_store_phone')}`">
+                                    <a-icon type="phone" />
+                                    {{ _.get(siteSettings, "ecommerce_store_phone") }}
+                                </a>
                             </transition>
                             <transition name="fade" mode="out-in">
-                            <a v-if="_.get(siteSettings, 'ecommerce_store_address')" target="_blank" :href="_.get(siteSettings, 'ecommerce_store_address')">
-                                <a-icon type="environment" />
-                                Vị trí shop
-                            </a>
+                                <a v-if="_.get(siteSettings, 'theme--shop_map')" target="_blank" :href="_.get(siteSettings, 'theme--shop_map')">
+                                    <a-icon type="environment" />
+                                    Vị trí shop
+                                </a>
                             </transition>
                         </a-space>
                     </a-col>
@@ -29,9 +29,9 @@
                         <a-col :span="0" :offset="0" :lg="{ span: 3 }">
                             <div class="main-logo">
                                 <transition name="fade" mode="out-in">
-                                <a v-if="_.get(siteSettings, 'theme--logo')" class="d-block" href="/">
-                                    <img alt="Logo" class="img-fluid" :src="_.get(siteSettings, 'theme--logo')" />
-                                </a>
+                                    <a v-if="_.get(siteSettings, 'theme--logo')" class="d-block" href="/">
+                                        <img alt="Logo" class="img-fluid" :src="_.get(siteSettings, 'theme--logo')" />
+                                    </a>
                                 </transition>
                             </div>
                         </a-col>

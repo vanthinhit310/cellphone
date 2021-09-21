@@ -4,9 +4,9 @@ namespace Theme\Bfs\Http\Controllers\Apis;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use RvMedia;
 use Setting;
 use Symfony\Component\HttpFoundation\Response;
-use RvMedia;
 
 class SettingController extends Controller
 {
@@ -25,11 +25,14 @@ class SettingController extends Controller
     {
 //        $settings = Setting::all();
         $settings = [
-            "ecommerce_store_name" =>setting('ecommerce_store_name'),
-            "ecommerce_store_phone" =>setting('ecommerce_store_phone'),
-            "ecommerce_store_address" =>setting('ecommerce_store_address'),
+            "ecommerce_store_name" => setting('ecommerce_store_name'),
+            "ecommerce_store_phone" => setting('ecommerce_store_phone'),
+            "theme--shop_map" => setting('theme--shop_map'),
+            "theme--shop_facebook_link" => setting('theme--shop_facebook_link'),
+            "theme--shop_zalo_link" => setting('theme--shop_zalo_link'),
+            "theme--shop_email" => setting('theme--shop_email'),
             "theme--logo" => RvMedia::getImageUrl(setting('theme--logo')),
-            "theme--copyright" =>setting('theme--copyright'),
+            "theme--copyright" => setting('theme--copyright'),
         ];
         return response()->json(["settings" => $settings], Response::HTTP_OK);
     }
