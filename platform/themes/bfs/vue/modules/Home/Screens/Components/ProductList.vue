@@ -93,7 +93,7 @@ export default {
             total: 0
         };
     },
-    mounted() {
+    created() {
         const { currentPage, perPage } = this;
         this.fetchProducts(currentPage, perPage);
     },

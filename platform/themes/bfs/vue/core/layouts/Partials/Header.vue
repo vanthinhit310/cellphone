@@ -5,14 +5,18 @@
                 <a-row type="flex" justify="space-between">
                     <a-col :xs="{ span: 24 }" :lg="{ span: 24 }">
                         <a-space :size="10">
-                            <a href="javascript:void(0);">
+                            <transition name="fade" mode="out-in">
+                            <a v-if="_.get(siteSettings, 'ecommerce_store_phone')" :href="`tel:${_.get(siteSettings, 'ecommerce_store_phone')}`">
                                 <a-icon type="phone" />
-                                0982650542
+                                {{ _.get(siteSettings, "ecommerce_store_phone") }}
                             </a>
-                            <a href="javascript:void(0);">
-                                <a-icon type="mail" />
-                                buyfirststore@gmail.com
+                            </transition>
+                            <transition name="fade" mode="out-in">
+                            <a v-if="_.get(siteSettings, 'ecommerce_store_address')" target="_blank" :href="_.get(siteSettings, 'ecommerce_store_address')">
+                                <a-icon type="environment" />
+                                Vị trí shop
                             </a>
+                            </transition>
                         </a-space>
                     </a-col>
                 </a-row>
@@ -24,16 +28,18 @@
                     <a-row type="flex" justify="space-between" align="middle">
                         <a-col :span="0" :offset="0" :lg="{ span: 3 }">
                             <div class="main-logo">
-                                <a class="d-block" href="javascript:void(0);">
-                                    <img alt="Logo" class="img-fluid" src="/themes/bfs/images/logo.png" />
+                                <transition name="fade" mode="out-in">
+                                <a v-if="_.get(siteSettings, 'theme--logo')" class="d-block" href="/">
+                                    <img alt="Logo" class="img-fluid" :src="_.get(siteSettings, 'theme--logo')" />
                                 </a>
+                                </transition>
                             </div>
                         </a-col>
                         <a-col :offset="0" :span="21" :lg="{ span: 18, offset: 1 }">
                             <div class="search-bar">
-                                <a-input placeholder="Bạn muốn tìm gì?" class="w-100 custom-input-search"/>
+                                <a-input placeholder="Bạn muốn tìm gì?" class="w-100 custom-input-search" />
                                 <a-button class="button-search">
-                                    <a-icon :style="{fontSize: '18px',color: '#fff'}" type="search" />
+                                    <a-icon :style="{ fontSize: '18px', color: '#fff' }" type="search" />
                                 </a-button>
                             </div>
                         </a-col>
@@ -59,10 +65,26 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 export default {
+    data() {
+        return {
+            siteSettings: []
+        };
+    },
+    computed: {
+        ...mapGetters({
+            settings: "home/getSettings"
+        })
+    },
     methods: {
         onSearch(value) {
             console.log(value);
+        }
+    },
+    watch: {
+        settings() {
+            this.siteSettings = this.settings;
         }
     }
 };

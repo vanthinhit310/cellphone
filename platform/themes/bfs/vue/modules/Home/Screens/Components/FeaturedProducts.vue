@@ -121,7 +121,7 @@ export default {
             products: []
         };
     },
-    mounted() {
+    created() {
         this.fetchFeaturedProducts();
     },
     methods: {

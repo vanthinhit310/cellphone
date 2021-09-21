@@ -35,7 +35,7 @@ export default {
             error: ""
         };
     },
-    mounted() {
+    created() {
         this.fetchSlides();
     },
     methods: {

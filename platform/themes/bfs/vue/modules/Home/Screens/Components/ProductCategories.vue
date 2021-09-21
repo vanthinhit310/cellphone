@@ -96,7 +96,7 @@ export default {
             categories: "home/getCategories"
         })
     },
-    mounted() {
+    created() {
         this.fetchProductCategories();
     },
     methods: {

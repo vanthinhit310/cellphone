@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Setting;
 use Symfony\Component\HttpFoundation\Response;
+use RvMedia;
 
 class SettingController extends Controller
 {
@@ -22,7 +23,14 @@ class SettingController extends Controller
 
     public function getSettings()
     {
-        $settings = Setting::all();
+//        $settings = Setting::all();
+        $settings = [
+            "ecommerce_store_name" =>setting('ecommerce_store_name'),
+            "ecommerce_store_phone" =>setting('ecommerce_store_phone'),
+            "ecommerce_store_address" =>setting('ecommerce_store_address'),
+            "theme--logo" => RvMedia::getImageUrl(setting('theme--logo')),
+            "theme--copyright" =>setting('theme--copyright'),
+        ];
         return response()->json(["settings" => $settings], Response::HTTP_OK);
     }
 
