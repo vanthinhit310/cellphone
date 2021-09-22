@@ -5,7 +5,7 @@
                 <a-breadcrumb>
                     <a-breadcrumb-item><router-link :to="{ name: 'home' }">Home</router-link></a-breadcrumb-item>
                     <a-breadcrumb-item><a href="">Thiết bị điện tử</a></a-breadcrumb-item>
-                    <a-breadcrumb-item>Combo Thùng máy tính chơi Game Ngon Nhất - I3 9100F - I3 10100 Ram 8GB Mainboard H310 nguyên bản</a-breadcrumb-item>
+                    <a-breadcrumb-item>[Mã FMCGHOT giảm 10% đơn 400K] [Tặng Bình lắc Thủy tinh] Sữa bột Ensure Vani 850G/lon</a-breadcrumb-item>
                 </a-breadcrumb>
             </div>
         </div>
@@ -14,11 +14,11 @@
             <div class="container">
                 <div class="info-content">
                     <a-row type="flex">
-                        <a-col :flex="2">
-                            <div class="product-imgs"></div>
+                        <a-col flex="450px" class="overflow-hidden">
+                            <ProductImage />
                         </a-col>
-                        <a-col :flex="3">
-                            <div class="info-box"></div>
+                        <a-col flex="auto" class="overflow-hidden">
+                            <ProductInfo />
                         </a-col>
                     </a-row>
                 </div>
@@ -28,8 +28,19 @@
 </template>
 
 <script>
+import ProductImage from "./Components/ProductImage";
+import ProductInfo from "./Components/ProductInfo";
 export default {
-    name: "ProductDetail"
+    name: "ProductDetail",
+    components: {
+        ProductImage,
+        ProductInfo
+    },
+    data() {
+        return {
+            quantity: 1
+        };
+    }
 };
 </script>
 
