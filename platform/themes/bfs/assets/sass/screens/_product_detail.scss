@@ -1,41 +1,58 @@
-.product-detail-wrapper{
+.product-detail-wrapper {
     background-color: $--background-color;
 
-    .page-breadcrumb{
-        padding: 15px 0;
+    .page-breadcrumb {
+        padding: 1.25rem 0;
+        height: 1rem;
+
+        span {
+            font-size: 0.875rem;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            color: $--text;
+
+            a {
+                font-size: 0.875rem;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                color: $--text;
+            }
+        }
     }
 
-    .product-info{
+    .product-info {
         padding: 0;
         margin-top: 1.25rem;
 
-        .info-content{
+        .info-content {
             background: $--white;
 
-            .product-imgs{
+            .product-imgs {
                 padding: 15px;
                 box-sizing: border-box;
                 width: 100%;
 
-                .product-imgs-content{
+                .product-imgs-content {
                     display: flex;
                     flex-direction: column;
 
-                    .relative-background{
+                    .relative-background {
                         position: relative;
 
-                        .background-img{
+                        .background-img {
                             width: 100%;
                             padding-top: 100%;
                             background-position: 50%;
                             background-size: contain;
                             background-repeat: no-repeat;
                             opacity: 1;
-                            transition: opacity .2s ease;
+                            transition: opacity 0.2s ease;
                         }
                     }
 
-                    .product-imgs-thumb{
+                    .product-imgs-thumb {
                         margin: 5px -5px;
                         position: relative;
                         cursor: pointer;
@@ -73,42 +90,122 @@
                             }
                         }
 
-                        .product-thumb{
+                        .product-thumb {
                             display: inline-block;
                             padding: 5px;
                             box-sizing: border-box;
                             width: 20%;
 
-                            .product-thumb-content{
+                            .product-thumb-content {
                                 position: relative;
                                 border: solid 2px $--white;
-                                transition: border ease-in .2s;
+                                transition: border ease-in 0.2s;
 
-                                .product-thumb-background{
+                                .product-thumb-background {
                                     background-size: contain;
                                     background-repeat: no-repeat;
                                     width: 100%;
                                     padding-top: 100%;
                                     background-position: 50%;
                                     opacity: 1;
-                                    transition: opacity .2s ease;
+                                    transition: opacity 0.2s ease;
                                 }
                             }
                         }
-                        .product-thumb.active{
+                        .product-thumb.active {
                             .product-thumb-content {
                                 border-color: $--primary-color;
-                                transition: border-color ease-out .2s;
+                                transition: border-color ease-out 0.2s;
                             }
                         }
                     }
                 }
             }
 
-            .info-box{
-                box-sizing: border-box;
-                width: 100%;
-                padding: 1.25rem 2.1875rem 0 1.25rem;
+            .info-box {
+                .info-box-content {
+                    box-sizing: border-box;
+                    width: 100%;
+                    padding: 1.25rem 2.1875rem 0 1.25rem;
+
+                    .product-name {
+                        display: -webkit-box;
+                        text-overflow: ellipsis;
+                        -webkit-box-orient: vertical;
+                        vertical-align: sub;
+                        -webkit-line-clamp: 2;
+                        font-weight: 500;
+                        margin: 0;
+                        max-height: 3rem;
+                        line-height: 1.5rem;
+                        overflow: hidden;
+                        font-size: 1.25rem;
+                        word-wrap: break-word;
+                    }
+
+                    .product-rate{
+                        margin-top: 15px;
+                        .ant-rate-star:not(:last-child) {
+                            margin-right: 1px;
+                        }
+
+                        .ant-breadcrumb .anticon {
+                            font-size: 0.8rem;
+                        }
+
+                        .ant-rate{
+                            color: $--primary-color;
+                        }
+
+                        .underline{
+                            font-size: 1rem;
+                            color: #222;
+                            margin-right: 5px;
+                        }
+                        span{
+                            font-size: .875rem;
+                            color: #767676;
+                            text-transform: capitalize;
+                            a{
+                                color: #767676;
+                            }
+                        }
+                    }
+
+                    .product-price{
+                        margin-top: 10px;
+                        padding: 15px 20px;
+                        background: #fafafa;
+
+                        .basic-price{
+                            font-size: 1rem;
+                            text-decoration: line-through;
+                            color: #929292;
+                        }
+
+                        .special-price{
+                            font-size: 1.875rem;
+                            font-weight: 500;
+                            color: $--primary-color;
+                        }
+
+                        .discount{
+                            font-size: .75rem;
+                            color: #fff;
+                            text-transform: uppercase;
+                            background: $--primary-color;
+                            border-radius: 2px;
+                            padding: 2px 4px;
+                            font-weight: 600;
+                            line-height: 1.5;
+                            white-space: nowrap;
+                        }
+                    }
+
+                    .product-quantity{
+                        margin-top: 25px;
+                    }
+                }
             }
         }
     }

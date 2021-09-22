@@ -13,7 +13,7 @@
         <div class="product-info">
             <div class="container">
                 <div class="info-content">
-                    <a-row type="flex">
+                    <a-row type="flex" style="flex-wrap: nowrap">
                         <a-col flex="450px" class="overflow-hidden">
                             <ProductImage />
                         </a-col>
