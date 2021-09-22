@@ -14,7 +14,6 @@ import ProductCategories from "./Components/ProductCategories";
 import FeaturedProducts from "./Components/FeaturedProducts";
 import SellingProducts from "./Components/SellingProducts";
 import ProductList from "./Components/ProductList";
-import { mapActions } from "vuex";
 
 export default {
     components: {
@@ -23,12 +22,6 @@ export default {
         FeaturedProducts,
         SellingProducts,
         ProductList
-    },
-    created() {
-        this.getSettings();
-    },
-    methods: {
-        ...mapActions("home", ["getSettings"])
     }
 };
 </script>

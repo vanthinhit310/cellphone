@@ -41,7 +41,7 @@
             <li>{{ __('You are not authorized to view the requested resource.') }}</li>
         </ul>
         <br>
-        <strong>{!! clean(__('Please try again in a few minutes, or alternatively return to the homepage by <a href=":link">clicking here</a>.', ['link' => route('public.single')])) !!}</strong>
+{{--        <strong>{!! clean(__('Please try again in a few minutes, or alternatively return to the homepage by <a href=":link">clicking here</a>.', ['link' => route('public.single')])) !!}</strong>--}}
     </div>
 </div>
 {!! Theme::partial('footer') !!}

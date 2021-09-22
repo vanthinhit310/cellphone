@@ -4,7 +4,7 @@
             <a-layout-header :style="{ position: 'fixed', zIndex: 15, width: '100%' }">
                 <Header />
             </a-layout-header>
-            <a-layout-content :style="{ marginTop: '106px' }">
+            <a-layout-content :style="{ marginTop: '108.16px' }">
                 <router-view />
             </a-layout-content>
             <a-layout-footer>
@@ -18,13 +18,19 @@
 <script>
 import Header from "@core/layouts/Partials/Header";
 import Footer from "@core/layouts/Partials/Footer";
+import { mapActions } from "vuex";
 
 export default {
     components: {
         Header,
         Footer
     },
-    mounted() {}
+    created() {
+        this.getSettings();
+    },
+    methods: {
+        ...mapActions("home", ["getSettings"])
+    }
 };
 </script>
 

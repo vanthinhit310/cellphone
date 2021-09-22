@@ -23715,3 +23715,10 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
   padding: 0 0 20px;
   background: #f5f5f5;
 }
+
+.product-detail-wrapper {
+  background-color: #f5f5f5;
+}
+.product-detail-wrapper .page-breadcrumb {
+  padding: 15px 0;
+}

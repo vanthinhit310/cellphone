@@ -88,7 +88,7 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapActions, mapGetters, mapMutations } from "vuex";
 import ContactForm from "@modules/BaseComponents/ContactForm";
 import NewsletterForm from "@modules/BaseComponents/NewsletterForm";
 
@@ -113,7 +113,27 @@ export default {
             settings: "home/getSettings"
         })
     },
+    async created() {
+        try {
+            const { categories } = this;
+            if (!Array.isArray(categories) || !categories.length) {
+                this.processing = true;
+                const response = await this.getProductCategories();
+                const categories = _.get(response, "categories", []);
+                if (!!categories) {
+                    this.setCategories(categories);
+                }
+            }
+        } catch (e) {
+            console.log(e.message);
+        }
+        this.processing = false;
+    },
     methods: {
+        ...mapActions("home", ["getProductCategories"]),
+        ...mapMutations({
+            setCategories: "home/setCategories"
+        }),
         showContactForm() {
             this.contactVisible = true;
         },

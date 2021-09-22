@@ -7,7 +7,6 @@ let moduleRouters = [];
 files.keys().forEach(key => {
     const name = _.join(_.pull(key.split("/"), "."), "/");
     moduleRouters = [...moduleRouters, ...require(`@modules/${name}`).default];
-
 });
 
 const routes = [...moduleRouters].map(o => {
@@ -16,6 +15,7 @@ const routes = [...moduleRouters].map(o => {
 
 function generateRoutes(o, pathPrefix = "") {
     const { path, component, name, authorize, children, redirect } = o;
+
     let orginal = {
         path: prefix + pathPrefix + path,
         name
