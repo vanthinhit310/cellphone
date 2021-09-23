@@ -4,8 +4,19 @@ namespace Theme\Bfs\Http\Controllers\Apis;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Auth;
+use Platform\Base\Enums\BaseStatusEnum;
+use Platform\Base\Supports\Helper;
+use Platform\Ecommerce\Models\Product;
+use Platform\SeoHelper\SeoOpenGraph;
+use Platform\Slug\Repositories\Interfaces\SlugInterface;
+use SlugHelper;
+use SeoHelper;
+use RvMedia;
 use Symfony\Component\HttpFoundation\Response;
 use Theme\Bfs\Http\Resources\Apis\PaginationResource;
+use Theme\Bfs\Http\Resources\Apis\ProductDetailResource;
 use Theme\Bfs\Http\Resources\Apis\ProductResource;
 
 class ProductController extends Controller
@@ -64,6 +75,48 @@ class ProductController extends Controller
             "products" => ProductResource::collection($data),
             "pagination" => new PaginationResource($data)
         ], Response::HTTP_OK);
+    }
+
+    public function getProductDetail($slug)
+    {
+
+        $slug = app(SlugInterface::class)->getFirstBy([
+            'key' => $slug,
+            'reference_type' => Product::class,
+            'prefix' => SlugHelper::getPrefix(Product::class),
+        ]);
+
+
+        if (!$slug) {
+            return response()->json(['message' => __("Resource not found", ["resource" => "Product"])], Response::HTTP_NOT_FOUND);
+        }
+
+        $condition = [
+            'ec_products.id' => $slug->reference_id,
+            'ec_products.status' => BaseStatusEnum::PUBLISHED,
+        ];
+
+        $product = get_products([
+            'condition' => $condition,
+            'take' => 1,
+            'with' => [
+                'defaultProductAttributes',
+                'categories',
+                'reviews',
+                'slugable',
+                'tags',
+                'tags.slugable',
+            ],
+        ]);
+
+        if (!$product) {
+            return response()->json(['message' => __("Resource not found", ["resource" => "Product"])], Response::HTTP_NOT_FOUND);
+        }
+
+        Helper::handleViewCount($product, 'viewed_product');
+        do_action(BASE_ACTION_PUBLIC_RENDER_SINGLE, PRODUCT_CATEGORY_MODULE_SCREEN_NAME, $product);
+
+        return response()->json(["product" => new ProductDetailResource($product)], Response::HTTP_OK);
     }
 
 }

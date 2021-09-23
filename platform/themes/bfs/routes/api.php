@@ -17,7 +17,11 @@ Route::group([
     Route::get('product-categories', [ProductCategoryController::class, 'getCategories']);
     Route::get('feature-products', [ProductController::class, 'getFeatureProducts']);
     Route::get('selling-products', [ProductController::class, 'getSellingProducts']);
-    Route::get('products', [ProductController::class, 'getAllProducts']);
+
+    Route::prefix('products')->group(function () {
+        Route::get('/', [ProductController::class, 'getAllProducts']);
+        Route::get('{slug}', [ProductController::class, 'getProductDetail']);
+    });
 
     Route::prefix('newsletter')->group(function () {
         Route::post('subscribe', [NewsletterController::class, 'subscribe']);
