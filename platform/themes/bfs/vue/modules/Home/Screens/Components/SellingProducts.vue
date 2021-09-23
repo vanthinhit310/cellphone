@@ -8,7 +8,7 @@
                         <div class="section-header">Sản phẩm bán chạy</div>
                         <VueSlickCarousel v-bind="settings">
                             <div v-for="(item, index) in products" :key="index" class="featured-slide-item">
-                                <a class="d-block product-item" href="javascript:void(0);">
+                                <router-link class="d-block product-item" :to="{ name: 'product-detail', params: { slug: _.get(item, 'slug') } }">
                                     <div class="product-item__content">
                                         <div class="product-item__content--image">
                                             <img alt="Product" class="img-fluid w-100" :src="_.get(item, 'image')" />
@@ -52,7 +52,7 @@
                                             <div class="price">{{ _.get(item, "price_formated") }}</div>
                                         </div>
                                     </div>
-                                </a>
+                                </router-link>
                             </div>
                         </VueSlickCarousel>
                     </template>
