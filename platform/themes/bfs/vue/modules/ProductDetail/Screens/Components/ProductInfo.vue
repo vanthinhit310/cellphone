@@ -47,7 +47,6 @@
                     <button @click="increment" class="btn btn-increment"><a-icon type="plus" /></button>
                 </div>
             </div>
-
             <div class="product-action">
                 <a-space :size="15">
                     <a-button htmlType="button" class="add-to-cart" size="large">

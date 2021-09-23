@@ -14,6 +14,24 @@
                     </div>
                 </VueSlickCarousel>
             </div>
+
+            <div class="product-share">
+                <a-space :size="15">
+                    <span>Chia sẻ:</span>
+                    <a class="social-item" type="button">
+                        <img class="img-fluid" alt="Facebook" src="/themes/bfs/images/facebook.png">
+                    </a>
+                    <a class="social-item" type="button">
+                        <img class="img-fluid" alt="Zalo" src="/themes/bfs/images/zalo.png">
+                    </a>
+                    <a class="social-item" type="button">
+                        <img class="img-fluid" alt="Pinterest" src="/themes/bfs/images/pinterest.png">
+                    </a>
+                    <a class="social-item" type="button">
+                        <img class="img-fluid" alt="Twitter" src="/themes/bfs/images/twitter.png">
+                    </a>
+                </a-space>
+            </div>
         </div>
     </div>
 </template>
