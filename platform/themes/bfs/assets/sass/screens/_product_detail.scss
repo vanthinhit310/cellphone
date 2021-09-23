@@ -472,12 +472,40 @@
 
                     .content {
                         margin: 1.875rem .9375rem .9375rem;
-                        white-space: pre-wrap;
                         color: rgba(0,0,0,.8);
                         font-size: 1rem;
-                        overflow: hidden;
-                        text-overflow: ellipsis;
                         line-height: 1.875rem;
+
+                        h1 {
+                            font-size: 36px;
+                            line-height: 40px;
+                        }
+
+                        h2 {
+                            font-size: 32px;
+                            line-height: 40px;
+                        }
+
+                        h3 {
+                            font-size: 28px;
+                            line-height: 40px;
+                        }
+
+                        h4 {
+                            font-size: 22px;
+                            line-height: 20px;
+                        }
+
+                        h5 {
+                            font-size: 18px;
+                            line-height: 20px;
+                        }
+
+                        h6 {
+                            font-size: 16px;
+                            line-height: 20px;
+                        }
+
                         a{
                             text-decoration: none;
                         }

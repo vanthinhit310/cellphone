@@ -24125,12 +24125,33 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
 }
 .description-box .description-box-content .description-box-left .description-detail .box-title-content .content {
   margin: 1.875rem 0.9375rem 0.9375rem;
-  white-space: pre-wrap;
   color: rgba(0, 0, 0, 0.8);
   font-size: 1rem;
-  overflow: hidden;
-  text-overflow: ellipsis;
   line-height: 1.875rem;
+}
+.description-box .description-box-content .description-box-left .description-detail .box-title-content .content h1 {
+  font-size: 36px;
+  line-height: 40px;
+}
+.description-box .description-box-content .description-box-left .description-detail .box-title-content .content h2 {
+  font-size: 32px;
+  line-height: 40px;
+}
+.description-box .description-box-content .description-box-left .description-detail .box-title-content .content h3 {
+  font-size: 28px;
+  line-height: 40px;
+}
+.description-box .description-box-content .description-box-left .description-detail .box-title-content .content h4 {
+  font-size: 22px;
+  line-height: 20px;
+}
+.description-box .description-box-content .description-box-left .description-detail .box-title-content .content h5 {
+  font-size: 18px;
+  line-height: 20px;
+}
+.description-box .description-box-content .description-box-left .description-detail .box-title-content .content h6 {
+  font-size: 16px;
+  line-height: 20px;
 }
 .description-box .description-box-content .description-box-left .description-detail .box-title-content .content a {
   text-decoration: none;
