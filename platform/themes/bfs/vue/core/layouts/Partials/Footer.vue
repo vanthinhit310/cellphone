@@ -113,7 +113,7 @@ export default {
             settings: "home/getSettings"
         })
     },
-    async created() {
+    async mounted() {
         try {
             const { categories } = this;
             if (!Array.isArray(categories) || !categories.length) {
@@ -125,7 +125,7 @@ export default {
                 }
             }
         } catch (e) {
-            console.log(e.message);
+            // console.log(e);
         }
         this.processing = false;
     },

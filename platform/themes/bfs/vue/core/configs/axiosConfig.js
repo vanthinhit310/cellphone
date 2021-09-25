@@ -83,7 +83,7 @@ axiosClient.interceptors.response.use(
         return response;
     },
     (error) => {
-        removePending(error.response.config);
+        removePending(error.response.config || '');
         if (!!error.response) {
             const status = _.get(error, "response.status", 400);
             const message = _.get(error, "response.data.message", "");
