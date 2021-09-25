@@ -2,11 +2,18 @@
     <section class="product-detail-wrapper">
         <div class="page-breadcrumb">
             <div class="container">
-                <a-breadcrumb>
-                    <a-breadcrumb-item><router-link :to="{ name: 'home' }">Home</router-link></a-breadcrumb-item>
-                    <a-breadcrumb-item><a href="">Thiết bị điện tử</a></a-breadcrumb-item>
-                    <a-breadcrumb-item>[Mã FMCGHOT giảm 10% đơn 400K] [Tặng Bình lắc Thủy tinh] Sữa bột Ensure Vani 850G/lon</a-breadcrumb-item>
-                </a-breadcrumb>
+                <template v-if="product">
+                    <a-breadcrumb>
+                        <a-breadcrumb-item><router-link :to="{ name: 'home' }">Home</router-link></a-breadcrumb-item>
+                        <a-breadcrumb-item>
+                            <a href="">{{ _.get(product, "categories[0].name") }}</a>
+                        </a-breadcrumb-item>
+                        <a-breadcrumb-item>{{ _.get(product, "name") }}</a-breadcrumb-item>
+                    </a-breadcrumb>
+                </template>
+                <template v-else>
+                    <a-skeleton active :paragraph="{ rows: 1 }" />
+                </template>
             </div>
         </div>
 
@@ -15,10 +22,10 @@
                 <div class="info-content card">
                     <a-row type="flex" style="flex-wrap: nowrap">
                         <a-col flex="450px" class="overflow-hidden">
-                            <ProductImage />
+                            <ProductImage :product-detail="product" />
                         </a-col>
                         <a-col flex="auto" class="overflow-hidden">
-                            <ProductInfo />
+                            <ProductInfo :product-detail="product" />
                         </a-col>
                     </a-row>
                 </div>
@@ -29,7 +36,7 @@
             <div class="container">
                 <div class="description-box-content">
                     <div class="description-box-left">
-                        <ProductDescription/>
+                        <ProductDescription :product-detail="product" />
                     </div>
                     <div class="description-box-right"></div>
                 </div>
@@ -42,7 +49,7 @@
 import ProductImage from "./Components/ProductImage";
 import ProductInfo from "./Components/ProductInfo";
 import ProductDescription from "./Components/ProductDescription";
-import {mapActions} from "vuex";
+import { mapActions } from "vuex";
 
 export default {
     name: "ProductDetail",
@@ -53,15 +60,30 @@ export default {
     },
     data() {
         return {
-            processing: false
+            processing: false,
+            product: ""
         };
     },
-    created(){
-
+    async created() {
+        try {
+            const { slug } = this.$route.params;
+            if (!!slug) {
+                this.setLoadingState(true);
+                const response = await this.getProduct(slug);
+                const product = _.get(response, "product");
+                if (!!product) {
+                    this.product = product;
+                }
+            }
+        } catch (e) {
+            console.log(e.message);
+        }
+        this.setLoadingState(false);
     },
     methods: {
         ...mapActions("productDetail", ["getProduct"]),
-    },
+        ...mapActions("baseComponents", ["setLoadingState"])
+    }
 };
 </script>
 

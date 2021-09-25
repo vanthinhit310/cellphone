@@ -105,6 +105,7 @@ class ProductController extends Controller
                 'reviews',
                 'slugable',
                 'tags',
+                'flashSales',
                 'tags.slugable',
             ],
         ]);
@@ -117,6 +118,7 @@ class ProductController extends Controller
         do_action(BASE_ACTION_PUBLIC_RENDER_SINGLE, PRODUCT_CATEGORY_MODULE_SCREEN_NAME, $product);
 
         return response()->json(["product" => new ProductDetailResource($product)], Response::HTTP_OK);
+//        return response()->json(["product" => $product], Response::HTTP_OK);
     }
 
 }

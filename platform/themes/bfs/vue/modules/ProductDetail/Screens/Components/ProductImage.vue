@@ -1,39 +1,44 @@
 <template>
-    <div class="product-imgs">
-        <div class="product-imgs-content">
-            <div class="relative-background show-image">
-                <div class="background-img" :style="{ backgroundImage: `url(${activeImage})` }"></div>
-            </div>
+    <a-spin :spinning="processing">
+        <a-icon slot="indicator" type="loading" style="font-size: 24px" spin />
+        <div class="product-imgs">
+            <div class="product-imgs-content">
+                <div class="relative-background show-image">
+                    <div v-if="_.get(product, 'thumbnail')" class="background-img" :style="{ backgroundImage: `url(${activeImage})` }"></div>
+                </div>
 
-            <div class="product-imgs-thumb">
-                <VueSlickCarousel v-bind="settings">
-                    <div v-for="index in 10" @click="setActiveImage(`https://picsum.photos/id/${index + 1}/320/320`, index)" :key="index" :class="index === activeEl ? 'active product-thumb' : 'product-thumb'">
-                        <div class="product-thumb-content">
-                            <div class="product-thumb-background" :style="{ backgroundImage: `url(https://picsum.photos/id/${index + 1}/320/320)` }"></div>
-                        </div>
+                <template v-if="images.length">
+                    <div class="product-imgs-thumb">
+                        <VueSlickCarousel v-bind="settings">
+                            <div v-for="(item, index) in images" @click="setActiveImage(item, index)" :key="index" :class="index === activeEl ? 'active product-thumb' : 'product-thumb'">
+                                <div class="product-thumb-content">
+                                    <div class="product-thumb-background" :style="{ backgroundImage: `url(${item})` }"></div>
+                                </div>
+                            </div>
+                        </VueSlickCarousel>
                     </div>
-                </VueSlickCarousel>
-            </div>
+                </template>
 
-            <div class="product-share">
-                <a-space :size="15">
-                    <span>Chia sẻ:</span>
-                    <a class="social-item" type="button">
-                        <img class="img-fluid" alt="Facebook" src="/themes/bfs/images/facebook.png">
-                    </a>
-                    <a class="social-item" type="button">
-                        <img class="img-fluid" alt="Zalo" src="/themes/bfs/images/zalo.png">
-                    </a>
-                    <a class="social-item" type="button">
-                        <img class="img-fluid" alt="Pinterest" src="/themes/bfs/images/pinterest.png">
-                    </a>
-                    <a class="social-item" type="button">
-                        <img class="img-fluid" alt="Twitter" src="/themes/bfs/images/twitter.png">
-                    </a>
-                </a-space>
+                <div class="product-share">
+                    <a-space :size="15">
+                        <span>Chia sẻ:</span>
+                        <a class="social-item" type="button">
+                            <img class="img-fluid" alt="Facebook" src="/themes/bfs/images/facebook.png" />
+                        </a>
+                        <a class="social-item" type="button">
+                            <img class="img-fluid" alt="Zalo" src="/themes/bfs/images/zalo.png" />
+                        </a>
+                        <a class="social-item" type="button">
+                            <img class="img-fluid" alt="Pinterest" src="/themes/bfs/images/pinterest.png" />
+                        </a>
+                        <a class="social-item" type="button">
+                            <img class="img-fluid" alt="Twitter" src="/themes/bfs/images/twitter.png" />
+                        </a>
+                    </a-space>
+                </div>
             </div>
         </div>
-    </div>
+    </a-spin>
 </template>
 
 <script>
@@ -46,10 +51,16 @@ export default {
     components: {
         VueSlickCarousel
     },
+    props: {
+        productDetail: String | Object
+    },
     data() {
         return {
-            activeEl: 1,
-            activeImage: "https://picsum.photos/id/10/1200/1200",
+            activeEl: 0,
+            activeImage: "",
+            images: [],
+            product: "",
+            processing: true,
             settings: {
                 infinite: false,
                 speed: 800,
@@ -62,6 +73,14 @@ export default {
         setActiveImage(src, el) {
             this.activeImage = src;
             this.activeEl = el;
+        }
+    },
+    watch: {
+        productDetail() {
+            this.product = this.productDetail;
+            this.activeImage = _.get(this.productDetail, "thumbnail");
+            this.images = _.get(this.productDetail, "small_images");
+            this.processing = false;
         }
     }
 };

@@ -19,7 +19,7 @@ router.beforeEach(async (to, from, next) => {
     clearPending();
     NProgress.start();
     const {getters, dispatch} = store;
-    // await dispatch("common/handleLoading", true);
+    // await dispatch("baseComponents/setLoadingState", true);
     //chuyển hướng đến trang đăng nhập nếu chưa đăng nhập và cố gắng truy cập trang bị hạn chế
     let {requiredAuth} = to.meta;
 
@@ -40,7 +40,7 @@ router.beforeEach(async (to, from, next) => {
     if (requiredAuth === false) {
         if (localStorage.getItem("accessToken")) {
             //nếu đã đăng nhập rồi mà lại vào các url không yêu cầu auth thì sẽ redirect về dashboard
-            return next({name: "dashboard"});
+            return next({name: "home"});
         }
     }
 
@@ -50,7 +50,7 @@ router.beforeEach(async (to, from, next) => {
 router.afterEach(async () => {
     NProgress.done();
     const {dispatch} = store;
-    // await dispatch("common/handleLoading", false);
+    // await dispatch("baseComponents/setLoadingState", false);
 });
 
 router.onError(error => {

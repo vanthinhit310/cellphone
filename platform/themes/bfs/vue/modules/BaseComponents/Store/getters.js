@@ -1,1 +1,5 @@
-export default {};
+export default {
+    getLoadingState: state => {
+        return state.isLoading;
+    }
+};
