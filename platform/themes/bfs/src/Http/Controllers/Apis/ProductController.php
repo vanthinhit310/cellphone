@@ -44,13 +44,32 @@ class ProductController extends Controller
 
     public function getSellingProducts()
     {
-        $pageSize = (int) $this->request->get('pageSize') ?? 15;
+        $pageSize = (int)$this->request->get('pageSize') ?? 15;
 
         $data = get_products_by_collections([
             'collections' => ['by' => 'slug', 'value_in' => ['selling-products']],
             'take' => $pageSize,
             'with' => ['slugable', 'promotions']
         ]);
+
+        return response()->json([
+            "products" => ProductResource::collection($data)
+        ], Response::HTTP_OK);
+    }
+
+    public function getRelatedProducts()
+    {
+        $pageSize = (int)$this->request->get('pageSize') ?? 15;
+
+        $params = [
+            'categories' => [
+                'by' => 'id',
+                'value_in' => explode(',', $this->request->get('categories')),
+            ],
+            'take' => $pageSize,
+        ];
+
+        $data = get_products_by_categories($params);
 
         return response()->json([
             "products" => ProductResource::collection($data)

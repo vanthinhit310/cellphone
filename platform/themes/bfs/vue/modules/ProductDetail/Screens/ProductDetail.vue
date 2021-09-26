@@ -44,6 +44,7 @@
                 </div>
             </div>
         </div>
+        <RelatedProducts :product-detail="product" />
     </section>
 </template>
 
@@ -52,6 +53,7 @@ import ProductImage from "./Components/ProductImage";
 import ProductInfo from "./Components/ProductInfo";
 import ProductDescription from "./Components/ProductDescription";
 import SellingProducts from "./Components/SellingProducts";
+import RelatedProducts from "./Components/RelatedProducts";
 import { mapActions } from "vuex";
 
 export default {
@@ -60,7 +62,8 @@ export default {
         ProductImage,
         ProductInfo,
         ProductDescription,
-        SellingProducts
+        SellingProducts,
+        RelatedProducts
     },
     data() {
         return {

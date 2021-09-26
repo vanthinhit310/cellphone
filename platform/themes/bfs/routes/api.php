@@ -20,6 +20,7 @@ Route::group([
 
     Route::prefix('products')->group(function () {
         Route::get('/', [ProductController::class, 'getAllProducts']);
+        Route::get('relateds', [ProductController::class, 'getRelatedProducts']);
         Route::get('{slug}', [ProductController::class, 'getProductDetail']);
     });
 
