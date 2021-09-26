@@ -63,7 +63,6 @@ class Product extends BaseModel
         'height_unit',
         'weight_unit',
         'tax_id',
-        'status',
         'views',
     ];
 

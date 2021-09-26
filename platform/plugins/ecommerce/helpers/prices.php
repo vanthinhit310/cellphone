@@ -82,6 +82,28 @@ if (!function_exists('get_sale_percentage')) {
     }
 }
 
+if (!function_exists('get_sale_text')) {
+    /**
+     * @param float $price
+     * @param float $salePrice
+     * @param bool $abs
+     * @param bool $appendSymbol
+     * @return string
+     */
+    function get_sale_text($price, $salePrice, $abs = false, $appendSymbol = true)
+    {
+        $symbol = $appendSymbol ? '₫' : '';
+
+        if (!$salePrice) {
+            return null;
+        }
+
+        $down = $price - $salePrice;
+        $down = number_format($down, 0, get_ecommerce_setting('decimal_separator', '.'), get_ecommerce_setting('thousands_separator', ','));
+        return $down . $symbol;
+    }
+}
+
 if (!function_exists('is_product_on_sale')) {
     /**
      * @param string $saleStatus

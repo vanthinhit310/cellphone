@@ -26,11 +26,10 @@
             </li>
         @endforeach
         <li class="menu__item">
-            <a class="menu__item__link" href="javascript:void(0);">
+            <a class="menu__item__link" href="{{ route('news.index') }}">
                 <span class="menu__item__link--text font12">
-                    Khuyến mãi
+                    Tin công nghệ
                 </span>
-                <span class="menu__item__link--icon"><i class="fal fa-chevron-right"></i></span>
             </a>
         </li>
     </ul>

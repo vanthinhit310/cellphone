@@ -256,7 +256,7 @@ Route::group(['namespace' => 'Platform\Ecommerce\Http\Controllers', 'middleware'
 Route::group(['namespace' => 'Platform\Ecommerce\Http\Controllers\Fronts', 'middleware' => ['web', 'core']], function () {
     Route::group(apply_filters(BASE_FILTER_GROUP_PUBLIC_ROUTE, []), function () {
 
-        Route::get(SlugHelper::getPrefix(Product::class, 'products'), [
+        /*Route::get(SlugHelper::getPrefix(Product::class, 'products'), [
             'as'   => 'public.products',
             'uses' => 'PublicProductController@getProducts',
         ]);
@@ -290,6 +290,6 @@ Route::group(['namespace' => 'Platform\Ecommerce\Http\Controllers\Fronts', 'midd
         Route::get('orders/tracking', [
             'as'   => 'public.orders.tracking',
             'uses' => 'PublicProductController@getOrderTracking',
-        ]);
+        ]);*/
     });
 });

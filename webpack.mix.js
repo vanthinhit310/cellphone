@@ -1,23 +1,34 @@
-let mix = require('laravel-mix');
-let glob = require('glob');
+let mix = require("laravel-mix");
 
-mix.options({
-    processCssUrls: false,
-    clearConsole: true,
-    terser: {
-        extractComments: false,
-    }
+mix.webpackConfig({
+    resolve: {
+        extensions: [".js", ".vue", ".json"],
+        alias: {
+            "@": __dirname + "/platform/themes/bfs/vue",
+            "@core": __dirname + "/platform/themes/bfs/vue/core",
+            "@modules": __dirname + "/platform/themes/bfs/vue/modules",
+        },
+    },
 });
 
-// Run all webpack.mix.js in app
-glob.sync('./platform/**/**/webpack.mix.js').forEach(item => require(item));
+mix.version().webpackConfig({
+    output: {
+        chunkFilename: "js/chunks/[name].[hash].js",
+    },
+});
 
-// Run only for a package, replace [package] by the name of package you want to compile assets
-// require('./platform/packages/[package]/webpack.mix.js');
+mix.setPublicPath("public")
+    .js("platform/themes/bfs/vue/core/app.js", "public/themes/bfs/js/app.js")
+    .sass(
+        "platform/themes/bfs/assets/sass/app.scss",
+        "public/themes/bfs/css/app.css"
+    )
+    .less("platform/themes/bfs/assets/less/app.less", "public/themes/bfs/css", {
+        lessOptions: {
+            javascriptEnabled: true,
+        },
+    })
+    .copyDirectory('platform/themes/bfs/assets/images', 'public/themes/bfs/images')
+    .vue();
 
-// Run only for a plugin, replace [plugin] by the name of plugin you want to compile assets
-// require('./platform/plugins/[plugin]/webpack.mix.js');
-
-// Run only for themes, you shouldn't modify below config, just uncomment if you want to compile only theme's assets
-// glob.sync('./platform/themes/**/webpack.mix.js').forEach(item => require(item));
-
+// mix.disableNotifications();
