@@ -38,7 +38,9 @@
                     <div class="description-box-left">
                         <ProductDescription :product-detail="product" />
                     </div>
-                    <div class="description-box-right"></div>
+                    <div class="description-box-right">
+                        <SellingProducts />
+                    </div>
                 </div>
             </div>
         </div>
@@ -49,6 +51,7 @@
 import ProductImage from "./Components/ProductImage";
 import ProductInfo from "./Components/ProductInfo";
 import ProductDescription from "./Components/ProductDescription";
+import SellingProducts from "./Components/SellingProducts";
 import { mapActions } from "vuex";
 
 export default {
@@ -56,7 +59,8 @@ export default {
     components: {
         ProductImage,
         ProductInfo,
-        ProductDescription
+        ProductDescription,
+        SellingProducts
     },
     data() {
         return {
@@ -64,17 +68,10 @@ export default {
             product: ""
         };
     },
-    async created() {
+    created() {
         try {
             const { slug } = this.$route.params;
-            if (!!slug) {
-                this.setLoadingState(true);
-                const response = await this.getProduct(slug);
-                const product = _.get(response, "product");
-                if (!!product) {
-                    this.product = product;
-                }
-            }
+            this.fetchProduct(slug);
         } catch (e) {
             console.log(e.message);
         }
@@ -82,7 +79,28 @@ export default {
     },
     methods: {
         ...mapActions("productDetail", ["getProduct"]),
-        ...mapActions("baseComponents", ["setLoadingState"])
+        ...mapActions("baseComponents", ["setLoadingState"]),
+        async fetchProduct(slug) {
+            try {
+                if (!!slug) {
+                    this.setLoadingState(true);
+                    const response = await this.getProduct(slug);
+                    const product = _.get(response, "product");
+                    if (!!product) {
+                        this.product = product;
+                    }
+                }
+            } catch (e) {
+                console.log(e.message);
+            }
+            this.setLoadingState(false);
+        }
+    },
+    watch: {
+        $route(to, from) {
+            const { slug } = to.params;
+            this.fetchProduct(slug);
+        }
     }
 };
 </script>

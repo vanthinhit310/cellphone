@@ -24126,7 +24126,7 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
 .description-box .description-box-content .description-box-left .description-detail .box-title-content .content {
   margin: 1.875rem 0.9375rem 0.9375rem;
   color: rgba(0, 0, 0, 0.8);
-  font-size: 1rem;
+  font-size: 0.875rem;
   line-height: 1.875rem;
 }
 .description-box .description-box-content .description-box-left .description-detail .box-title-content .content h1 {
@@ -24160,6 +24160,11 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
   max-width: 100%;
   height: auto;
   display: block;
+  margin: 10px auto;
+}
+.description-box .description-box-content .description-box-left .description-detail .box-title-content .content iframe {
+  border: none !important;
+  display: block;
   margin: 0 auto;
 }
 .description-box .description-box-content .description-box-left .description-detail .box-title-content .tskt {
@@ -24170,10 +24175,12 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
   border-collapse: collapse;
   border-spacing: 0;
   width: 100% !important;
+  border: none !important;
 }
 .description-box .description-box-content .description-box-left .description-detail .box-title-content .tskt table tr td {
   padding: 10px 15px;
   font-size: 0.875rem;
+  border: none !important;
 }
 .description-box .description-box-content .description-box-left .description-detail .box-title-content .tskt table tr td:first-child {
   vertical-align: top;
@@ -24189,4 +24196,23 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
 .description-box .description-box-content .description-box-right {
   width: 14.375rem;
   margin-left: 0.9375rem;
+}
+
+.product-detail-selling {
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.05);
+  border-radius: 0.125rem;
+  overflow: hidden;
+  background: #fff;
+}
+.product-detail-selling .selling-product-title {
+  color: rgba(0, 0, 0, 0.4);
+  margin: 0.625rem 0 0;
+  text-transform: capitalize;
+  padding: 0 0.725rem;
+}
+.product-detail-selling .selling-product-item .product-item:hover {
+  box-shadow: none !important;
+}
+.product-detail-selling .selling-product-item:not(:last-child) {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.09);
 }

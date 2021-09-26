@@ -4,16 +4,13 @@ namespace Theme\Bfs\Http\Controllers\Apis;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use Illuminate\Support\Arr;
-use Illuminate\Support\Facades\Auth;
 use Platform\Base\Enums\BaseStatusEnum;
 use Platform\Base\Supports\Helper;
 use Platform\Ecommerce\Models\Product;
-use Platform\SeoHelper\SeoOpenGraph;
 use Platform\Slug\Repositories\Interfaces\SlugInterface;
-use SlugHelper;
-use SeoHelper;
 use RvMedia;
+use SeoHelper;
+use SlugHelper;
 use Symfony\Component\HttpFoundation\Response;
 use Theme\Bfs\Http\Resources\Apis\PaginationResource;
 use Theme\Bfs\Http\Resources\Apis\ProductDetailResource;
@@ -47,9 +44,11 @@ class ProductController extends Controller
 
     public function getSellingProducts()
     {
+        $pageSize = (int) $this->request->get('pageSize') ?? 15;
+
         $data = get_products_by_collections([
             'collections' => ['by' => 'slug', 'value_in' => ['selling-products']],
-            'take' => 15,
+            'take' => $pageSize,
             'with' => ['slugable', 'promotions']
         ]);
 

@@ -13,8 +13,8 @@ export default {
         return await axios.get("feature-products");
     },
 
-    async getSellingProducts({commit, state, dispatch}) {
-        return await axios.get("selling-products");
+    async getSellingProducts({commit, state, dispatch}, pageSize = 15) {
+        return await axios.get("selling-products", {params: {pageSize}});
     },
 
     async getProducts({commit, state, dispatch}, {page, perPage}) {
