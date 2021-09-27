@@ -24216,6 +24216,7 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
 .description-box .description-box-content .description-box-left {
   flex: 1;
   min-width: 0;
+  background: #FFF;
 }
 .description-box .description-box-content .description-box-left .description-detail {
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.05);
