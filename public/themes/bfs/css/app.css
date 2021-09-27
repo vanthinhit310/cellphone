@@ -23787,6 +23787,7 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
   background-repeat: no-repeat;
   opacity: 1;
   transition: opacity 0.2s ease;
+  cursor: pointer;
 }
 .product-detail-wrapper .product-info .info-content .product-imgs .product-imgs-content .product-imgs-thumb {
   margin: 5px -5px;
