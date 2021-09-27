@@ -23254,6 +23254,19 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
   overflow: hidden !important;
 }
 
+.d-none {
+  display: none !important;
+}
+
+@media (min-width: 992px) {
+  .d-lg-none {
+    display: none !important;
+  }
+
+  .d-lg-block {
+    display: block !important;
+  }
+}
 .ant-layout-header {
   padding: 0 !important;
   height: 40px !important;
@@ -24094,6 +24107,13 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
   color: #ee4d2d;
   border-color: #ee4d2d;
 }
+.product-detail-wrapper .related-product {
+  margin-top: 15px;
+}
+.product-detail-wrapper .related-product .featured-products-content {
+  border-radius: 3px;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.05);
+}
 
 .description-box {
   margin-top: 0.9375rem;
@@ -24101,6 +24121,11 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
 }
 .description-box .description-box-content {
   display: flex;
+}
+@media only screen and (max-width: 992px) {
+  .description-box .description-box-content {
+    flex-direction: column;
+  }
 }
 .description-box .description-box-content .description-box-left {
   flex: 1;
@@ -24112,9 +24137,6 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
   overflow: hidden;
   background: #FFF;
   padding: 0.625rem;
-}
-.description-box .description-box-content .description-box-left .description-detail .box-title-content {
-  padding: 0.9375rem 0.9375rem 0;
 }
 .description-box .description-box-content .description-box-left .description-detail .box-title-content .title {
   background: rgba(0, 0, 0, 0.02);
@@ -24128,6 +24150,12 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
   color: rgba(0, 0, 0, 0.8);
   font-size: 0.875rem;
   line-height: 1.875rem;
+}
+@media only screen and (max-width: 992px) {
+  .description-box .description-box-content .description-box-left .description-detail .box-title-content .content {
+    margin: 1.875rem auto 0.9375rem;
+    line-height: 1.2rem;
+  }
 }
 .description-box .description-box-content .description-box-left .description-detail .box-title-content .content h1 {
   font-size: 36px;
@@ -24167,6 +24195,14 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
   display: block;
   margin: 0 auto;
 }
+@media only screen and (max-width: 992px) {
+  .description-box .description-box-content .description-box-left .description-detail .box-title-content .content iframe {
+    max-width: 100% !important;
+    height: auto !important;
+    display: block;
+    margin: 10px auto;
+  }
+}
 .description-box .description-box-content .description-box-left .description-detail .box-title-content .tskt {
   margin: 1.875rem 0 0.9375rem;
 }
@@ -24182,6 +24218,11 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
   font-size: 0.875rem;
   border: none !important;
 }
+@media only screen and (max-width: 767px) {
+  .description-box .description-box-content .description-box-left .description-detail .box-title-content .tskt table tr td {
+    padding: 5px;
+  }
+}
 .description-box .description-box-content .description-box-left .description-detail .box-title-content .tskt table tr td:first-child {
   vertical-align: top;
   color: rgba(0, 0, 0, 0.4);
@@ -24190,12 +24231,24 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
   font-weight: 500;
   background: #efefef;
 }
+@media only screen and (max-width: 767px) {
+  .description-box .description-box-content .description-box-left .description-detail .box-title-content .tskt table tr td:first-child {
+    width: 120px;
+  }
+}
 .description-box .description-box-content .description-box-left .description-detail .box-title-content .tskt table tr:nth-child(2n) {
   background-color: #fafafa;
 }
 .description-box .description-box-content .description-box-right {
   width: 14.375rem;
   margin-left: 0.9375rem;
+}
+@media only screen and (max-width: 992px) {
+  .description-box .description-box-content .description-box-right {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 15px;
+  }
 }
 
 .product-detail-selling {

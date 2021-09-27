@@ -439,6 +439,14 @@
             }
         }
     }
+
+    .related-product{
+        margin-top: 15px;
+        .featured-products-content{
+            border-radius: 3px;
+            box-shadow: 0 1px 1px 0 rgb(0 0 0 / 5%);
+        }
+    }
 }
 
 .description-box {
@@ -447,6 +455,10 @@
 
     .description-box-content {
         display: flex;
+
+        @include maxWidth(992px){
+            flex-direction: column;
+        }
 
         .description-box-left {
             flex: 1;
@@ -460,8 +472,6 @@
                 padding: 0.625rem;
 
                 .box-title-content {
-                    padding: 0.9375rem 0.9375rem 0;
-
                     .title {
                         background: rgba(0, 0, 0, 0.02);
                         color: rgba(0, 0, 0, 0.87);
@@ -475,6 +485,11 @@
                         color: rgba(0, 0, 0, 0.8);
                         font-size: 0.875rem;
                         line-height: 1.875rem;
+
+                        @include maxWidth(992px){
+                            margin: 1.875rem auto 0.9375rem;
+                            line-height: 1.2rem;
+                        }
 
                         h1 {
                             font-size: 36px;
@@ -521,6 +536,12 @@
                             border: none !important;
                             display: block;
                             margin: 0 auto;
+                            @include maxWidth(992px){
+                                max-width: 100% !important;
+                                height: auto !important;
+                                display: block;
+                                margin: 10px auto;
+                            }
                         }
                     }
 
@@ -540,6 +561,10 @@
                                     font-size: 0.875rem;
                                     border: none !important;
 
+                                    @include maxWidth(767px){
+                                        padding: 5px;
+                                    }
+
                                     &:first-child {
                                         vertical-align: top;
                                         color: rgba(0, 0, 0, 0.4);
@@ -547,6 +572,10 @@
                                         width: 220px;
                                         font-weight: 500;
                                         background: rgb(239, 239, 239);
+
+                                        @include maxWidth(767px){
+                                            width: 120px;
+                                        }
                                     }
                                 }
 
@@ -563,6 +592,11 @@
         .description-box-right {
             width: 14.375rem;
             margin-left: 0.9375rem;
+            @include maxWidth(992px){
+                width: 100%;
+                margin-left: 0;
+                margin-top: 15px;
+            }
         }
     }
 }
@@ -591,4 +625,5 @@
     .selling-product-item:not(:last-child) {
         border-bottom: 1px solid rgba(0, 0, 0, .09);
     }
+
 }
