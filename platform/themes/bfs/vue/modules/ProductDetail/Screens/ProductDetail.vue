@@ -1,6 +1,6 @@
 <template>
     <section class="product-detail-wrapper">
-        <div class="page-breadcrumb">
+        <div class="page-breadcrumb d-none d-lg-block">
             <div class="container">
                 <template v-if="product">
                     <a-breadcrumb>
@@ -20,11 +20,11 @@
         <div class="product-info">
             <div class="container">
                 <div class="info-content card">
-                    <a-row type="flex" style="flex-wrap: nowrap">
-                        <a-col flex="450px" class="overflow-hidden">
+                    <a-row class="pic">
+                        <a-col class="overflow-hidden pic-left">
                             <ProductImage :product-detail="product" />
                         </a-col>
-                        <a-col flex="auto" class="overflow-hidden">
+                        <a-col class="overflow-hidden pic-right">
                             <ProductInfo :product-detail="product" />
                         </a-col>
                     </a-row>

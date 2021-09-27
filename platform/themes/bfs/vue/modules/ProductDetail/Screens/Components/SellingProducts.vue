@@ -1,5 +1,5 @@
 <template>
-    <section class="product-detail-selling">
+    <section class="product-detail-selling featured-products">
         <a-spin :spinning="processing">
             <a-icon slot="indicator" type="loading" style="font-size: 24px" spin />
             <div class="featured-products-content d-none d-lg-block">
