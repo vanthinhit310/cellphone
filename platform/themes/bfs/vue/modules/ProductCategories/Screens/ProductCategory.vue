@@ -26,6 +26,7 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
 export default {
     name: "ProductCategory.vue",
     data() {
@@ -36,8 +37,19 @@ export default {
         };
     },
     created() {
-        console.log(this.$route);
         const { slug } = this.$route.params;
+        this.fetchCategory(slug);
+    },
+    methods: {
+        ...mapActions("productCategories", ["getCategory"]),
+        async fetchCategory(slug, query = {}) {
+            try {
+                const response = await this.getCategory(slug, query);
+                console.log(response);
+            } catch (e) {
+                console.log(e.message);
+            }
+        }
     }
 };
 </script>

@@ -123,11 +123,20 @@ axiosClient.interceptors.response.use(
                     break;
             }
         }
-        if (axiosClient.isCancel(error)) {
-            console.log("repeated request: " + error.message);
-        } else {
-            // handle error code
+        console.log(error.response);
+
+        // if (axiosClient.isCancel(error)) {
+        //     console.log("repeated request: " + error.message);
+        // } else {
+        //     // handle error code
+        // }
+
+        //handle error code
+        if(error.response.status === 404){
+            console.log(404);
+
         }
+
         return Promise.reject(error);
     }
 );
