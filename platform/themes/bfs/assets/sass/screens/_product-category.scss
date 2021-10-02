@@ -1,0 +1,14 @@
+.product-category-wrapper{
+    background: $--background-color;
+    .pc-content{
+        .pc-content-header{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            background: $--gray-bg;
+            padding: .8125rem 1rem;
+            border-radius: 2px;
+        }
+    }
+}
