@@ -8,12 +8,12 @@
                         <div class="section-header">Danh mục</div>
                         <VueSlickCarousel v-bind="settings">
                             <div v-for="(item, index) in categories" :key="index" class="category-item">
-                                <a href="javascript:void(0);">
+                                <router-link :to="{ name: 'product-category', params: { slug: _.get(item, 'slug') } }">
                                     <span class="image">
                                         <img alt="Category" class="img-fluid" :src="_.get(item, 'image')" />
                                     </span>
                                     <span class="name">{{ _.get(item, "name") }}</span>
-                                </a>
+                                </router-link>
                             </div>
                         </VueSlickCarousel>
                     </template>

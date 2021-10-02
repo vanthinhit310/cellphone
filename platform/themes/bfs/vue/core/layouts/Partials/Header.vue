@@ -29,9 +29,9 @@
                         <a-col :span="0" :offset="0" :lg="{ span: 3 }">
                             <div class="main-logo">
                                 <transition name="fade" mode="out-in">
-                                    <a v-if="_.get(siteSettings, 'theme--logo')" class="d-block" href="/">
+                                    <router-link v-if="_.get(siteSettings, 'theme--logo')" class="d-block" :to="{ name: 'home' }">
                                         <img alt="Logo" class="img-fluid" :src="_.get(siteSettings, 'theme--logo')" />
-                                    </a>
+                                    </router-link>
                                 </transition>
                             </div>
                         </a-col>
