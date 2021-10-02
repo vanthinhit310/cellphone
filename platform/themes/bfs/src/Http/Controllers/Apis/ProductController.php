@@ -4,9 +4,15 @@ namespace Theme\Bfs\Http\Controllers\Apis;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Auth;
 use Platform\Base\Enums\BaseStatusEnum;
 use Platform\Base\Supports\Helper;
 use Platform\Ecommerce\Models\Product;
+use Platform\Ecommerce\Models\ProductCategory;
+use Platform\Ecommerce\Repositories\Interfaces\ProductCategoryInterface;
+use Platform\Ecommerce\Services\Products\GetProductService;
+use Platform\SeoHelper\SeoOpenGraph;
 use Platform\Slug\Repositories\Interfaces\SlugInterface;
 use RvMedia;
 use SeoHelper;
@@ -136,7 +142,6 @@ class ProductController extends Controller
         do_action(BASE_ACTION_PUBLIC_RENDER_SINGLE, PRODUCT_CATEGORY_MODULE_SCREEN_NAME, $product);
 
         return response()->json(["product" => new ProductDetailResource($product)], Response::HTTP_OK);
-//        return response()->json(["product" => $product], Response::HTTP_OK);
     }
 
 }

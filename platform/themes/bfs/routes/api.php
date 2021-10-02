@@ -18,6 +18,11 @@ Route::group([
     Route::get('feature-products', [ProductController::class, 'getFeatureProducts']);
     Route::get('selling-products', [ProductController::class, 'getSellingProducts']);
 
+    Route::prefix('product-categories')->group(function () {
+        Route::get('/', [ProductCategoryController::class, 'getCategories']);
+        Route::get('{slug}', [ProductCategoryController::class, 'getProductCategory']);
+    });
+
     Route::prefix('products')->group(function () {
         Route::get('/', [ProductController::class, 'getAllProducts']);
         Route::get('relateds', [ProductController::class, 'getRelatedProducts']);

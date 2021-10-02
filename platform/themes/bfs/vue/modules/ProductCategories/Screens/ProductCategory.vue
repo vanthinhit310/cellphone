@@ -8,11 +8,10 @@
                             Sắp xếp theo
                             <a-button>Phổ biến</a-button>
                             <a-button>Mới nhất</a-button>
-                            <a-button>Bán chạy</a-button>
-                            <a-select v-model="priceSort" style="width: 160px">
+                            <a-select v-model="priceSort" style="width: 140px">
                                 <a-select-option value="">Giá</a-select-option>
-                                <a-select-option value="asc">Giá thấp đến cao</a-select-option>
-                                <a-select-option value="desc">Giá cao đến thấp</a-select-option>
+                                <a-select-option value="price_asc">Giá thấp đến cao</a-select-option>
+                                <a-select-option value="price_desc">Giá cao đến thấp</a-select-option>
                             </a-select>
                         </a-space>
                     </div>
@@ -35,6 +34,10 @@ export default {
             currentPage: 1,
             total: 0
         };
+    },
+    created() {
+        console.log(this.$route);
+        const { slug } = this.$route.params;
     }
 };
 </script>
