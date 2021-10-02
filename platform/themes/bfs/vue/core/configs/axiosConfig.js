@@ -38,19 +38,17 @@ export const clearPending = () => {
     }
     pending.clear();
 };
+
 const axiosClient = axios.create({
     baseURL: "/api/v1/",
     headers: { "content-type": "application/json" },
     paramsSerializer: params => queryString.stringify(params)
 });
+
 axiosClient.interceptors.request.use(
     async config => {
-        // Check previous requests to cancel before the request starts
-        // removePending(config);
-
-        // Add current request to pending
-        // addPending(config);
-
+        removePending(config);
+        addPending(config);
         // config.headers["Authorization"] = `Bearer ${localStorage.getItem("accessToken")}`;
 
         return { ...config };
@@ -62,47 +60,20 @@ axiosClient.interceptors.request.use(
 
 axiosClient.interceptors.response.use(
     response => {
-        // removePending(response.config);
+        removePending(response.config);
 
         if (response && response.data) {
-            /*const message = _.get(response, "data.message");
-            if (!!message) {
-                app.$message.success(message);
-            }*/
             return response.data;
         }
-
         return response;
     },
     error => {
-
-        // removePending(error.response.config || "");
+        removePending(error.config || "");
 
         if (!!error.response) {
             const status = _.get(error, "response.status", 400);
             const message = _.get(error, "response.data.message", "");
             switch (status) {
-                /*case 401:
-                    if (!localStorage.getItem("accessToken")) break;
-
-                    app.$notify.error({
-                        title: "Notification System",
-                        message: message,
-                    });
-
-                    localStorage.setItem("accessToken", "");
-
-                    app.$router.push({ name: "login" });
-                    break;
-
-                case 403:
-                    app.$router.push({ name: "dashboard" });
-                    app.$notify.error({
-                        title: "Notification System",
-                        message: message,
-                    });
-                    break;*/
-
                 case 422:
                     const errors = _.get(error, "response.data.errors", "");
                     if (!!message) app.$message.error(message);
@@ -120,13 +91,13 @@ axiosClient.interceptors.response.use(
             }
         }
 
-        /*if (axiosClient.isCancel(error)) {
-            console.log("repeated request: " + error.message);
+        if (!axios.isCancel(error)) {
+            return Promise.reject(error);
         } else {
-            // handle error code
-        }*/
-
-        return Promise.reject(error);
+            // return empty object for aborted request
+            console.log("repeated request: " + error.message);
+            return Promise.resolve({});
+        }
     }
 );
 export default axiosClient;
