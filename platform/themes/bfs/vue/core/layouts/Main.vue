@@ -6,9 +6,7 @@
                 <Header />
             </a-layout-header>
             <a-layout-content :style="{ marginTop: '108.16px' }">
-                <keep-alive>
-                    <router-view />
-                </keep-alive>
+                <router-view />
             </a-layout-content>
             <a-layout-footer>
                 <Footer />

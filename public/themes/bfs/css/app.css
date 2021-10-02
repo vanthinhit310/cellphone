@@ -24366,6 +24366,9 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
 .product-category-wrapper {
   background: #f5f5f5;
 }
+.product-category-wrapper .pc-content {
+  padding-top: 20px;
+}
 .product-category-wrapper .pc-content .pc-content-header {
   display: flex;
   flex-direction: row;
@@ -24374,4 +24377,7 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
   background: rgba(0, 0, 0, 0.03);
   padding: 0.8125rem 1rem;
   border-radius: 2px;
+}
+.product-category-wrapper .pc-content .pc-content-list {
+  padding: 20px 0;
 }
