@@ -3,21 +3,16 @@ import axios from "axios";
 import queryString from "query-string";
 import qs from "qs";
 import app from "@core/app.js";
-import {notification} from "ant-design-vue";
+import { notification } from "ant-design-vue";
 
 // Declare a Map to store the identification and cancellation functions for each request
 const pending = new Map();
 
-const addPending = (config) => {
-    const url = [
-        config.method,
-        config.url,
-        qs.stringify(config.params),
-        qs.stringify(config.data),
-    ].join("&");
+const addPending = config => {
+    const url = [config.method, config.url, qs.stringify(config.params), qs.stringify(config.data)].join("&");
     config.cancelToken =
         config.cancelToken ||
-        new axios.CancelToken((cancel) => {
+        new axios.CancelToken(cancel => {
             if (!pending.has(url)) {
                 // If the current request does not exist in pending, add it
                 pending.set(url, cancel);
@@ -25,13 +20,8 @@ const addPending = (config) => {
         });
 };
 
-const removePending = (config) => {
-    const url = [
-        config.method,
-        config.url,
-        qs.stringify(config.params),
-        qs.stringify(config.data),
-    ].join("&");
+const removePending = config => {
+    const url = [config.method, config.url, qs.stringify(config.params), qs.stringify(config.data)].join("&");
     if (pending.has(url)) {
         // If the current request identity exists in pending, you need to cancel the current request and remove it
         const cancel = pending.get(url);
@@ -51,39 +41,43 @@ export const clearPending = () => {
 const axiosClient = axios.create({
     baseURL: "/api/v1/",
     headers: { "content-type": "application/json" },
-    paramsSerializer: (params) => queryString.stringify(params),
+    paramsSerializer: params => queryString.stringify(params)
 });
 axiosClient.interceptors.request.use(
-    async (config) => {
+    async config => {
         // Check previous requests to cancel before the request starts
-        removePending(config);
+        // removePending(config);
 
         // Add current request to pending
-        addPending(config);
+        // addPending(config);
 
         // config.headers["Authorization"] = `Bearer ${localStorage.getItem("accessToken")}`;
 
         return { ...config };
     },
-    (error) => {
+    error => {
         return Promise.reject(error);
     }
 );
 
 axiosClient.interceptors.response.use(
-    (response) => {
-        removePending(response.config);
+    response => {
+        // removePending(response.config);
+
         if (response && response.data) {
-            // const message = _.get(response, "data.message");
-            // if (!!message) {
-            //     app.$message.success(message);
-            // }
+            /*const message = _.get(response, "data.message");
+            if (!!message) {
+                app.$message.success(message);
+            }*/
             return response.data;
         }
+
         return response;
     },
-    (error) => {
-        removePending(error.response.config || '');
+    error => {
+
+        // removePending(error.response.config || "");
+
         if (!!error.response) {
             const status = _.get(error, "response.status", 400);
             const message = _.get(error, "response.data.message", "");
@@ -111,11 +105,13 @@ axiosClient.interceptors.response.use(
 
                 case 422:
                     const errors = _.get(error, "response.data.errors", "");
-                    if (!!message)
-                        app.$message.error(message);
+                    if (!!message) app.$message.error(message);
 
-                    if (!!errors)
-                        app.$message.error(message);
+                    if (!!errors) app.$message.error(message);
+                    break;
+
+                case 404:
+                    app.$router.push({ name: "notfound" });
                     break;
 
                 default:
@@ -123,19 +119,12 @@ axiosClient.interceptors.response.use(
                     break;
             }
         }
-        console.log(error.response);
 
-        // if (axiosClient.isCancel(error)) {
-        //     console.log("repeated request: " + error.message);
-        // } else {
-        //     // handle error code
-        // }
-
-        //handle error code
-        if(error.response.status === 404){
-            console.log(404);
-
-        }
+        /*if (axiosClient.isCancel(error)) {
+            console.log("repeated request: " + error.message);
+        } else {
+            // handle error code
+        }*/
 
         return Promise.reject(error);
     }
