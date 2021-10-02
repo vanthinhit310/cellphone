@@ -6,7 +6,9 @@
                 <Header />
             </a-layout-header>
             <a-layout-content :style="{ marginTop: '108.16px' }">
-                <router-view />
+                <keep-alive>
+                    <router-view />
+                </keep-alive>
             </a-layout-content>
             <a-layout-footer>
                 <Footer />
@@ -31,14 +33,14 @@ export default {
     },
     computed: {
         ...mapGetters({
-            isLoading: "baseComponents/getLoadingState",
+            isLoading: "baseComponents/getLoadingState"
         })
     },
     created() {
         this.getSettings();
     },
     methods: {
-        ...mapActions("home", ["getSettings"]),
+        ...mapActions("home", ["getSettings"])
     }
 };
 </script>
