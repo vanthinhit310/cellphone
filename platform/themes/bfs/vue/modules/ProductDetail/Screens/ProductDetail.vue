@@ -78,7 +78,6 @@ export default {
         } catch (e) {
             console.log(e.message);
         }
-        this.setLoadingState(false);
     },
     methods: {
         ...mapActions("productDetail", ["getProduct"]),
