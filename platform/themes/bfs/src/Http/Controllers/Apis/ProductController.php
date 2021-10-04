@@ -7,7 +7,7 @@ use Illuminate\Routing\Controller;
 use Platform\Base\Enums\BaseStatusEnum;
 use Platform\Base\Supports\Helper;
 use Platform\Ecommerce\Models\Product;
-use Platform\Ecommerce\Services\Products\GetProductService;
+use Platform\Ecommerce\Repositories\Interfaces\ProductInterface;
 use Platform\Slug\Repositories\Interfaces\SlugInterface;
 use RvMedia;
 use SeoHelper;
@@ -139,12 +139,22 @@ class ProductController extends Controller
         return response()->json(["product" => new ProductDetailResource($product)], Response::HTTP_OK);
     }
 
-    public function searchProducts(Request $request, GetProductService $getProductService)
+    public function searchProducts()
     {
-        $products = $getProductService->getProduct($request, null, null, ['slugable', 'variations', 'productCollections', 'variationAttributeSwatchesForProductList', 'promotions']);
+        $filters = [
+            'keyword' => $this->request->get('query') ?? null,
+            'order_by' => [],
+            'collections' => []
+        ];
+        
+        $params = [
+            'take' => 5
+        ];
+
+        $products = app(ProductInterface::class)->filterProducts($filters, $params);
+
         return response()->json([
-            "products" => ProductResource::collection($products),
-            "pagination" => new PaginationResource($products)
+            "products" => ProductResource::collection($products)
         ], Response::HTTP_OK);
     }
 
