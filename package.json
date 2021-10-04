@@ -53,6 +53,7 @@
         "vee-validate": "^3.4.13",
         "vue-cool-lightbox": "^2.7.4",
         "vue-loading-overlay": "^3.4.2",
+        "vue-meta": "^2.4.0",
         "vue-numeric-input": "^1.0.6",
         "vue-router": "^3.5.2",
         "vue-slick-carousel": "^1.0.6",
