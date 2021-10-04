@@ -142,11 +142,11 @@ class ProductController extends Controller
     public function searchProducts()
     {
         $filters = [
-            'keyword' => $this->request->get('query') ?? null,
+            'keyword' => $this->request->get('q') ?? null,
             'order_by' => [],
             'collections' => []
         ];
-        
+
         $params = [
             'take' => 5
         ];

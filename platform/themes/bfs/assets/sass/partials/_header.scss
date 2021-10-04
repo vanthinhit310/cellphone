@@ -20,15 +20,16 @@
         width: 100%;
         box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 9%);
         box-sizing: border-box;
-        padding: .1875rem;
+        padding: 0.1875rem;
         height: 2.5rem;
         border-radius: 2px;
+        position: relative;
 
-        input{
+        input {
             outline: none !important;
             box-shadow: none !important;
             border: none !important;
-            font-size: .875rem;
+            font-size: 0.875rem;
             color: $--text;
             align-items: center;
             outline: none;
@@ -36,12 +37,12 @@
             padding: 0;
             margin: 0;
             display: flex;
-            padding: 0 .625rem;
+            padding: 0 0.625rem;
             height: 100%;
             line-height: normal;
         }
 
-        .button-search{
+        .button-search {
             display: flex;
             height: 100%;
             color: $--white;
@@ -60,6 +61,57 @@
             min-width: 60px;
             max-width: 190px;
             align-items: center;
+        }
+
+        .search-list {
+            position: absolute;
+            z-index: 1;
+            top: 100%;
+            right: 0;
+            left: 0;
+            width: 100%;
+            background: $--white;
+
+            .search-item {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                cursor: pointer;
+
+                .left {
+                    flex: 0 0 40px;
+                    .search-item-avatar {
+                        width: 100%;
+                        img {
+                            display: block;
+                            margin: 0 auto;
+                        }
+                    }
+                }
+                .right {
+                    flex: 1 1 auto;
+                    margin-left: 10px;
+                    display: flex;
+                    flex-direction: column;
+                    span {
+                        display: block;
+                        color: $--text;
+                    }
+
+                    .search-title {
+                        font-size: 0.875rem;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        display: -webkit-box;
+                        -webkit-line-clamp: 1;
+                        -webkit-box-orient: vertical;
+                    }
+
+                    .search-price {
+                        color: $--primary-color;
+                    }
+                }
+            }
         }
     }
 }

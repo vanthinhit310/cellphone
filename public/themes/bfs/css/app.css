@@ -23321,6 +23321,7 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
   padding: 0.1875rem;
   height: 2.5rem;
   border-radius: 2px;
+  position: relative;
 }
 .header-wrapper .search-bar input {
   outline: none !important;
@@ -23357,6 +23358,52 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
   min-width: 60px;
   max-width: 190px;
   align-items: center;
+}
+.header-wrapper .search-bar .search-list {
+  position: absolute;
+  z-index: 1;
+  top: 100%;
+  right: 0;
+  left: 0;
+  width: 100%;
+  background: #FFF;
+}
+.header-wrapper .search-bar .search-list .search-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+}
+.header-wrapper .search-bar .search-list .search-item .left {
+  flex: 0 0 40px;
+}
+.header-wrapper .search-bar .search-list .search-item .left .search-item-avatar {
+  width: 100%;
+}
+.header-wrapper .search-bar .search-list .search-item .left .search-item-avatar img {
+  display: block;
+  margin: 0 auto;
+}
+.header-wrapper .search-bar .search-list .search-item .right {
+  flex: 1 1 auto;
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.header-wrapper .search-bar .search-list .search-item .right span {
+  display: block;
+  color: #38383d;
+}
+.header-wrapper .search-bar .search-list .search-item .right .search-title {
+  font-size: 0.875rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+.header-wrapper .search-bar .search-list .search-item .right .search-price {
+  color: #ee4d2d;
 }
 
 .ant-layout-footer {
