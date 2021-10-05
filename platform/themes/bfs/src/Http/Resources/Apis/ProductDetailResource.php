@@ -48,6 +48,7 @@ class ProductDetailResource extends JsonResource
             'thumbnail' => RvMedia::getImageUrl($this->image, 'product-thumb', false, RvMedia::getDefaultImage()),
             'small_images' => get_product_url_images($this->images, 'product-thumb'),
             'big_images' => get_product_url_images($this->images),
+            'shopee_link' => @$this->shopee_link,
             'description' => @$this->description,
             'specifications' => @$this->content
         ];

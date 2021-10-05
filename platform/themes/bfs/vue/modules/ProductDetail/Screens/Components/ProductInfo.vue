@@ -34,27 +34,27 @@
                     </a-space>
                 </div>
 
-<!--                <div class="product-attributes product-info-label">-->
-<!--                    <label class="label">Màu sắc</label>-->
-<!--                    <div class="content">-->
-<!--                        <button-->
-<!--                            @click="setActive(index)"-->
-<!--                            :data-variation="index"-->
-<!--                            v-for="index in 10"-->
-<!--                            :key="index"-->
-<!--                            :class="active === index ? 'product-variation product-variation&#45;&#45;selected' : 'product-variation'">-->
-<!--                            Thường 2,7m-->
-<!--                            <div v-show="active === index" class="product-variation__tick">-->
-<!--                                <svg enable-background="new 0 0 12 12" viewBox="0 0 12 12" x="0" y="0" class="shopee-svg-icon icon-tick-bold">-->
-<!--                                    <g>-->
-<!--                                        <path-->
-<!--                                            d="m5.2 10.9c-.2 0-.5-.1-.7-.2l-4.2-3.7c-.4-.4-.5-1-.1-1.4s1-.5 1.4-.1l3.4 3 5.1-7c .3-.4 1-.5 1.4-.2s.5 1 .2 1.4l-5.7 7.9c-.2.2-.4.4-.7.4 0-.1 0-.1-.1-.1z"></path>-->
-<!--                                    </g>-->
-<!--                                </svg>-->
-<!--                            </div>-->
-<!--                        </button>-->
-<!--                    </div>-->
-<!--                </div>-->
+                <!--                <div class="product-attributes product-info-label">-->
+                <!--                    <label class="label">Màu sắc</label>-->
+                <!--                    <div class="content">-->
+                <!--                        <button-->
+                <!--                            @click="setActive(index)"-->
+                <!--                            :data-variation="index"-->
+                <!--                            v-for="index in 10"-->
+                <!--                            :key="index"-->
+                <!--                            :class="active === index ? 'product-variation product-variation&#45;&#45;selected' : 'product-variation'">-->
+                <!--                            Thường 2,7m-->
+                <!--                            <div v-show="active === index" class="product-variation__tick">-->
+                <!--                                <svg enable-background="new 0 0 12 12" viewBox="0 0 12 12" x="0" y="0" class="shopee-svg-icon icon-tick-bold">-->
+                <!--                                    <g>-->
+                <!--                                        <path-->
+                <!--                                            d="m5.2 10.9c-.2 0-.5-.1-.7-.2l-4.2-3.7c-.4-.4-.5-1-.1-1.4s1-.5 1.4-.1l3.4 3 5.1-7c .3-.4 1-.5 1.4-.2s.5 1 .2 1.4l-5.7 7.9c-.2.2-.4.4-.7.4 0-.1 0-.1-.1-.1z"></path>-->
+                <!--                                    </g>-->
+                <!--                                </svg>-->
+                <!--                            </div>-->
+                <!--                        </button>-->
+                <!--                    </div>-->
+                <!--                </div>-->
 
                 <div class="product-quantity product-info-label">
                     <label class="label">Số lượng</label>
@@ -70,11 +70,11 @@
                 </div>
                 <div class="product-action">
                     <a-space :size="15">
-                        <a-button htmlType="button" class="add-to-cart" size="large">
+                        <a :href="_.get(product, 'shopee_link', 'javascript:void(0);')" target="_blank" class="add-to-cart">
                             <a-icon type="shopping-cart" />
                             Thêm vào giỏ hàng
-                        </a-button>
-                        <a-button htmlType="button" class="buy-now" type="primary" size="large"> Mua ngay</a-button>
+                        </a>
+                        <a :href="_.get(product, 'shopee_link', 'javascript:void(0);')" target="_blank" class="buy-now"> Mua ngay</a>
                     </a-space>
                 </div>
             </div>

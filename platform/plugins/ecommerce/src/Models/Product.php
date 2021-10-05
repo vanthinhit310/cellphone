@@ -49,6 +49,7 @@ class Product extends BaseModel
         'is_searchable',
         'is_show_on_list',
         'sale_type',
+        'shopee_link',
         'price',
         'sale_price',
         'start_date',
