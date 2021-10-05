@@ -19,7 +19,7 @@
 <script>
 import Header from "@core/layouts/Partials/Header";
 import Footer from "@core/layouts/Partials/Footer";
-import { mapActions, mapGetters } from "vuex";
+import { mapActions, mapGetters, mapMutations } from "vuex";
 import Loading from "vue-loading-overlay";
 import "vue-loading-overlay/dist/vue-loading.css";
 
@@ -36,9 +36,25 @@ export default {
     },
     created() {
         this.getSettings();
+        this.fetchProductCategories();
     },
     methods: {
-        ...mapActions("home", ["getSettings"])
+        ...mapActions("home", ["getSettings"]),
+        ...mapActions("home", ["getProductCategories"]),
+        ...mapMutations({
+            setCategories: "home/setCategories"
+        }),
+        async fetchProductCategories() {
+            try {
+                const response = await this.getProductCategories();
+                const categories = _.get(response, "categories", []);
+                if (!!categories) {
+                    this.setCategories(categories);
+                }
+            } catch (e) {
+                console.log(e.message);
+            }
+        }
     }
 };
 </script>

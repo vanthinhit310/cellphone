@@ -113,22 +113,6 @@ export default {
             settings: "home/getSettings"
         })
     },
-    async mounted() {
-        try {
-            const { categories } = this;
-            if (!Array.isArray(categories) || !categories.length) {
-                this.processing = true;
-                const response = await this.getProductCategories();
-                const categories = _.get(response, "categories", []);
-                if (!!categories) {
-                    this.setCategories(categories);
-                }
-            }
-        } catch (e) {
-            // console.log(e);
-        }
-        this.processing = false;
-    },
     methods: {
         ...mapActions("home", ["getProductCategories"]),
         ...mapMutations({

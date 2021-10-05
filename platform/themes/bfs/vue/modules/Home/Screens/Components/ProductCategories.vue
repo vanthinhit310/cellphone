@@ -87,7 +87,7 @@ export default {
                     }
                 ]
             },
-            processing: false,
+            processing: true,
             error: ""
         };
     },
@@ -96,25 +96,9 @@ export default {
             categories: "home/getCategories"
         })
     },
-    created() {
-        this.fetchProductCategories();
-    },
-    methods: {
-        ...mapActions("home", ["getProductCategories"]),
-        ...mapMutations({
-            setCategories: "home/setCategories"
-        }),
-        async fetchProductCategories() {
-            try {
-                this.processing = true;
-                const response = await this.getProductCategories();
-                const categories = _.get(response, "categories", []);
-                if (!!categories) {
-                    this.setCategories(categories);
-                }
-            } catch (e) {
-                console.log(e.message);
-            }
+    watch: {
+        categories() {
+            this.list = this.categories;
             this.processing = false;
         }
     }
