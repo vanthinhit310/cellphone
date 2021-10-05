@@ -49,7 +49,7 @@ class ProductDetailResource extends JsonResource
             'small_images' => get_product_url_images($this->images, 'product-thumb'),
             'big_images' => get_product_url_images($this->images),
             'shopee_link' => @$this->shopee_link,
-            'variations' => @$this->variations,
+            'variations' => VariationResource::collection(@$this->variations),
             'productAttributeSets' => AttributeSetResource::collection(@$this->productAttributeSets),
 //            'productAttributes' => AttributeResource::collection(@$this->productAttributes),
             'description' => @$this->description,
