@@ -23,7 +23,6 @@ class SettingController extends Controller
 
     public function getSettings()
     {
-//        $settings = Setting::all();
         $settings = [
             "ecommerce_store_name" => setting('ecommerce_store_name'),
             "ecommerce_store_phone" => setting('ecommerce_store_phone'),
@@ -32,6 +31,8 @@ class SettingController extends Controller
             "theme--shop_zalo_link" => setting('theme--shop_zalo_link'),
             "theme--shop_email" => setting('theme--shop_email'),
             "theme--logo" => RvMedia::getImageUrl(setting('theme--logo')),
+            "theme--home_banner_1" => RvMedia::getImageUrl(setting('theme--home_banner_1')),
+            "theme--home_banner_2" => RvMedia::getImageUrl(setting('theme--home_banner_2')),
             "theme--copyright" => setting('theme--copyright'),
         ];
         return response()->json(["settings" => $settings], Response::HTTP_OK);
