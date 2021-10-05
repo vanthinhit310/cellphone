@@ -24156,12 +24156,16 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
   flex-wrap: wrap;
   align-items: center;
 }
-.product-detail-wrapper .product-info .info-content .info-box .info-box-content .product-info-label .content .product-variation {
+.product-detail-wrapper .product-info .info-content .info-box .info-box-content .product-info-label .content .custom-radio {
+  position: relative;
+}
+.product-detail-wrapper .product-info .info-content .info-box .info-box-content .product-info-label .content .custom-radio .product-variation {
   overflow: hidden;
   text-transform: none;
   -webkit-appearance: button;
   cursor: pointer;
   min-width: 5rem;
+  width: auto;
   min-height: 2.125rem;
   box-sizing: border-box;
   padding: 0.25rem 0.75rem;
@@ -24178,15 +24182,18 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
   align-items: center;
   justify-content: center;
 }
-.product-detail-wrapper .product-info .info-content .info-box .info-box-content .product-info-label .content .product-variation .product-variation__tick {
+.product-detail-wrapper .product-info .info-content .info-box .info-box-content .product-info-label .content .custom-radio .product-variation .product-variation__tick {
   width: 0.9375rem;
   height: 0.9375rem;
   position: absolute;
   overflow: hidden;
   right: 0;
   bottom: 0;
+  transition: all linear 0.3s;
+  opacity: 0;
+  visibility: hidden;
 }
-.product-detail-wrapper .product-info .info-content .info-box .info-box-content .product-info-label .content .product-variation .product-variation__tick:before {
+.product-detail-wrapper .product-info .info-content .info-box .info-box-content .product-info-label .content .custom-radio .product-variation .product-variation__tick:before {
   border: 0.9375rem solid transparent;
   border-bottom: 0.9375rem solid #ee4d2d;
   content: "";
@@ -24194,27 +24201,41 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
   right: -0.9375rem;
   bottom: 0;
 }
-.product-detail-wrapper .product-info .info-content .info-box .info-box-content .product-info-label .content .product-variation .product-variation__tick .shopee-svg-icon {
+.product-detail-wrapper .product-info .info-content .info-box .info-box-content .product-info-label .content .custom-radio .product-variation .product-variation__tick .shopee-svg-icon {
   display: inline-block;
   width: 1em;
   height: 1em;
   fill: #FFF;
   position: relative;
 }
-.product-detail-wrapper .product-info .info-content .info-box .info-box-content .product-info-label .content .product-variation .product-variation__tick > .icon-tick-bold {
+.product-detail-wrapper .product-info .info-content .info-box .info-box-content .product-info-label .content .custom-radio .product-variation .product-variation__tick > .icon-tick-bold {
   position: absolute;
   right: 0;
   bottom: 0;
   color: #FFF;
   font-size: 8px;
 }
-.product-detail-wrapper .product-info .info-content .info-box .info-box-content .product-info-label .content .product-variation:hover {
+.product-detail-wrapper .product-info .info-content .info-box .info-box-content .product-info-label .content .custom-radio .product-variation:hover {
   color: #ee4d2d;
   border-color: #ee4d2d;
 }
-.product-detail-wrapper .product-info .info-content .info-box .info-box-content .product-info-label .content .product-variation--selected {
+.product-detail-wrapper .product-info .info-content .info-box .info-box-content .product-info-label .content .custom-radio input[type=radio] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  z-index: -99;
+  opacity: 0;
+}
+.product-detail-wrapper .product-info .info-content .info-box .info-box-content .product-info-label .content .custom-radio input[type=radio]:checked + label {
   color: #ee4d2d;
   border-color: #ee4d2d;
+}
+.product-detail-wrapper .product-info .info-content .info-box .info-box-content .product-info-label .content .custom-radio input[type=radio]:checked + label .product-variation__tick {
+  transition: all linear 0.3s;
+  opacity: 1;
+  visibility: visible;
 }
 .product-detail-wrapper .product-info .info-content .pic {
   display: flex;

@@ -418,75 +418,99 @@
                             flex-wrap: wrap;
                             align-items: center;
 
-                            .product-variation {
-                                overflow: hidden;
-                                text-transform: none;
-                                -webkit-appearance: button;
-                                cursor: pointer;
-                                min-width: 5rem;
-                                min-height: 2.125rem;
-                                -moz-box-sizing: border-box;
-                                box-sizing: border-box;
-                                padding: 0.25rem 0.75rem;
-                                margin: 0 8px 8px 0;
-                                color: rgba(0, 0, 0, 0.8);
-                                text-align: left;
-                                border-radius: 2px;
-                                border: 1px solid rgba(0, 0, 0, 0.09);
+                            .custom-radio {
                                 position: relative;
-                                background: $--white;
-                                outline: 0;
-                                word-break: break-word;
-                                display: inline-flex;
-                                -webkit-align-items: center;
-                                -moz-box-align: center;
-                                -ms-flex-align: center;
-                                align-items: center;
-                                justify-content: center;
 
-                                .product-variation__tick {
-                                    width: 0.9375rem;
-                                    height: 0.9375rem;
-                                    position: absolute;
+                                .product-variation {
                                     overflow: hidden;
-                                    right: 0;
-                                    bottom: 0;
+                                    text-transform: none;
+                                    -webkit-appearance: button;
+                                    cursor: pointer;
+                                    min-width: 5rem;
+                                    width: auto;
+                                    min-height: 2.125rem;
+                                    -moz-box-sizing: border-box;
+                                    box-sizing: border-box;
+                                    padding: 0.25rem 0.75rem;
+                                    margin: 0 8px 8px 0;
+                                    color: rgba(0, 0, 0, 0.8);
+                                    text-align: left;
+                                    border-radius: 2px;
+                                    border: 1px solid rgba(0, 0, 0, 0.09);
+                                    position: relative;
+                                    background: $--white;
+                                    outline: 0;
+                                    word-break: break-word;
+                                    display: inline-flex;
+                                    -webkit-align-items: center;
+                                    -moz-box-align: center;
+                                    -ms-flex-align: center;
+                                    align-items: center;
+                                    justify-content: center;
 
-                                    &:before {
-                                        border: 0.9375rem solid transparent;
-                                        border-bottom: 0.9375rem solid $--primary-color;
-                                        content: "";
+                                    .product-variation__tick {
+                                        width: 0.9375rem;
+                                        height: 0.9375rem;
                                         position: absolute;
-                                        right: -0.9375rem;
+                                        overflow: hidden;
+                                        right: 0;
                                         bottom: 0;
+                                        transition: all linear 0.3s;
+                                        opacity: 0;
+                                        visibility: hidden;
+
+                                        &:before {
+                                            border: 0.9375rem solid transparent;
+                                            border-bottom: 0.9375rem solid $--primary-color;
+                                            content: "";
+                                            position: absolute;
+                                            right: -0.9375rem;
+                                            bottom: 0;
+                                        }
+
+                                        .shopee-svg-icon {
+                                            display: inline-block;
+                                            width: 1em;
+                                            height: 1em;
+                                            fill: $--white;
+                                            position: relative;
+                                        }
                                     }
 
-                                    .shopee-svg-icon {
-                                        display: inline-block;
-                                        width: 1em;
-                                        height: 1em;
-                                        fill: $--white;
-                                        position: relative;
+                                    .product-variation__tick > .icon-tick-bold {
+                                        position: absolute;
+                                        right: 0;
+                                        bottom: 0;
+                                        color: $--white;
+                                        font-size: 8px;
+                                    }
+
+                                    &:hover {
+                                        color: $--primary-color;
+                                        border-color: $--primary-color;
                                     }
                                 }
 
-                                .product-variation__tick > .icon-tick-bold {
+                                input[type="radio"] {
                                     position: absolute;
-                                    right: 0;
-                                    bottom: 0;
-                                    color: $--white;
-                                    font-size: 8px;
+                                    top: 0;
+                                    left: 0;
+                                    width: 0;
+                                    height: 0;
+                                    z-index: -99;
+                                    opacity: 0;
                                 }
 
-                                &:hover {
+                                input[type="radio"]:checked + label {
                                     color: $--primary-color;
                                     border-color: $--primary-color;
-                                }
-                            }
 
-                            .product-variation--selected {
-                                color: $--primary-color;
-                                border-color: $--primary-color;
+                                    .product-variation__tick {
+                                        transition: all linear 0.3s;
+                                        opacity: 1;
+                                        visibility: visible;
+                                    }
+                                }
                             }
                         }
                     }
@@ -685,17 +709,17 @@
 
 .product-detail-selling {
     box-shadow: 0 1px 1px 0 rgb(0 0 0 / 5%);
-    border-radius: .125rem;
+    border-radius: 0.125rem;
     overflow: hidden;
     background: #fff;
 
-    @include maxWidth(992px){
+    @include maxWidth(992px) {
         overflow: unset;
     }
 
     .selling-product-title {
-        color: rgba(0, 0, 0, .4);
-        margin: .625rem 0 0;
+        color: rgba(0, 0, 0, 0.4);
+        margin: 0.625rem 0 0;
         text-transform: capitalize;
         padding: 0 0.725rem;
     }
@@ -709,7 +733,6 @@
     }
 
     .selling-product-item:not(:last-child) {
-        border-bottom: 1px solid rgba(0, 0, 0, .09);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.09);
     }
-
 }

@@ -120,7 +120,9 @@ class ProductController extends Controller
             'take' => 1,
             'with' => [
                 'defaultProductAttributes',
+                'productAttributes',
                 'categories',
+                'variations',
                 'reviews',
                 'slugable',
                 'tags',
@@ -137,6 +139,9 @@ class ProductController extends Controller
         do_action(BASE_ACTION_PUBLIC_RENDER_SINGLE, PRODUCT_CATEGORY_MODULE_SCREEN_NAME, $product);
 
         return response()->json(["product" => new ProductDetailResource($product)], Response::HTTP_OK);
+//        dd(get_product_attributes($product->id));
+//        dd($product->productAttributes);
+//        return response()->json(["product" => $product], Response::HTTP_OK);
     }
 
     public function searchProducts()
