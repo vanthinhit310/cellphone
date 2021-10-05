@@ -10,7 +10,9 @@
                             <div class="footer-categories-list">
                                 <a-row :gutter="16">
                                     <a-col v-for="(item, index) in list" :key="index" :span="12" :lg="{ span: 6 }" :md="{ span: 8 }">
-                                        <a class="d-flex" href="javascript:void(0);">{{ _.get(item, "name") }}</a>
+                                        <router-link class="d-flex" :to="{ name: 'product-category', params: { slug: _.get(item, 'slug') } }">
+                                            {{ _.get(item, "name") }}
+                                        </router-link>
                                     </a-col>
                                 </a-row>
                             </div>
