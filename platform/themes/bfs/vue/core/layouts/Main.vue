@@ -41,11 +41,13 @@ export default {
     methods: {
         ...mapActions("home", ["getSettings"]),
         ...mapActions("home", ["getProductCategories"]),
+        ...mapActions("baseComponents", ["setSubLoading"]),
         ...mapMutations({
             setCategories: "home/setCategories"
         }),
         async fetchProductCategories() {
             try {
+                this.setSubLoading(true);
                 const response = await this.getProductCategories();
                 const categories = _.get(response, "categories", []);
                 if (!!categories) {
@@ -54,6 +56,7 @@ export default {
             } catch (e) {
                 console.log(e.message);
             }
+            this.setSubLoading(false);
         }
     }
 };

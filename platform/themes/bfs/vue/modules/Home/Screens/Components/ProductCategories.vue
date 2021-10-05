@@ -1,7 +1,7 @@
 <template>
     <section class="product-categories">
         <div class="container">
-            <a-spin :spinning="processing">
+            <a-spin :spinning="subLoading">
                 <a-icon slot="indicator" type="loading" style="font-size: 24px" spin />
                 <div class="categories-content">
                     <template v-if="categories.length">
@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import { mapActions, mapGetters, mapMutations } from "vuex";
+import { mapGetters } from "vuex";
 import VueSlickCarousel from "vue-slick-carousel";
 import "vue-slick-carousel/dist/vue-slick-carousel.css";
 import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
@@ -87,20 +87,14 @@ export default {
                     }
                 ]
             },
-            processing: true,
             error: ""
         };
     },
     computed: {
         ...mapGetters({
-            categories: "home/getCategories"
+            categories: "home/getCategories",
+            subLoading: "baseComponents/getSubLoading"
         })
-    },
-    watch: {
-        categories() {
-            this.list = this.categories;
-            this.processing = false;
-        }
     }
 };
 </script>
