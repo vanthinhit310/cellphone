@@ -23885,6 +23885,19 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
   opacity: 1;
   transition: opacity 0.2s ease;
 }
+.product-detail-wrapper .product-info .info-content .product-imgs .product-imgs-content .product-imgs-thumb .product-thumb .product-thumb-content .product-video {
+  position: relative;
+}
+.product-detail-wrapper .product-info .info-content .product-imgs .product-imgs-content .product-imgs-thumb .product-thumb .product-thumb-content .product-video img {
+  max-width: 70%;
+  display: block;
+  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
 .product-detail-wrapper .product-info .info-content .product-imgs .product-imgs-content .product-imgs-thumb .product-thumb.active .product-thumb-content {
   border-color: #ee4d2d;
   transition: border-color ease-out 0.2s;
