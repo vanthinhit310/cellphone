@@ -214,7 +214,6 @@ class ProductController extends Controller
 
         if (!$product) {
             return response()->json([
-                'message' => __(':number product(s) available', ['number' => 0]),
                 'product' => null
             ]);
         }
