@@ -39,8 +39,12 @@
                         <label class="label">{{ _.get(attributeSet, "title") }}</label>
                         <div class="content">
                             <div v-for="(attribute, index) in _.get(attributeSet, 'attributes')" :key="`${i}_${index}`" class="custom-radio">
-                                <input v-if="_.includes(usedAttribute, attribute.id)" type="radio" :name="attributeSet.slug" :id="`${attributeSet.slug}_${index}`" />
-                                <label v-if="_.includes(usedAttribute, attribute.id)" :for="`${attributeSet.slug}_${index}`" class="product-variation">
+                                <input v-if="_.includes(usedAttribute, attribute.id)" :value="attribute.id" type="radio" :name="attributeSet.slug" :id="`${attributeSet.slug}_${index}`" />
+                                <label
+                                    v-if="_.includes(usedAttribute, attribute.id)"
+                                    @click="addAttribute(attributeSet.slug, attribute.id)"
+                                    :for="`${attributeSet.slug}_${index}`"
+                                    class="product-variation">
                                     {{ _.get(attribute, "title") }}
                                     <div class="product-variation__tick">
                                         <svg enable-background="new 0 0 12 12" viewBox="0 0 12 12" x="0" y="0" class="shopee-svg-icon icon-tick-bold">
@@ -100,7 +104,9 @@ export default {
             min: 1,
             max: 10,
             product: "",
-            usedAttribute: []
+            usedAttribute: [],
+            attributes: {},
+            arrayAttrs: []
         };
     },
     methods: {
@@ -117,6 +123,12 @@ export default {
             } else {
                 this.quantity--;
             }
+        },
+        addAttribute(slug, id) {
+            const { attributes } = this;
+            this.attributes = { ...attributes, [slug]: id };
+            this.arrayAttrs = _.values(this.attributes);
+            this.$emit("attributeChange", this.arrayAttrs);
         }
     },
     watch: {

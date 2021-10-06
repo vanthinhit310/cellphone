@@ -65,7 +65,8 @@ export default {
         CoolLightBox
     },
     props: {
-        productDetail: String | Object
+        productDetail: String | Object,
+        variation: String | Object
     },
     data() {
         return {
@@ -100,6 +101,9 @@ export default {
             this.images = _.get(this.productDetail, "images");
             this.big_images = _.get(this.productDetail, "big_images");
             this.processing = false;
+        },
+        variation() {
+            console.log(this.variation);
         }
     }
 };

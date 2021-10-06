@@ -22,10 +22,10 @@
                 <div class="info-content card">
                     <a-row class="pic">
                         <a-col class="overflow-hidden pic-left">
-                            <ProductImage :product-detail="product" />
+                            <ProductImage :variation="variation" :product-detail="product" />
                         </a-col>
                         <a-col class="overflow-hidden pic-right">
-                            <ProductInfo :product-detail="product" />
+                            <ProductInfo @attributeChange="handleAttributeChange" :product-detail="product" />
                         </a-col>
                     </a-row>
                 </div>
@@ -68,7 +68,8 @@ export default {
     data() {
         return {
             processing: false,
-            product: ""
+            product: "",
+            variation: ""
         };
     },
     created() {
@@ -80,7 +81,7 @@ export default {
         }
     },
     methods: {
-        ...mapActions("productDetail", ["getProduct"]),
+        ...mapActions("productDetail", ["getProduct", "getProductVariation"]),
         ...mapActions("baseComponents", ["setLoadingState"]),
         async fetchProduct(slug) {
             try {
@@ -96,6 +97,23 @@ export default {
                 console.log(e.message);
             }
             this.setLoadingState(false);
+        },
+        async fetchProductVariation(id, attributes = []) {
+            try {
+                this.setLoadingState(true);
+                const response = await this.getProductVariation({ id, attributes });
+                const product = _.get(response, "product");
+                if (!!product) {
+                    this.variation = product;
+                }
+            } catch (e) {
+                console.log(e.message);
+            }
+            this.setLoadingState(false);
+        },
+        handleAttributeChange(attrs = []) {
+            const productId = _.get(this.product, "id", 0);
+            this.fetchProductVariation(productId, attrs);
         }
     },
     watch: {
