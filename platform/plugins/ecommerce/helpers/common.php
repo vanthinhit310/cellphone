@@ -44,7 +44,14 @@ if (!function_exists('rv_get_image_list')) {
             $images = [];
 
             foreach ($imagesList as $url) {
-                $images[] = RvMedia::getImageUrl($url, $size);
+                if ((strpos($url, '.mp4') !== false) || (strpos($url, '.mov') !== false)) {
+                    $images[] = \RvMedia::getImageUrl($url, null, false, RvMedia::getDefaultImage());
+                }else{
+                    $images[] = \RvMedia::getImageUrl($url, $size, false, RvMedia::getDefaultImage());
+
+                }
+
+//                $images[] = RvMedia::getImageUrl($url, $size);
             }
 
             $result[$size] = $images;

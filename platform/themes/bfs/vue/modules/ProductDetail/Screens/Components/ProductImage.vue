@@ -103,7 +103,12 @@ export default {
             this.processing = false;
         },
         variation() {
-            console.log(this.variation);
+            if (!!this.variation) {
+                this.images = _.get(this.variation, "image_with_sizes.product-thumb");
+                this.big_images = _.get(this.variation, "image_with_sizes.origin");
+                this.activeImage = _.get(this.variation, "image_with_sizes.origin[0]");
+                this.activeEl = 0;
+            }
         }
     }
 };
