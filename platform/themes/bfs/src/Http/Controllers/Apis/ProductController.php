@@ -8,6 +8,7 @@ use Platform\Base\Enums\BaseStatusEnum;
 use Platform\Base\Supports\Helper;
 use Platform\Ecommerce\Models\Product;
 use Platform\Ecommerce\Repositories\Interfaces\ProductInterface;
+use Platform\Ecommerce\Repositories\Interfaces\ProductVariationInterface;
 use Platform\Slug\Repositories\Interfaces\SlugInterface;
 use RvMedia;
 use SeoHelper;
@@ -163,4 +164,79 @@ class ProductController extends Controller
         ], Response::HTTP_OK);
     }
 
+    public function getProductVariation($id, Request $request)
+    {
+        $attributes = $request->input('attributes', []);
+
+        $variation = app(ProductVariationInterface::class)->getVariationByAttributes($id, $attributes);
+
+        $product = null;
+
+        if ($variation) {
+            $product = app(ProductInterface::class)->getProductVariations($id, [
+                'condition' => [
+                    'ec_product_variations.id' => $variation->id,
+                    'ec_products.status' => BaseStatusEnum::PUBLISHED,
+                ],
+                'select' => [
+                    'ec_products.id',
+                    'ec_products.name',
+                    'ec_products.quantity',
+                    'ec_products.price',
+                    'ec_products.sale_price',
+                    'ec_products.allow_checkout_when_out_of_stock',
+                    'ec_products.with_storehouse_management',
+                    'ec_products.images',
+                    'ec_products.sku',
+                    'ec_products.description',
+                    'original_products.images as original_images',
+                ],
+                'take' => 1,
+            ]);
+
+            if ($product) {
+                if ($product->images) {
+                    $product->image_with_sizes = rv_get_image_list($product->images, [
+                        'origin',
+                        'thumb',
+                        'product-thumb',
+                    ]);
+                } else {
+                    $originalImages = json_decode($product->original_images);
+                    $product->image_with_sizes = rv_get_image_list($originalImages, [
+                        'origin',
+                        'thumb',
+                        'product-thumb',
+                    ]);
+                }
+            }
+        }
+
+        if (!$product) {
+            return response()->json([
+                'message' => __(':number product(s) available', ['number' => 0]),
+                'product' => null
+            ]);
+        }
+
+        return response()->json([
+            'product' => [
+                'id' => $product->id,
+                'name' => $product->name,
+                'sku' => $product->sku,
+                'description' => $product->description,
+                'slug' => $product->slug,
+                'with_storehouse_management' => $product->with_storehouse_management,
+                'quantity' => $product->quantity,
+                'is_out_of_stock' => $product->isOutOfStock(),
+                'price' => $product->price,
+                'sale_price' => $product->front_sale_price,
+                'original_price' => $product->original_price,
+                'image_with_sizes' => $product->image_with_sizes,
+                'display_price' => format_price($product->price),
+                'display_sale_price' => format_price($product->front_sale_price),
+                'sale_percentage' => get_sale_percentage($product->price, $product->front_sale_price),
+            ]
+        ]);
+    }
 }

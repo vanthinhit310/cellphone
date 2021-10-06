@@ -55,6 +55,21 @@
                             transition: opacity 0.2s ease;
                             cursor: pointer;
                         }
+
+                        .video-background {
+                            position: relative;
+                            background: $--black;
+
+                            video {
+                                position: absolute;
+                                top: 50%;
+                                left: 0;
+                                width: 100%;
+                                height: auto;
+                                display: block;
+                                transform: translateY(-50%);
+                            }
+                        }
                     }
 
                     .product-imgs-thumb {

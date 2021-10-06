@@ -4,7 +4,13 @@
         <div class="product-imgs">
             <div class="product-imgs-content">
                 <div class="relative-background show-image">
-                    <div v-if="_.get(product, 'thumbnail')" @click="lightboxIndex = activeEl" class="background-img" :style="{ backgroundImage: `url(${activeImage})` }"></div>
+                    <div v-if="isImageUrl(activeImage)" @click="lightboxIndex = activeEl" class="background-img" :style="{ backgroundImage: `url(${activeImage})` }"></div>
+                    <div v-else class="video-background background-img">
+                        <video width="100%" height="auto" autoplay muted loop controls>
+                            <source :src="activeImage" type="video/mp4" />
+                            Your browser does not support HTML video.
+                        </video>
+                    </div>
                 </div>
 
                 <template v-if="images.length">

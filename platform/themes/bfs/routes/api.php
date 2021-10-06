@@ -27,6 +27,7 @@ Route::group([
         Route::get('/', [ProductController::class, 'getAllProducts']);
         Route::get('relateds', [ProductController::class, 'getRelatedProducts']);
         Route::get('search', [ProductController::class, 'searchProducts']);
+        Route::get('variation/{id}', [ProductController::class, 'getProductVariation']);
         Route::get('{slug}', [ProductController::class, 'getProductDetail']);
     });
 
