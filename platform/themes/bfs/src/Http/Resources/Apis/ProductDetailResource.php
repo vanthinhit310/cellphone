@@ -51,7 +51,6 @@ class ProductDetailResource extends JsonResource
             'shopee_link' => @$this->shopee_link,
             'variations' => VariationResource::collection(@$this->variations),
             'productAttributeSets' => AttributeSetResource::collection(@$this->productAttributeSets),
-//            'productAttributes' => AttributeResource::collection(@$this->productAttributes),
             'description' => @$this->description,
             'specifications' => @$this->content
         ];
