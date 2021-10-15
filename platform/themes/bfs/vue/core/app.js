@@ -23,7 +23,7 @@ Vue.config.productionTip = false;
 const app = new Vue({
     el: "#app",
     router,
-    store,
+    store
 });
 
 export default app;

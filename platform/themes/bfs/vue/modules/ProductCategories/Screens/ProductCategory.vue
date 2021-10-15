@@ -83,7 +83,7 @@
                                 </div>
                             </template>
                             <template v-else>
-                                <a-empty style="min-height: 400px; display: flex; justify-content: center;align-items: center;"></a-empty>
+                                <a-empty style="min-height: 400px; display: flex; justify-content: center; align-items: center"></a-empty>
                             </template>
                         </div>
                     </a-spin>
@@ -94,7 +94,7 @@
 </template>
 
 <script>
-import {mapActions} from "vuex";
+import { mapActions } from "vuex";
 import Pagination from "../../BaseComponents/Pagination";
 
 export default {
