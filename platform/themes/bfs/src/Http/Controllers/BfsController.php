@@ -9,6 +9,6 @@ class BfsController extends PublicController
 {
     public function index()
     {
-        return Theme::scope('index')->render();
+        return 'Api Server';
     }
 }
