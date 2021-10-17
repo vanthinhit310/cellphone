@@ -30,7 +30,7 @@ class SlideController extends Controller
         $data = app(SimpleSliderInterface::class)->getFirstBy([
             'key' => 'home-slider',
             'status' => BaseStatusEnum::PUBLISHED,
-        ])->sliderItems;
+        ])->sliderItems ?? [];
 
         return response()->json([
             "slides" => SlideResource::collection($data)
