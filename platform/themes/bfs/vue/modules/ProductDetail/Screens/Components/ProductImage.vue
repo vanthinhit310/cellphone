@@ -4,15 +4,25 @@
         <div class="product-imgs">
             <div class="product-imgs-content">
                 <div class="relative-background show-image">
-                    <div v-if="_.get(product, 'thumbnail')" class="background-img" :style="{ backgroundImage: `url(${activeImage})` }"></div>
+                    <div v-if="isImageUrl(activeImage)" @click="lightboxIndex = activeEl" class="background-img" :style="{ backgroundImage: `url(${activeImage})` }"></div>
+                    <div v-else class="video-background background-img">
+                        <video width="100%" height="auto" autoplay muted loop controls>
+                            <source :src="activeImage" type="video/mp4" />
+                            Your browser does not support HTML video.
+                        </video>
+                    </div>
                 </div>
 
                 <template v-if="images.length">
                     <div class="product-imgs-thumb">
+                        <CoolLightBox :items="big_images" :index="lightboxIndex" :effect="'fade'" :fullScreen="true" :useZoomBar="true" @close="lightboxIndex = null"> </CoolLightBox>
                         <VueSlickCarousel v-bind="settings">
                             <div v-for="(item, index) in images" @click="setActiveImage(item, index)" :key="index" :class="index === activeEl ? 'active product-thumb' : 'product-thumb'">
                                 <div class="product-thumb-content">
-                                    <div class="product-thumb-background" :style="{ backgroundImage: `url(${item})` }"></div>
+                                    <div v-if="isImageUrl(item)" class="product-thumb-background" :style="{ backgroundImage: `url(${item})` }"></div>
+                                    <div v-else class="product-video product-thumb-background" :style="{ backgroundImage: `url(${_.get(product, 'thumbnail')})` }">
+                                        <img alt="Play" class="img-fluid" src="/themes/bfs/images/play.png" />
+                                    </div>
                                 </div>
                             </div>
                         </VueSlickCarousel>
@@ -45,20 +55,26 @@
 import VueSlickCarousel from "vue-slick-carousel";
 import "vue-slick-carousel/dist/vue-slick-carousel.css";
 import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
+import CoolLightBox from "vue-cool-lightbox";
+import "vue-cool-lightbox/dist/vue-cool-lightbox.min.css";
 
 export default {
     name: "ProductImage",
     components: {
-        VueSlickCarousel
+        VueSlickCarousel,
+        CoolLightBox
     },
     props: {
-        productDetail: String | Object
+        productDetail: String | Object,
+        variation: String | Object
     },
     data() {
         return {
             activeEl: 0,
             activeImage: "",
             images: [],
+            big_images: [],
+            lightboxIndex: null,
             product: "",
             processing: true,
             settings: {
@@ -73,14 +89,26 @@ export default {
         setActiveImage(src, el) {
             this.activeImage = src;
             this.activeEl = el;
+        },
+        isImageUrl(url) {
+            return url.match(/\.(jpeg|jpg|gif|png)$/) != null;
         }
     },
     watch: {
         productDetail() {
             this.product = this.productDetail;
             this.activeImage = _.get(this.productDetail, "thumbnail");
-            this.images = _.get(this.productDetail, "small_images");
+            this.images = _.get(this.productDetail, "images");
+            this.big_images = _.get(this.productDetail, "big_images");
             this.processing = false;
+        },
+        variation() {
+            if (!!this.variation) {
+                this.images = _.get(this.variation, "image_with_sizes.product-thumb");
+                this.big_images = _.get(this.variation, "image_with_sizes.origin");
+                this.activeImage = _.get(this.variation, "image_with_sizes.origin[0]");
+                this.activeEl = 0;
+            }
         }
     }
 };

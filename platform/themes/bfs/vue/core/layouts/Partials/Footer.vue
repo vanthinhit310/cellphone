@@ -10,7 +10,9 @@
                             <div class="footer-categories-list">
                                 <a-row :gutter="16">
                                     <a-col v-for="(item, index) in list" :key="index" :span="12" :lg="{ span: 6 }" :md="{ span: 8 }">
-                                        <a class="d-flex" href="javascript:void(0);">{{ _.get(item, "name") }}</a>
+                                        <router-link class="d-flex" :to="{ name: 'product-category', params: { slug: _.get(item, 'slug') } }">
+                                            {{ _.get(item, "name") }}
+                                        </router-link>
                                     </a-col>
                                 </a-row>
                             </div>
@@ -23,7 +25,7 @@
                         <div class="footer-categories-title">Liên hệ với chúng tôi</div>
                         <div class="footer-categories-list">
                             <a-row :gutter="16">
-                                <a-col :span="12" :lg="{ span: 6 }">
+                                <a-col :span="8" :lg="{ span: 6 }">
                                     <div class="footer-link-content">
                                         <transition name="fade" mode="out-in">
                                             <a target="_blank" v-if="_.get(siteSettings, 'theme--shop_facebook_link')" :href="_.get(siteSettings, 'theme--shop_facebook_link')" class="footer--link">
@@ -39,7 +41,7 @@
                                         </transition>
                                     </div>
                                 </a-col>
-                                <a-col :span="12" :lg="{ span: 6 }">
+                                <a-col :span="16" :lg="{ span: 6 }">
                                     <div class="footer-link-content">
                                         <transition name="fade" mode="out-in">
                                             <a v-if="_.get(siteSettings, 'ecommerce_store_phone')" :href="`tel:${_.get(siteSettings, 'ecommerce_store_phone')}`" class="footer--link">
@@ -55,14 +57,14 @@
                                         </transition>
                                     </div>
                                 </a-col>
-                                <a-col :span="12" :lg="{ span: 6 }">
+                                <a-col :span="8" :lg="{ span: 6 }">
                                     <div class="footer-link-content">
                                         <a type="button" @click="showContactForm" class="footer--link">
                                             <span class="text">Gửi phản hồi</span>
                                         </a>
                                     </div>
                                 </a-col>
-                                <a-col :span="12" :lg="{ span: 6 }">
+                                <a-col :span="16" :lg="{ span: 6 }">
                                     <div class="footer-link-content">
                                         <a type="button" @click="showNewsletterForm" class="footer--link">
                                             <span class="text">Đăng ký nhận tin</span>
@@ -112,22 +114,6 @@ export default {
             categories: "home/getCategories",
             settings: "home/getSettings"
         })
-    },
-    async mounted() {
-        try {
-            const { categories } = this;
-            if (!Array.isArray(categories) || !categories.length) {
-                this.processing = true;
-                const response = await this.getProductCategories();
-                const categories = _.get(response, "categories", []);
-                if (!!categories) {
-                    this.setCategories(categories);
-                }
-            }
-        } catch (e) {
-            // console.log(e);
-        }
-        this.processing = false;
     },
     methods: {
         ...mapActions("home", ["getProductCategories"]),

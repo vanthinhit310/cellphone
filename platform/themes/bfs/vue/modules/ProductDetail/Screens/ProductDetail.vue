@@ -1,6 +1,6 @@
 <template>
     <section class="product-detail-wrapper">
-        <div class="page-breadcrumb">
+        <div class="page-breadcrumb d-none d-lg-block">
             <div class="container">
                 <template v-if="product">
                     <a-breadcrumb>
@@ -20,12 +20,12 @@
         <div class="product-info">
             <div class="container">
                 <div class="info-content card">
-                    <a-row type="flex" style="flex-wrap: nowrap">
-                        <a-col flex="450px" class="overflow-hidden">
-                            <ProductImage :product-detail="product" />
+                    <a-row class="pic">
+                        <a-col class="overflow-hidden pic-left">
+                            <ProductImage :variation="variation" :product-detail="product" />
                         </a-col>
-                        <a-col flex="auto" class="overflow-hidden">
-                            <ProductInfo :product-detail="product" />
+                        <a-col class="overflow-hidden pic-right">
+                            <ProductInfo @attributeChange="handleAttributeChange" :product-detail="product" />
                         </a-col>
                     </a-row>
                 </div>
@@ -68,7 +68,8 @@ export default {
     data() {
         return {
             processing: false,
-            product: ""
+            product: "",
+            variation: ""
         };
     },
     created() {
@@ -78,10 +79,9 @@ export default {
         } catch (e) {
             console.log(e.message);
         }
-        this.setLoadingState(false);
     },
     methods: {
-        ...mapActions("productDetail", ["getProduct"]),
+        ...mapActions("productDetail", ["getProduct", "getProductVariation"]),
         ...mapActions("baseComponents", ["setLoadingState"]),
         async fetchProduct(slug) {
             try {
@@ -97,6 +97,23 @@ export default {
                 console.log(e.message);
             }
             this.setLoadingState(false);
+        },
+        async fetchProductVariation(id, attributes = []) {
+            try {
+                this.setLoadingState(true);
+                const response = await this.getProductVariation({ id, attributes });
+                const product = _.get(response, "product");
+                if (!!product) {
+                    this.variation = product;
+                }
+            } catch (e) {
+                console.log(e.message);
+            }
+            this.setLoadingState(false);
+        },
+        handleAttributeChange(attrs = []) {
+            const productId = _.get(this.product, "id", 0);
+            this.fetchProductVariation(productId, attrs);
         }
     },
     watch: {

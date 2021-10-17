@@ -34,27 +34,31 @@
                     </a-space>
                 </div>
 
-<!--                <div class="product-attributes product-info-label">-->
-<!--                    <label class="label">Màu sắc</label>-->
-<!--                    <div class="content">-->
-<!--                        <button-->
-<!--                            @click="setActive(index)"-->
-<!--                            :data-variation="index"-->
-<!--                            v-for="index in 10"-->
-<!--                            :key="index"-->
-<!--                            :class="active === index ? 'product-variation product-variation&#45;&#45;selected' : 'product-variation'">-->
-<!--                            Thường 2,7m-->
-<!--                            <div v-show="active === index" class="product-variation__tick">-->
-<!--                                <svg enable-background="new 0 0 12 12" viewBox="0 0 12 12" x="0" y="0" class="shopee-svg-icon icon-tick-bold">-->
-<!--                                    <g>-->
-<!--                                        <path-->
-<!--                                            d="m5.2 10.9c-.2 0-.5-.1-.7-.2l-4.2-3.7c-.4-.4-.5-1-.1-1.4s1-.5 1.4-.1l3.4 3 5.1-7c .3-.4 1-.5 1.4-.2s.5 1 .2 1.4l-5.7 7.9c-.2.2-.4.4-.7.4 0-.1 0-.1-.1-.1z"></path>-->
-<!--                                    </g>-->
-<!--                                </svg>-->
-<!--                            </div>-->
-<!--                        </button>-->
-<!--                    </div>-->
-<!--                </div>-->
+                <template v-show="_.get(product, 'productAttributeSets', []).length">
+                    <div v-for="(attributeSet, i) in _.get(product, 'productAttributeSets', [])" :key="i" class="product-attributes product-info-label">
+                        <label class="label">{{ _.get(attributeSet, "title") }}</label>
+                        <div class="content">
+                            <div v-for="(attribute, index) in _.get(attributeSet, 'attributes')" :key="`${i}_${index}`" class="custom-radio">
+                                <input v-if="_.includes(usedAttribute, attribute.id)" :value="attribute.id" type="radio" :name="attributeSet.slug" :id="`${attributeSet.slug}_${index}`" />
+                                <label
+                                    v-if="_.includes(usedAttribute, attribute.id)"
+                                    @click="addAttribute(attributeSet.slug, attribute.id)"
+                                    :for="`${attributeSet.slug}_${index}`"
+                                    class="product-variation">
+                                    {{ _.get(attribute, "title") }}
+                                    <div class="product-variation__tick">
+                                        <svg enable-background="new 0 0 12 12" viewBox="0 0 12 12" x="0" y="0" class="shopee-svg-icon icon-tick-bold">
+                                            <g>
+                                                <path
+                                                    d="m5.2 10.9c-.2 0-.5-.1-.7-.2l-4.2-3.7c-.4-.4-.5-1-.1-1.4s1-.5 1.4-.1l3.4 3 5.1-7c .3-.4 1-.5 1.4-.2s.5 1 .2 1.4l-5.7 7.9c-.2.2-.4.4-.7.4 0-.1 0-.1-.1-.1z"></path>
+                                            </g>
+                                        </svg>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </template>
 
                 <div class="product-quantity product-info-label">
                     <label class="label">Số lượng</label>
@@ -70,11 +74,11 @@
                 </div>
                 <div class="product-action">
                     <a-space :size="15">
-                        <a-button htmlType="button" class="add-to-cart" size="large">
+                        <a :href="_.get(product, 'shopee_link', 'javascript:void(0);')" target="_blank" class="add-to-cart">
                             <a-icon type="shopping-cart" />
                             Thêm vào giỏ hàng
-                        </a-button>
-                        <a-button htmlType="button" class="buy-now" type="primary" size="large"> Mua ngay</a-button>
+                        </a>
+                        <a :href="_.get(product, 'shopee_link', 'javascript:void(0);')" target="_blank" class="buy-now"> Mua ngay</a>
                     </a-space>
                 </div>
             </div>
@@ -96,17 +100,16 @@ export default {
     data() {
         return {
             processing: true,
-            active: 1,
             quantity: 1,
             min: 1,
             max: 10,
-            product: ""
+            product: "",
+            usedAttribute: [],
+            attributes: {},
+            arrayAttrs: []
         };
     },
     methods: {
-        setActive(index) {
-            this.active = index;
-        },
         increment() {
             if (this.quantity === this.max) {
                 this.quantity = this.max;
@@ -120,10 +123,24 @@ export default {
             } else {
                 this.quantity--;
             }
+        },
+        addAttribute(slug, id) {
+            const { attributes } = this;
+            this.attributes = { ...attributes, [slug]: id };
+            this.arrayAttrs = _.values(this.attributes);
+            this.$emit("attributeChange", this.arrayAttrs);
         }
     },
     watch: {
         productDetail() {
+            let attributeUseds = this.productDetail.variations.map(element => {
+                let arr = element.attributes.map(el => {
+                    return el.id;
+                });
+                return _.union(arr);
+            });
+            this.usedAttribute = _.uniq(_.flattenDepth(attributeUseds));
+
             this.product = this.productDetail;
             this.processing = false;
         }

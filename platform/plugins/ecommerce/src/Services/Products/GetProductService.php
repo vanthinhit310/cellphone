@@ -42,7 +42,7 @@ class GetProductService
             'attributes'  => (array)$request->input('attributes', []),
             'max_price'   => $request->input('max_price'),
             'min_price'   => $request->input('min_price'),
-            'sort_by'     => $request->input('sort-by'),
+            'sort_by'     => $request->input('sortBy'),
             'num'         => $request->input('num') ? (int)$request->input('num') : (int)theme_option('number_of_products_per_page',
                 12),
         ];

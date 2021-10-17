@@ -86,6 +86,13 @@ class ProductForm extends FormAbstract
                     'data-counter' => 120,
                 ],
             ])
+            ->add('shopee_link', 'text', [
+                'label'      => __("Shopee Link"),
+                'label_attr' => ['class' => 'text-title-field'],
+                'attr'       => [
+                    'placeholder'  => __("Shopee Link"),
+                ],
+            ])
             ->add('description', 'editor', [
                 'label'      => trans('core/base::forms.description'),
                 'label_attr' => ['class' => 'control-label'],

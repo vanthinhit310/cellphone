@@ -46,8 +46,11 @@ class ProductDetailResource extends JsonResource
             'product_collections' => @$this->product_collections,
             'promotions' => @$this->promotions,
             'thumbnail' => RvMedia::getImageUrl($this->image, 'product-thumb', false, RvMedia::getDefaultImage()),
-            'small_images' => get_product_url_images($this->images, 'product-thumb'),
+            'images' => get_product_url_images($this->images, 'product-thumb'),
             'big_images' => get_product_url_images($this->images),
+            'shopee_link' => @$this->shopee_link,
+            'variations' => VariationResource::collection(@$this->variations),
+            'productAttributeSets' => AttributeSetResource::collection(@$this->productAttributeSets),
             'description' => @$this->description,
             'specifications' => @$this->content
         ];

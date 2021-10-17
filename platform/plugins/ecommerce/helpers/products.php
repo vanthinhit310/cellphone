@@ -454,7 +454,12 @@ if (!function_exists('get_product_url_images')) {
 
         if (is_array($images) && !blank($images)) {
             foreach ($images as $path) {
-                $array_path[] = \RvMedia::getImageUrl($path, $size, false, RvMedia::getDefaultImage());
+                if ((strpos($path, '.mp4') !== false) || (strpos($path, '.mov') !== false)) {
+                    $array_path[] = \RvMedia::getImageUrl($path, null, false, RvMedia::getDefaultImage());
+                }else{
+                    $array_path[] = \RvMedia::getImageUrl($path, $size, false, RvMedia::getDefaultImage());
+
+                }
             }
         }
 

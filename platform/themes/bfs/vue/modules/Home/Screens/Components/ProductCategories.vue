@@ -1,19 +1,19 @@
 <template>
     <section class="product-categories">
         <div class="container">
-            <a-spin :spinning="processing">
+            <a-spin :spinning="subLoading">
                 <a-icon slot="indicator" type="loading" style="font-size: 24px" spin />
                 <div class="categories-content">
                     <template v-if="categories.length">
                         <div class="section-header">Danh mục</div>
                         <VueSlickCarousel v-bind="settings">
                             <div v-for="(item, index) in categories" :key="index" class="category-item">
-                                <a href="javascript:void(0);">
+                                <router-link :to="{ name: 'product-category', params: { slug: _.get(item, 'slug') } }">
                                     <span class="image">
                                         <img alt="Category" class="img-fluid" :src="_.get(item, 'image')" />
                                     </span>
                                     <span class="name">{{ _.get(item, "name") }}</span>
-                                </a>
+                                </router-link>
                             </div>
                         </VueSlickCarousel>
                     </template>
@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import { mapActions, mapGetters, mapMutations } from "vuex";
+import { mapGetters } from "vuex";
 import VueSlickCarousel from "vue-slick-carousel";
 import "vue-slick-carousel/dist/vue-slick-carousel.css";
 import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
@@ -87,36 +87,14 @@ export default {
                     }
                 ]
             },
-            processing: false,
             error: ""
         };
     },
     computed: {
         ...mapGetters({
-            categories: "home/getCategories"
+            categories: "home/getCategories",
+            subLoading: "baseComponents/getSubLoading"
         })
-    },
-    created() {
-        this.fetchProductCategories();
-    },
-    methods: {
-        ...mapActions("home", ["getProductCategories"]),
-        ...mapMutations({
-            setCategories: "home/setCategories"
-        }),
-        async fetchProductCategories() {
-            try {
-                this.processing = true;
-                const response = await this.getProductCategories();
-                const categories = _.get(response, "categories", []);
-                if (!!categories) {
-                    this.setCategories(categories);
-                }
-            } catch (e) {
-                console.log(e.message);
-            }
-            this.processing = false;
-        }
     }
 };
 </script>

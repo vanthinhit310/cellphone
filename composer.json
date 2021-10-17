@@ -14,9 +14,11 @@
         "ext-zip": "*",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
+        "google/apiclient": "^2.11",
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.12",
         "league/flysystem-aws-s3-v3": "^1.0",
+        "nao-pon/flysystem-google-drive": "~1.1",
         "platform/menu": "*@dev",
         "platform/page": "*@dev",
         "platform/platform": "*@dev",
@@ -69,7 +71,10 @@
             "merge-extra": false,
             "merge-extra-deep": false,
             "merge-scripts": false
-        }
+        },
+        "google/apiclient-services": [
+            "Drive"
+        ]
     },
     "scripts": {
         "post-root-package-install": [

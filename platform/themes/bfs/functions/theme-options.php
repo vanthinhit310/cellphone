@@ -58,6 +58,31 @@ theme_option()
             ],
         ],
     ])
+    ->setSection([
+        'title' => __('Banner Ads'),
+        'desc' => __('Banner settings'),
+        'id' => 'opt-text-subsection-banner',
+        'subsection' => true,
+        'icon' => 'fa fa-image',
+        'fields' => [
+            [
+                'id' => 'banner-01',
+                'type' => 'mediaImage',
+                'label' => __('Home Banner 1'),
+                'attributes' => [
+                    'name' => 'home_banner_1',
+                ],
+            ],
+            [
+                'id' => 'banner-02',
+                'type' => 'mediaImage',
+                'label' => __('Home Banner 2'),
+                'attributes' => [
+                    'name' => 'home_banner_2',
+                ],
+            ],
+        ],
+    ])
     ->setField([
         'id' => 'copyright',
         'section_id' => 'opt-text-subsection-general',

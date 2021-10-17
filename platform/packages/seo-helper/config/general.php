@@ -24,10 +24,10 @@ return [
      | ------------------------------------------------------------------------------------------------
      */
     'misc'        => [
-        'canonical' => true,
+        'canonical' => false,
         'robots'    => false,  // Tell robots not to index the content if it's not on live
         'default'   => [
-            'viewport'  => 'width=device-width, initial-scale=1', // Responsive design thing
+//            'viewport'  => 'width=device-width, initial-scale=1', // Responsive design thing
             'author'    => '', // https://plus.google.com/[YOUR PERSONAL G+ PROFILE HERE]
             'publisher' => '', // https://plus.google.com/[YOUR PERSONAL G+ PROFILE HERE]
         ],

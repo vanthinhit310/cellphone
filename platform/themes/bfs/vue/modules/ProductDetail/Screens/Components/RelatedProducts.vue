@@ -69,7 +69,7 @@
 import VueSlickCarousel from "vue-slick-carousel";
 import "vue-slick-carousel/dist/vue-slick-carousel.css";
 import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
-import {mapActions} from "vuex";
+import { mapActions } from "vuex";
 
 export default {
     components: {
@@ -142,7 +142,7 @@ export default {
     },
     watch: {
         productDetail() {
-            const categories = _.join(_.map(this.productDetail.categories, 'id'), ',');
+            const categories = _.join(_.map(this.productDetail.categories, "id"), ",");
             this.fetchRelatedProducts(categories, 15);
         }
     }
