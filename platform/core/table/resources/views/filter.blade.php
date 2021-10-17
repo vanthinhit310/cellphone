@@ -13,7 +13,7 @@
                     @endforeach
                 </select>
                 <svg class="svg-next-icon svg-next-icon-size-16">
-                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#select-chevron"></use>
+                    <use xmlns:xlink="https://www.w3.org/1999/xlink" xlink:href="#select-chevron"></use>
                 </svg>
             </div>
             <div class="ui-select-wrapper">
@@ -24,7 +24,7 @@
                     <option value="<">{{ trans('core/table::table.less_than') }}</option>
                 </select>
                 <svg class="svg-next-icon svg-next-icon-size-16">
-                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#select-chevron"></use>
+                    <use xmlns:xlink="https://www.w3.org/1999/xlink" xlink:href="#select-chevron"></use>
                 </svg>
             </div>
             <span class="filter-column-value-wrap">
@@ -51,7 +51,7 @@
                             @endforeach
                         </select>
                         <svg class="svg-next-icon svg-next-icon-size-16">
-                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#select-chevron"></use>
+                            <use xmlns:xlink="https://www.w3.org/1999/xlink" xlink:href="#select-chevron"></use>
                         </svg>
                     </div>
                     <div class="ui-select-wrapper">
@@ -66,7 +66,7 @@
                                     @if ($filterItem['operator'] == '<') selected @endif>{{ trans('core/table::table.less_than') }}</option>
                         </select>
                         <svg class="svg-next-icon svg-next-icon-size-16">
-                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#select-chevron"></use>
+                            <use xmlns:xlink="https://www.w3.org/1999/xlink" xlink:href="#select-chevron"></use>
                         </svg>
                     </div>
                     <span class="filter-column-value-wrap">
