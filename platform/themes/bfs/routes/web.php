@@ -9,7 +9,7 @@ Route::group(['namespace' => 'Theme\Bfs\Http\Controllers', 'middleware' => ['web
     Route::group(apply_filters(BASE_FILTER_GROUP_PUBLIC_ROUTE, []), function () {
 
         // Add your custom route here
-        Route::get('{any}', [BfsController::class, 'index'])->where('any', '^(?!api).*$');
+        Route::get('/', [BfsController::class, 'index']);
 
     });
 });
