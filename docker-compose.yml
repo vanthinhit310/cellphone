@@ -31,6 +31,7 @@ services:
       - "443:443"
     volumes:
       - ./:/var/www
+      - ./storage/app/public:/var/www/public/storage
       - ./nginx/conf.d/:/etc/nginx/conf.d/
     networks:
       - app-network
