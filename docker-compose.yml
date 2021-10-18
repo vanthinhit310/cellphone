@@ -1,5 +1,16 @@
 version: '3'
 services:
+  nuxt:
+    build:
+      context: /root/bfs-shop
+      dockerfile: Dockerfile      
+    image: bfs-shop_nuxt
+    container_name: nuxt
+    restart: always
+    env_file: .env
+    command: "yarn run start"
+    networks:
+      - app-network
 
   #PHP Service
   app:
@@ -33,6 +44,8 @@ services:
       - ./:/var/www
       - ./storage/app/public:/var/www/public/storage
       - ./nginx/conf.d/:/etc/nginx/conf.d/
+      - ./nginx/ssl/:/etc/nginx/ssl/
+      - ./nginx/default.d/:/etc/nginx/default.d/
     networks:
       - app-network
 
