@@ -46,6 +46,7 @@ services:
       - ./nginx/conf.d/:/etc/nginx/conf.d/
       - ./nginx/ssl/:/etc/nginx/ssl/
       - ./nginx/default.d/:/etc/nginx/default.d/
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
     networks:
       - app-network
 
